@@ -1,23 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `HartDev`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Huda Damar`,
+      summary: `Search A New Somethings`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `All Stuff for Web Developers`,
+    siteUrl: `https://hartdev.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `hudadamar21`,
     },
   },
   plugins: [
+    'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content`,
+        name: `content`,
       },
     },
     {
@@ -50,7 +51,20 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 50,
+          width: 300,
+          height: 300,
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+        }
+      }
+    },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
@@ -112,7 +126,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `HartDev`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,

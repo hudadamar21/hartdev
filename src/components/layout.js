@@ -1,33 +1,28 @@
+import { useStaticQuery, graphql } from "gatsby";
 import * as React from "react"
-import { Link } from "gatsby"
+import Navbar from "./Navbar";
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children, mainClass }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+  const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  
+  const title = data.site.siteMetadata.title
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+    <div className="text-gray-700 min-h-screen flex flex-col" data-is-root-path={isRootPath}>
+      <Navbar title={title} />
+      <main className={`flex-grow pt-20 ${mainClass}`}>{children}</main>
+      <footer className="text-center py-5">
+        Copyright © {new Date().getFullYear()} {title}
       </footer>
     </div>
   )

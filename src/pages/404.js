@@ -1,18 +1,20 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
+    <div className="grid place-items-center h-screen">
+      <Seo title="404 Not Found" />
+      <div className="flex flex-col items-center ">
+        <h1>{siteTitle}</h1>
+        <h1 className="text-5xl text-gray-600 font-bold mb-5">404 Not Found</h1>
+        <p>back to <Link to="/" className="underline text-blue-500">home</Link></p>
+      </div>
+    </div>
   )
 }
 

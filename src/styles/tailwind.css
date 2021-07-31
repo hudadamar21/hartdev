@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .table-of-contents {
+    @apply border-l-4 my-5 border-blue-400 w-full p-5
+  }
+
+  .table-of-contents a {
+    @apply hover:underline
+  }
+
+  .table-of-contents ul li p {
+    @apply font-semibold list-none inline-block
+  }
+
+  .table-of-contents ul {
+    @apply list-disc list-inside pb-1
+  }
+
+  .table-of-contents ul li ul {
+    @apply pl-5
+  }
+}

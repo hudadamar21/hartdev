@@ -1,24 +1,24 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const { paginate } = require('gatsby-awesome-pagination')
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-
   // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const postsQuery = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
-          nodes {
-            id
-            fields {
-              slug
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                category
+              }
             }
           }
         }
@@ -26,36 +26,50 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   )
 
-  if (result.errors) {
+  if (postsQuery.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      postsQuery.errors
     )
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
 
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  const posts = postsQuery.data.allMarkdownRemark.edges
 
   if (posts.length > 0) {
+
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
       createPage({
-        path: post.fields.slug,
-        component: blogPost,
+        path: post.node.fields.slug,
+        component: path.resolve("./src/templates/single-post-template.js"),
         context: {
-          id: post.id,
+          id: post.node.id,
           previousPostId,
           nextPostId,
+          filter: {}
+        },
+      })
+    })
+
+    const categories = new Set(posts.map(post => post.node.frontmatter.category))
+    categories.forEach(categoryName => {
+      paginate({
+        createPage, // The Gatsby `createPage` function
+        items: posts, // An array of objects
+        itemsPerPage: 9, // How many items you want per page
+        pathPrefix: `/${categoryName}`, // Creates pages like `/blog`, `/blog/2`, etc
+        component: path.resolve("./src/templates/post-list-template.js"), // Just like `createPage()`
+        context: {
+          category: categoryName
         },
       })
     })
   }
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
