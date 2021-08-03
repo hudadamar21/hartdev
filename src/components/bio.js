@@ -32,10 +32,9 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="flex items-center justify-between gap-2">
+    <div className="flex items-center gap-2">
       <StaticImage
         className="bio-avatar"
-        layout="fixed"
         formats={["AUTO", "WEBP", "AVIF"]}
         placeholder="tracedSVG"
         src="../images/logo.png"

@@ -3,23 +3,82 @@
 @tailwind utilities;
 
 @layer base {
-  .table-of-contents {
-    @apply border-l-4 my-5 border-blue-400 w-full p-5
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+  html {
+    font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+    @apply text-gray-700;
   }
 
-  .table-of-contents a {
-    @apply hover:underline
+  /* Content */
+
+  #content h1, #content h2, #content h3 {
+    padding-top: 80px;
+    margin-top: -80px;
+    z-index: -1;
+    color: rgba(55, 65, 81, 1);
   }
 
-  .table-of-contents ul li p {
-    @apply font-semibold list-none inline-block
+  #content h1 {
+    @apply text-2xl mb-3 font-bold;
+  }
+  #content h2 {
+    @apply text-xl mb-3 font-medium;
   }
 
-  .table-of-contents ul {
-    @apply list-disc list-inside pb-1
+  #content h3 {
+    @apply text-lg mb-1;
   }
 
-  .table-of-contents ul li ul {
-    @apply pl-5
+  #content h1::before, #content h2::before, #content h3::before {
+    content: '#';
+    @apply mr-1
+  } 
+
+  #content p {
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    @apply tracking-wide mb-1.5;
   }
+
+  #content a {
+    @apply text-black underline;
+  }
+
+  #content code {
+    @apply text-base;
+  }
+
+  #content img {
+    @apply mb-3;
+  }
+
+  /* Content END */
+
+  /* Table of Contents */
+
+  #table-of-contents {
+    @apply relative z-20 w-full my-6 p-3 border-l-[5px] border-gray-700 shadow;
+  }
+
+  #table-of-contents ul {
+    list-style-type: disc;
+    @apply pl-5 pt-2;
+  }
+  
+  #table-of-contents ul li {
+    @apply no-underline mb-2;
+  }
+
+  #table-of-contents ul li a:hover {
+    @apply underline;
+  }
+
+  /* Table of Contents END */
+  
+}
+
+.gatsby-highlight {
+  @apply mb-8 shadow-lg relative z-10;
 }

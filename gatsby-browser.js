@@ -6,4 +6,4 @@
 import './src/styles/tailwind.css';
 
 // Highlighting for code blocks
-import "prismjs/themes/prism.css"
+import "./src/styles/prism-theme-monokai.css"

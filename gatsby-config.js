@@ -15,6 +15,12 @@ module.exports = {
     'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#2b83d6`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content`,
@@ -44,9 +50,10 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`,
         ],
       },
     },

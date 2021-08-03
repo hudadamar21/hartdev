@@ -20,7 +20,9 @@ const Layout = ({ location, children, mainClass }) => {
   return (
     <div className="text-gray-700 min-h-screen flex flex-col" data-is-root-path={isRootPath}>
       <Navbar title={title} />
-      <main className={`flex-grow pt-20 ${mainClass}`}>{children}</main>
+      <main className={`flex-grow pt-20 ${mainClass}`}>
+        {children}
+      </main>
       <footer className="text-center py-5">
         Copyright © {new Date().getFullYear()} {title}
       </footer>

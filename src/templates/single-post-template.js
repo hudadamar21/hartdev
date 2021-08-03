@@ -7,6 +7,7 @@ import Seo from "../components/Seo"
 import Layout from "../components/Layout"
 
 const BlogPostTemplate = ({ data, location }) => {
+  console.log(data)
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -31,7 +32,6 @@ const BlogPostTemplate = ({ data, location }) => {
             itemScope
             itemType="http://schema.org/Article"
           >
-
             <header>
               <h1 className="text-3xl font-bold" itemProp="headline">{post.frontmatter.title}</h1>
               <div className="flex items-center justify-between my-5">
@@ -41,12 +41,14 @@ const BlogPostTemplate = ({ data, location }) => {
                 </div>
                 <Bio />
               </div>
-              
             </header>
-            
               <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />
-            <nav className="table-of-contents" dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
+            <nav 
+              id="table-of-contents"
+              dangerouslySetInnerHTML={{ __html: post.tableOfContents }} 
+            />
             <section
+              id="content"
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />  

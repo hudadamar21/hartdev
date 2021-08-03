@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               frontmatter {
                 category
               }
+              id
             }
           }
         }
@@ -40,8 +41,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (posts.length > 0) {
 
     posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const previousPostId = index === 0 ? null : posts[index - 1].node.id
+      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
 
       createPage({
         path: post.node.fields.slug,
@@ -57,12 +58,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const categories = new Set(posts.map(post => post.node.frontmatter.category))
     categories.forEach(categoryName => {
+      const postWithCategory = posts.filter(post => post.node.frontmatter.category === categoryName)
       paginate({
         createPage, // The Gatsby `createPage` function
-        items: posts, // An array of objects
-        itemsPerPage: 9, // How many items you want per page
+        items: postWithCategory, // An array of objects
+        itemsPerPage: 8, // How many items you want per page
         pathPrefix: `/${categoryName}`, // Creates pages like `/blog`, `/blog/2`, etc
-        component: path.resolve("./src/templates/post-list-template.js"), // Just like `createPage()`
+        component: path.resolve("./src/templates/post-list-template.js"),
         context: {
           category: categoryName
         },

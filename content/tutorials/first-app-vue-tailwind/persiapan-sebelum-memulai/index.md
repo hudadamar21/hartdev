@@ -1,11 +1,12 @@
 ---
-title: "Pengenalan"
+title: "#1 Persiapan Sebelum Memulai"
 date: 2021-07-19T18:46:55+07:00
-description: "Tailwindcss Components - Awesome Login Page"
+description: "sebelum memulai membuat aplikasi todolist, alangkah baiknya kita mempersiapkan terlebih dahulu semua yang diperlukan untuk membuat aplikasi todolist menggunakan vuejs dan tailwindcss"
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
 category: tutorials
-thumb: ./tailwind-awesome-login-page.png
+series: First App Menggunakan Vuejs dan Tailwindcss
+thumb: ./persiapan-sebelum-memulai.png
 ---
 
 # Code Snippet - Tailwind Awesome Login Page

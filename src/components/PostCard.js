@@ -3,8 +3,7 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Postlist({ post, title }) {
-  const postThumb = getImage(post.frontmatter.thumb)
-  console.log(postThumb)
+  const postThumb = getImage(post.frontmatter?.thumb)
   return (
     <li className="py-2">
       <Link to={post.fields.slug} itemProp="url">
@@ -21,10 +20,20 @@ function Postlist({ post, title }) {
         >
           {
             postThumb && 
-            <GatsbyImage 
-              className="group-hover:opacity-80 transition"
-              image={postThumb} alt={title} 
-            />
+            <div className="relative">
+              <GatsbyImage 
+                className="group-hover:opacity-80 transition"
+                image={postThumb} alt={title} 
+              />
+              <ul className="absolute bottom-0 right-0 flex items-center gap-1 text-sm">
+                <li className="bg-gray-700/90 rounded-sm text-white px-1">
+                  tailwindcss
+                </li>
+                <li className="bg-gray-700/90 rounded-sm text-white px-1">
+                  components
+                </li>
+              </ul>
+            </div>
           }
           <section className="p-5 pt-2">
             <div className="divide-x flex items-center mt-1 gap-1 text-xs text-gray-400">
@@ -34,6 +43,7 @@ function Postlist({ post, title }) {
             <h2 className="text-lg line-clamp-1 font-semibold" itemProp="headline">
               {title}
             </h2>
+            <p className="text-gray-600 text-sm line-clamp-3 mt-1">{post.frontmatter.description}</p>
           </section>
         </article>
       </Link>
