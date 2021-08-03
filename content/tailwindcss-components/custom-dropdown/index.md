@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-custom-dropdown.png
 ---
 
-## Code Snippet - Tailwind Custom Dropdown
+# Tailwindcss Components - Custom Dropdown
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Custom Dropdown
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Wrapper
+## Wrapper
 wrapper hanya untuk menengahkan dropdown (optional digunakan)
 ```html
 <body class="relative flex justify-center items-center gap-5 pt-20 bg-gray-100">
@@ -31,7 +30,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 </body>
 ```
 
-### Light Mode Version
+## Light Mode Version
 ```html
 <!-- Light mode -->
 <button class="relative flex jutify-center items-center bg-white border focus:outline-none shadow text-gray-600 rounded focus:ring ring-gray-200 group">
@@ -51,7 +50,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 </button>
 ```
 
-### Dark Mode Version
+## Dark Mode Version
 ```html
 <!-- Dark mode -->
 <button class="relative flex jutify-center items-center bg-gray-600 border focus:outline-none shadow text-white rounded focus:ring ring-gray-300 group">
@@ -73,5 +72,4 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

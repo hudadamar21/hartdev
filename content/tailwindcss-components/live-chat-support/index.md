@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-live-chat-support.png
 ---
 
-## Code Snippet - Tailwind Live Chat
+# Tailwindcss Components - Tailwind Live Chat
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Live Chat Support
 
@@ -25,10 +25,11 @@ Ok langsung saja kita buat live chat support menggunakan tailwindcss
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 
+https://tailwindcss.com
+
 &nbsp;
 
-{{< iklan >}}
-### Live Chat Support
+## Live Chat Support
 ```html
 <div class="fixed bottom-0 right-0 flex flex-col items-end ml-6 w-full">
   <!-- chat modal -->
@@ -100,7 +101,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 </div>
 ```
 
-### Style CSS
+## Style CSS
 ```css
 .chat-support::-webkit-scrollbar{
   background: white;
@@ -133,7 +134,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 }
 ```
 
-### Javascript (untuk membuka dan menutup live chat)
+## Javascript (untuk membuka dan menutup live chat)
 ```javascript
 const chatModal = document.querySelector('.chat-modal');
 const chatSupport = document.querySelector('.chat-support');
@@ -162,5 +163,4 @@ closeChat.addEventListener('click', function (){
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

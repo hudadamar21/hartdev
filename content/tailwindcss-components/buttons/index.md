@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-buttons.png
 ---
 
-## Code Snippet - Tailwind Button
+# Tailwindcss Components - Buttons
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Buttons
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Basic Button
+## Basic Button
 ```html
 
   <button class="
@@ -65,7 +64,7 @@ https://tailwindcss.com
 
 ```
 
-### Outline Button
+## Outline Button
 ```html
 
   <button class="
@@ -115,7 +114,7 @@ https://tailwindcss.com
 
 ```
 
-### Gradient Button
+## Gradient Button
 ```html
 
   <button class="
@@ -172,5 +171,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

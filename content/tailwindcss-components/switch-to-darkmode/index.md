@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-switch-to-darkmode.png
 ---
 
-## Code Snippet - Tailwind Switch to Darkmode
+# Tailwindcss Components - Switch to Darkmode
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Switch to Darkmode
 
@@ -36,9 +36,8 @@ untuk penjelasan lengkapnya kalian dapat ke website tailwindcss :
 oh iya switch darkmode ini juga saya gunakan pada website ini hehehe..
 
 &nbsp;
-{{< iklan >}}
 
-### Wrapper
+## Wrapper
 pada body ini kita akan menempatkan class 'dark' agar darkmode berjalan
 
 secara default class 'dark' tidak ada
@@ -50,7 +49,7 @@ secara default class 'dark' tidak ada
 </body>
 ```
 
-### Switch Theme to Darkmode
+## Switch Theme to Darkmode
 ```html
 <button
   class="absolute top-5 right-5 w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
@@ -65,7 +64,7 @@ secara default class 'dark' tidak ada
 </button>
 ```
 
-### Script javascript
+## Script javascript
 Pada script javascript ini berfungsi untuk mengubah theme ke darkmode maupun lightmode
 ```javascript
 const switchToggle = document.querySelector('#switch-toggle');
@@ -121,4 +120,3 @@ switchTheme()
 &nbsp;
 
 ## Video Tutorial
-{{< youtube id="" >}}

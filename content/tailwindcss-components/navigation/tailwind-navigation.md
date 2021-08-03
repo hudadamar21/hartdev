@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-navigation.png
 ---
 
-## Code Snippet - Tailwind Navigation
+# Tailwindcss Components - Navigation
 
 Hei stuffer, kali ini saya ingin share code snippet navigation.
 
@@ -19,9 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-
-### Navigation
+## Navigation
 ```html
   <div class="bg-white md:w-12/12 h-16 shadow-md flex justify-between items-center flex-col md:flex-row md:rounded md:m-3">
     <div class="flex justify-center items-center ml-3">
@@ -56,7 +54,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-
-## Video Tutorial
-{{< youtube id="ehuMq4JiYgQ" >}}
+# Video Tutorial

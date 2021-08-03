@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-toast-notification.png
 ---
 
-## Code Snippet - Toast Notification
+# Tailwindcss Components - Toast Notification
 
 Hei stuffer, kali ini saya ingin share code snippet toast notification.
 
@@ -18,9 +18,8 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 https://tailwindcss.com
 
 &nbsp;
-{{< iklan >}}
 
-### Wrapper
+## Wrapper
 wrapper ini akan menempatkan toast notification pada pojok atas kanan layar.
 ```html
   <div class="absolute right-0 top-0 m-5">
@@ -32,7 +31,7 @@ wrapper ini akan menempatkan toast notification pada pojok atas kanan layar.
 
 &nbsp;
 
-### Versi 1 (Success)
+## Versi 1 (Success)
 ![tailwind-toast-notification-v1](/images/code-snippets/tailwind-toast-notification-v1.png)
 versi 1 ini digunakan ketika ada notification success
 ```html
@@ -52,7 +51,7 @@ versi 1 ini digunakan ketika ada notification success
 
 &nbsp;
 
-### Versi 2 (Info)
+## Versi 2 (Info)
 ![tailwind-toast-notification-v1](/images/code-snippets/tailwind-toast-notification-v2.png)
 versi 1 ini digunakan ketika ada notification info
 ```html
@@ -73,7 +72,7 @@ versi 1 ini digunakan ketika ada notification info
 
 &nbsp;
 
-### Versi 3 (Warning)
+## Versi 3 (Warning)
 ![tailwind-toast-notification-v1](/images/code-snippets/tailwind-toast-notification-v3.png)
 versi 1 ini digunakan ketika ada notification warning
 ```html
@@ -93,7 +92,7 @@ versi 1 ini digunakan ketika ada notification warning
 
 &nbsp;
 
-### Versi 4 (Error)
+## Versi 4 (Error)
 ![tailwind-toast-notification-v1](/images/code-snippets/tailwind-toast-notification-v4.png)
 versi 1 ini digunakan ketika ada notification error
 ```html
@@ -114,5 +113,4 @@ versi 1 ini digunakan ketika ada notification error
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="fTHUz-Cs9n8" >}}
+# Video Tutorial

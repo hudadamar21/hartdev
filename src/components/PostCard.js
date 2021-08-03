@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-function Postlist({ post, title }) {
+function Postlist({ post, title, withDescription = true }) {
   const postThumb = getImage(post.frontmatter?.thumb)
   return (
     <li className="py-2">
@@ -40,10 +40,16 @@ function Postlist({ post, title }) {
               <span>{post.frontmatter.date}</span>
               <span className="pl-1">{post.frontmatter.dateFromNow}</span>
             </div>
-            <h2 className="text-lg line-clamp-1 font-semibold" itemProp="headline">
+            <h2 className="text-xl line-clamp-1 font-semibold mt-1" itemProp="headline">
               {title}
             </h2>
-            <p className="text-gray-600 text-sm line-clamp-3 mt-1">{post.frontmatter.description}</p>
+            { 
+              withDescription &&
+              post.frontmatter.description &&
+              <p className="text-gray-600 text-sm line-clamp-3 mt-1">
+                {post.frontmatter.description}
+              </p>
+            }
           </section>
         </article>
       </Link>

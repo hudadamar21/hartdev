@@ -4,11 +4,13 @@
  * @author Martijn Swaagman
  * @license MIT 2015
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
  code[class*="language-"],
  pre[class*="language-"] {
-   color: #f8f8f2;
-   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   color: #f7f7f7;
+   font-family: monospace;
    direction: ltr;
    text-align: left;
    white-space: pre;
@@ -36,7 +38,7 @@
  
  :not(pre) > code[class*="language-"],
  pre[class*="language-"] {
-   background: #272822;
+   background: #0f0800;
  }
  
  :not(pre) > code[class*="language-"] {
@@ -52,7 +54,7 @@
  }
  
  .token.punctuation {
-   color: #F8F8F2;
+   color: #dfdfdf;
  }
  
  .namespace {
@@ -64,7 +66,7 @@
  .token.constant,
  .token.symbol,
  .token.deleted {
-   color: #f03232;
+   color: #f34343;
  }
  
  .token.boolean,
@@ -88,7 +90,7 @@
  .language-css .token.string,
  .style .token.string,
  .token.variable {
-   color: #F8F8F2;
+   color: #ffffff;
  }
  
  .token.atrule,
@@ -98,7 +100,7 @@
  }
  
  .token.keyword {
-   color: #f03232;
+   color: #ee2b2b;
  }
  
  .token.regex,

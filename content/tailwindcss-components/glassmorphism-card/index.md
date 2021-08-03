@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-glassmorphism-card.png
 ---
 
-## Code Snippet - Tailwind Glassmorphism Card
+# Tailwindcss Components - Glassmorphism Card
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Glassmorphism Card
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Wrapper
+## Wrapper
 
 ```html
 <div class="bg-image w-full min-h-screen flex flex-wrap justify-center items-center gap-3">
@@ -30,7 +29,7 @@ https://tailwindcss.com
 </div>
 ```
 
-### Glassmorphism Card
+## Glassmorphism Card
 ```html
 <div class="backdrop w-10/12 md:w-1/4 bg-white bg-opacity-10 rounded p-3 text-white border border-gray-300 shadow-lg">
   <!-- header -->
@@ -50,7 +49,7 @@ https://tailwindcss.com
 </div>
 ```
 
-### Style CSS
+## Style CSS
 ```css
 .bg-image {
   background-image: url(./image/bg00.jpg);
@@ -67,5 +66,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

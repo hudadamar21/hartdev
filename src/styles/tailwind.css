@@ -51,7 +51,7 @@
   }
 
   #content img {
-    @apply mb-3;
+    @apply block my-3;
   }
 
   /* Content END */
@@ -63,11 +63,16 @@
   }
 
   #table-of-contents ul {
-    list-style-type: disc;
+    all: revert;
     @apply pl-5 pt-2;
   }
+
+  #table-of-contents li {
+    all: revert;
+  }
   
-  #table-of-contents ul li {
+  #table-of-contents ul > li {
+    
     @apply no-underline mb-2;
   }
 
@@ -81,4 +86,14 @@
 
 .gatsby-highlight {
   @apply mb-8 shadow-lg relative z-10;
+}
+
+.gatsby-highlight-code-line {
+  background-color: rgb(34, 48, 63);
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid rgb(43, 131, 231);
 }

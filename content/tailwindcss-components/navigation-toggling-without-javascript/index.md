@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-navigation-toggling-no-javascript.png
 ---
 
-## Code Snippet - Tailwind Navigation Toggling No Javascript
+# Tailwindcss Components - Navigation Toggling No Javascript
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Navigation Toggling Without Javascript
 
@@ -31,8 +31,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Navigation Toggling Without Javascript
+## Navigation Toggling Without Javascript
 ```html
 <nav class="fixed top-0 left-0 bg-white w-full shadow">
   <div class="container m-auto flex justify-between items-center text-gray-700">
@@ -63,5 +62,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

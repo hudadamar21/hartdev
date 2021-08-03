@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-modal-with-animation.png
 ---
 
-## Code Snippet - Tailwind Modal With Animation
+# Tailwindcss Components - Modal With Animation
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Modal With Animation
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Modal With Animation
+## Modal With Animation
 ```html
 <!-- overlay -->
 <div id="modal_overlay" class="hidden absolute inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
@@ -58,7 +57,7 @@ https://tailwindcss.com
 </div>
 ```
 
-### Button untuk menampilkan Modal
+## Button untuk menampilkan Modal
 ```html
 <div class="p-3">
   <button onclick="openModal(true)" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">
@@ -67,7 +66,7 @@ https://tailwindcss.com
 </div>
 ```
 
-### Script javascript untuk menampikan modal dan menjalankan animasi
+## Script javascript untuk menampikan modal dan menjalankan animasi
 ```javascript
 const modal_overlay = document.querySelector('#modal_overlay');
 const modal = document.querySelector('#modal');
@@ -97,5 +96,4 @@ function openModal (value){
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

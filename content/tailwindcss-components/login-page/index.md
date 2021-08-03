@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-login-page.png
 ---
 
-## Code Snippet - Login Page
+# Tailwindcss Components - Login Page
 
 Hei stuffer, kali ini saya ingin share code snippets login page
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Login Page
+## Login Page
 
 ```html
   <div class="w-full h-screen flex">
@@ -57,7 +56,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-
-## Video Tutorial
-{{< youtube id="DdzwjUJN_IM" >}}
+# Video Tutorial

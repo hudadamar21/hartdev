@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import * as React from "react"
 import Navbar from "./Navbar";
 
-const Layout = ({ location, children, mainClass }) => {
+const Layout = ({ location, children, mainClass, navbarDark }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const data = useStaticQuery(graphql`
@@ -19,8 +19,8 @@ const Layout = ({ location, children, mainClass }) => {
 
   return (
     <div className="text-gray-700 min-h-screen flex flex-col" data-is-root-path={isRootPath}>
-      <Navbar title={title} />
-      <main className={`flex-grow pt-20 ${mainClass}`}>
+      <Navbar title={title} darkmode={navbarDark} />
+      <main className={`flex-grow ${mainClass}`}>
         {children}
       </main>
       <footer className="text-center py-5">

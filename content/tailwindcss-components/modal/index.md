@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-modal.png
 ---
 
-## Code Snippet - Tailwind Modal
+# Tailwindcss Components - Tailwind Modal
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Modal
 
@@ -18,8 +18,8 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 https://tailwindcss.com
 
 &nbsp;
-{{< iklan >}}
-### Modal
+
+## Modal
 ```html
 <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
     <!-- modal -->
@@ -67,5 +67,4 @@ closeModal.forEach(close => {
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

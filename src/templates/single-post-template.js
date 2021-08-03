@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Bio from "../components/Bio"
 import Seo from "../components/Seo"
 import Layout from "../components/Layout"
+import SideContent from "../components/SideContent";
 
 const BlogPostTemplate = ({ data, location }) => {
   console.log(data)
@@ -19,13 +20,13 @@ const BlogPostTemplate = ({ data, location }) => {
     <Layout 
       location={location} 
       title={siteTitle}
-      mainClass="w-full p-5 lg:p-20"
+      mainClass="pt-20 w-full p-5 lg:p-20"
     >
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <div className="grid grid-cols-4 gap-6 pl-36">
+      <div className="grid grid-cols-4 gap-10">
         <main className="col-span-4 md:col-span-3">
           <article
             className="blog-post"
@@ -83,9 +84,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </ul>
           </nav>
         </main>
-        <aside className="sticky top-20 left-0 bg-red-500 col-span-4 md:col-span-1 h-64">
-
-        </aside>
+        <SideContent/>
       </div>
     </Layout>
   )

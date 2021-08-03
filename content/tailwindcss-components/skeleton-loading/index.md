@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-skeleton-loading.png
 ---
 
-## Code Snippets - Tailwind Skeleton Loading
+# Tailwindcss Components - Skeleton Loading
 Hei stuffer, kali ini saya ingin share code snippet Skeleton Loading.
 
 Apa kalian tahu apa itu skeleton loading?
@@ -25,9 +25,8 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 https://tailwindcss.com
 
 &nbsp;
-{{< iklan >}}
 
-### Wrapper
+## Wrapper
 Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
 ```html
   <div class="flex flex-col w-1/2 pt-5 gap-5">
@@ -40,7 +39,7 @@ Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
 
 &nbsp;
 
-### Skeleton Loading Versi 1
+## Skeleton Loading Versi 1
 
 ![tailwind-skeleton-loading-v1](/images/code-snippets/tailwind-skeleton-loading-v1.jpg)
 
@@ -74,7 +73,7 @@ Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, 
 
 &nbsp;
 
-### Skeleton Loading Versi 2
+## Skeleton Loading Versi 2
 
 ![tailwind-skeleton-loading-v2](/images/code-snippets/tailwind-skeleton-loading-v2.jpg)
 
@@ -98,7 +97,7 @@ Pada versi 2 ini cocok untuk list article yang memiliki thumbnail, title, dan de
 
 &nbsp;
 
-### Style CSS
+## Style CSS
 Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari kiri ke kanan
 ```css
 .pulse {
@@ -120,5 +119,4 @@ Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari ki
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="MwlGNXU1JPU" >}}
+# Video Tutorial

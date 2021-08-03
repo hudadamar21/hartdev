@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-simple-card.png
 ---
 
-## Code Snippets - Simple Card
+# Tailwindcss Components - Simple Card
 
 Hei stuffer, kali ini saya ingin share code snippet simple card
 
@@ -18,9 +18,8 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 https://tailwindcss.com
 
 &nbsp;
-{{< iklan >}}
 
-### Wrapper
+## Wrapper
 wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
 ```html
   <div class="w-full h-screen flex justify-center items-center">
@@ -32,7 +31,7 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
 
 &nbsp;
 
-### Simple Card
+## Simple Card
 ```html
   <div class="bg-white w-64 shadow rounded hover:shadow-lg transition duration-200 transform hover:-translate-y-2 overflow-hidden">
     <img 
@@ -56,5 +55,4 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="1B8r42x8QbM" >}}
+# Video Tutorial

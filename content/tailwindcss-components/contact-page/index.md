@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-contact-page.png
 ---
 
-## Code Snippet - Tailwind Contact Page
+# Tailwindcss Components - Contact Page
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Contact Page
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Contact Page
+## Contact Page
 ```html
 <section id="contact" class="relative w-full min-h-screen bg-black text-red-500">
   <h1 class="text-4xl p-4 font-bold tracking-wide">
@@ -109,5 +108,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial

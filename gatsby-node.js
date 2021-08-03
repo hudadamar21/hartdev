@@ -56,6 +56,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
 
+    paginate({
+      createPage, // The Gatsby `createPage` function
+      items: posts, // An array of objects
+      itemsPerPage: 8, // How many items you want per page
+      pathPrefix: `/`, // Creates pages like `/blog`, `/blog/2`, etc
+      component: path.resolve("./src/templates/post-list-template.js"),
+      context: {
+        category: ''
+      },
+    })
+
     const categories = new Set(posts.map(post => post.node.frontmatter.category))
     categories.forEach(categoryName => {
       const postWithCategory = posts.filter(post => post.node.frontmatter.category === categoryName)

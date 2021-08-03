@@ -7,7 +7,7 @@ category: tailwindcss-components
 thumb: ./tailwind-profile-card.png
 ---
 
-## Code Snippet - Tailwind Profile Card
+# Tailwindcss Components - Profile Card
 
 Hei stuffer kali ini saya ingin share code snippet Tailwind Profile Card
 
@@ -19,8 +19,7 @@ https://tailwindcss.com
 
 &nbsp;
 
-{{< iklan >}}
-### Profile Card
+## Profile Card
 ```html
 <!-- Profile card -->
 <div class="w-[400px] group cursor-pointer active:opacity-70 transition-opacity duration-300">
@@ -54,5 +53,4 @@ https://tailwindcss.com
 
 &nbsp;
 
-## Video Tutorial
-{{< youtube id="" >}}
+# Video Tutorial
