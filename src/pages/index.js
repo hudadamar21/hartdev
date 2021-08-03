@@ -73,7 +73,7 @@ const HomePage = ({ location }) => {
           <h1 className="font-bold text-4xl mb-2">All Stuff Of Programmers</h1>
           <p className="mb-8">Tutorial membuat aplikasi website yang cocok untuk pemula, kumpulan-kumpulan kode yang bisa langsung digunakan, dan artikel blog tentang programming.</p>
           <Link 
-            href="#contents"
+            to="#contents"
             className="
               flex items-end gap-2 w-max
               bg-gray-800 hover:bg-gray-700
@@ -124,7 +124,7 @@ const HomePage = ({ location }) => {
           })}
         </ul>
         <Link 
-          href="#contents"
+          to="#"
           className="
             flex items-end gap-2 w-max
             bg-gray-700 hover:bg-gray-600
