@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 
 import Seo from "../components/Partials/Seo"
 import Layout from "../components/Base/Layout"
-import SideContent from "../components/SideContent";
-import PostCard from "../components/PostCard";
+import SideContent from "../components/Base/SideContent";
+import PostCard from "../components/Posts/PostCard";
 import Pagination from "../components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {

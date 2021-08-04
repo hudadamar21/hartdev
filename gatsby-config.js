@@ -65,8 +65,6 @@ module.exports = {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
           quality: 50,
-          width: 300,
-          height: 300,
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
         }

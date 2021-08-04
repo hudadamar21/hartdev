@@ -27,7 +27,7 @@ const Bio = () => {
         className="bio-avatar"
         formats={["AUTO", "WEBP", "AVIF"]}
         placeholder="tracedSVG"
-        src="../images/logo.png"
+        src="../../images/logo.png"
         width={25}
         height={25}
         quality={60}

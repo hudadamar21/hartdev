@@ -16,7 +16,7 @@ function SideContent() {
             <Link to="/tailwindcss-components">Tailwindcss Components</Link>
           </li>
           <li className="hover:underline">
-            <Link to="/tutorials">Tutorials</Link>
+            <Link to="/tutorial">Tutorial</Link>
           </li>
         </ul>
       </div>

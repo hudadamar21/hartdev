@@ -135,7 +135,7 @@ const HomePage = ({ location }) => {
         </div>
       </section>
       <section className="flex flex-col items-center pb-40 px-5 md:px-20">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 uppercase">
+        <h1 id="latest-posts" className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 uppercase">
           Postingan Terbaru
         </h1>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
@@ -152,7 +152,7 @@ const HomePage = ({ location }) => {
           })}
         </ul>
         <a 
-          href="#"
+          href="#latest-posts"
           className="
             flex items-end gap-2 w-max
             bg-gray-700 hover:bg-gray-600
