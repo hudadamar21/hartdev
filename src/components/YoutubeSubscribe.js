@@ -9,8 +9,8 @@ function YoutubeSubscribe() {
         href="https://www.youtube.com/channel/UCPB7PB6y30lJ2miy5hHODEw" 
         className="flex items-center justify-center gap-2 hover:bg-red-500/10 w-full py-2 rounded-md cursor-pointer mt-3"
         target="_blank"
-        rel="norefferer"
         title="pergi ke youtube channel hartdev"
+        rel="noreferrer"
       >
         <img src="/youtube_logo.svg" width="35" alt="youtube logo"/>
         <p className="font-medium">Open in new tab</p>
