@@ -39,6 +39,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'gatsby-code-title',
+            },
+          }, 
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,

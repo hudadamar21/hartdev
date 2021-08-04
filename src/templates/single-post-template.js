@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link,navigate, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Bio from "../components/Partials/Bio"
@@ -14,8 +14,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const thumbImage = getImage(post.frontmatter.thumb)
 
-  console.log(thumbImage)
-
   return (
     <Layout 
       location={location} 
@@ -27,62 +25,137 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <div className="grid grid-cols-4 gap-10">
-        <main className="col-span-4 md:col-span-3">
+        <main className="
+          col-span-4 md:col-span-3 pl-36
+        ">
+          
           <article
-            className="blog-post"
+            className="relative col-span-8"
             itemScope
             itemType="http://schema.org/Article"
           >
+
+            <button className="absolute top-0 -left-16" onClick={() => navigate(-1)}>
+              <svg 
+                className="
+                  hover:-translate-x-2 
+                  transition duration-200 
+                  h-10 w-10 text-gray-400 hover:text-gray-300
+                " 
+                xmlns="http://www.w3.org/2000/svg" fill="none" 
+                viewBox="0 0 24 24" stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+              </svg> 
+            </button>
+
+            {/* Header include Title Date and Bio */}
             <header>
-              <h1 className="text-3xl font-bold" itemProp="headline">{post.frontmatter.title}</h1>
+              <h1 className="text-3xl font-bold" itemProp="headline">
+                {post.frontmatter.title}
+              </h1>
               <div className="flex items-center justify-between my-5">
                 <div className="flex items-center gap-3 divide-x text-sm">
-                  <span className="text-gray-500">{post.frontmatter.date}</span>
-                  <span className="pl-3 text-gray-500">{post.frontmatter.dateFromNow}</span>
+                  <span className="text-gray-500">
+                    {post.frontmatter.date}
+                  </span>
+                  <span className="pl-3 text-gray-500">
+                    {post.frontmatter.dateFromNow}
+                  </span>
                 </div>
                 <Bio />
               </div>
             </header>
-              <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />
-            <nav 
-              id="table-of-contents"
-              dangerouslySetInnerHTML={{ __html: post.tableOfContents }} 
-            />
+
+            {/* Feature Image */}
+            <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />
+
+            {/* Table Of Contents */}
+            <nav id="table-of-contents">
+              <h1 className="text-xl font-medium -mb-4">
+                Daftar isi
+              </h1>
+              <div 
+                className="pl-3" 
+                dangerouslySetInnerHTML={{ __html: post.tableOfContents }} 
+              />
+            </nav>
+
+            {/* Content */}
             <section
               id="content"
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
-            />  
+            />
+
+            {/* Footer */}
             <footer className="mt-10">
               <Bio />
             </footer>
+
           </article>
+
+
+          {/* Paginate to Prev and Next Post */}
           <nav className="mt-10">
             <ul className="flex flex-wrap justify-between">
               <li>
                 {previous && (
                   <Link 
-                    className="hover:bg-gray-50 rounded-lg hover:shadow transition duration-200 px-3 py-2 font-semibold" 
+                    className="
+                      group
+                      flex items-center gap-2
+                      transition duration-200 
+                      px-3 py-2 
+                      font-semibold
+                    " 
                     to={previous.fields.slug} 
                     rel="prev"
                   >
-                    ← {previous.frontmatter.title}
+                    <svg 
+                      className="
+                        group-hover:-translate-x-2 
+                        transition-transform duration-200 
+                        h-6 w-6
+                      " 
+                      xmlns="http://www.w3.org/2000/svg" fill="none" 
+                      viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg> 
+                    {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
               <li>
                 {next && (
                   <Link 
-                    className="hover:bg-gray-50 rounded-lg hover:shadow transition duration-200 px-3 py-2 font-semibold" 
+                    className="
+                      group
+                      flex items-center gap-2
+                      transition duration-200 
+                      px-3 py-2 
+                      font-semibold
+                    " 
                     to={next.fields.slug} 
                     rel="next"
                   >
-                    {next.frontmatter.title} →
+                    {next.frontmatter.title} 
+                    <svg 
+                      className="
+                        group-hover:translate-x-2 
+                        transition-transform duration-200 
+                        h-6 w-6
+                      "
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </Link>
                 )}
               </li>
             </ul>
           </nav>
+
         </main>
         <SideContent/>
       </div>

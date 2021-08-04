@@ -41,7 +41,7 @@ Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
 
 ## Skeleton Loading Versi 1
 
-![tailwind-skeleton-loading-v1](/images/code-snippets/tailwind-skeleton-loading-v1.jpg)
+![tailwind-skeleton-loading-v1](tailwind-skeleton-loading-v1.jpg)
 
 Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, dan deskripsi
 ```html
@@ -75,7 +75,7 @@ Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, 
 
 ## Skeleton Loading Versi 2
 
-![tailwind-skeleton-loading-v2](/images/code-snippets/tailwind-skeleton-loading-v2.jpg)
+![tailwind-skeleton-loading-v2](tailwind-skeleton-loading-v2.jpg)
 
 Pada versi 2 ini cocok untuk list article yang memiliki thumbnail, title, dan dekripsi
 ```html
