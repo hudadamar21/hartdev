@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby";
 
-import YoutubeSubscribe from './YoutubeSubscribe'
+import YoutubeSubscribe from '../Partials/YoutubeSubscribe'
 
 function SideContent() {
   return (

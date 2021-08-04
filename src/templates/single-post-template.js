@@ -2,10 +2,10 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Bio from "../components/Bio"
-import Seo from "../components/Seo"
-import Layout from "../components/Layout"
-import SideContent from "../components/SideContent";
+import Bio from "../components/Partials/Bio"
+import Seo from "../components/Partials/Seo"
+import Layout from "../components/Base/Layout"
+import SideContent from "../components/Base/SideContent";
 
 const BlogPostTemplate = ({ data, location }) => {
   console.log(data)

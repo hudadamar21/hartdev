@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Seo from "../components/Seo"
-import Layout from "../components/Layout"
+import Seo from "../components/Partials/Seo"
+import Layout from "../components/Base/Layout"
 import SideContent from "../components/SideContent";
 import PostCard from "../components/PostCard";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data.allMarkdownRemark.edges

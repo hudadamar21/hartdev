@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
 import { Link, graphql, useStaticQuery } from "gatsby";
-import LogoType from "../components/LogoType";
-import Layout from "../components/Layout";
-import PostCard from "../components/PostCard";
+import LogoType from "../components/Partials/LogoType";
+import Layout from "../components/Base/Layout";
+import PostCard from "../components/Posts/PostCard";
 
 const HomePage = ({ location }) => {
 
