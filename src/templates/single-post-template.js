@@ -8,7 +8,6 @@ import Layout from "../components/Base/Layout"
 import SideContent from "../components/Base/SideContent";
 
 const BlogPostTemplate = ({ data, location }) => {
-  console.log(data)
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -26,7 +25,7 @@ const BlogPostTemplate = ({ data, location }) => {
       />
       <div className="grid grid-cols-4 gap-10">
         <main className="
-          col-span-4 md:col-span-3 pl-36
+          col-span-4 lg:col-span-3 md:px-10 lg:pl-36 lg:pr-0
         ">
           
           <article
@@ -35,7 +34,7 @@ const BlogPostTemplate = ({ data, location }) => {
             itemType="http://schema.org/Article"
           >
 
-            <button className="absolute top-0 -left-16" onClick={() => navigate(-1)}>
+            <button className="lg:absolute top-0 -left-16 mb-5" onClick={() => navigate(-1)}>
               <svg 
                 className="
                   hover:-translate-x-2 
@@ -69,6 +68,8 @@ const BlogPostTemplate = ({ data, location }) => {
 
             {/* Feature Image */}
             <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />
+            <script async="async" data-cfasync="false" src="//hungrylongingtile.com/f322d3f05a05bdf9446863398c6a1a90/invoke.js"></script>
+            <div id="container-f322d3f05a05bdf9446863398c6a1a90"></div>
 
             {/* Table Of Contents */}
             <nav id="table-of-contents">

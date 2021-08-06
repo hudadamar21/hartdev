@@ -9,8 +9,7 @@ import Pagination from "../components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data.allMarkdownRemark.edges
-  
-  const title = posts.map(post => post.node.frontmatter.category)[0]
+  // const title = location.pathname
 
   return (
     <Layout
@@ -18,7 +17,9 @@ const PostList = ({ data, pageContext, location }) => {
       mainClass="pt-20 w-full p-5 lg:p-20"
     >
       <Seo title="HartDev - Posts" />
-      <h1 className="text-2xl font-bold my-5 capitalize">{title} : </h1>
+      <h1 className="text-2xl font-bold my-5 capitalize">
+        {pageContext.title} : 
+      </h1>
       <div className="grid grid-cols-4 gap-10 w-full ">
         <main className="col-span-4 lg:col-span-3">
           <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
@@ -38,12 +39,12 @@ const PostList = ({ data, pageContext, location }) => {
 export default PostList
 
 export const pageQuery = graphql`
-  query PostList($skip: Int!, $limit: Int!, $category: String) {
+  query PostList($skip: Int!, $limit: Int!, $filter: MarkdownRemarkFilterInput) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: $filter
     ) {
       edges {
         node {

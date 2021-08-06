@@ -40,6 +40,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
 
+
+    // Single Post
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].node.id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
@@ -56,28 +58,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
 
+    // All Posts
     paginate({
-      createPage, // The Gatsby `createPage` function
-      items: posts, // An array of objects
-      itemsPerPage: 8, // How many items you want per page
-      pathPrefix: `/`, // Creates pages like `/blog`, `/blog/2`, etc
+      createPage,
+      items: posts,
+      itemsPerPage: 8,
+      pathPrefix: `/posts`,
       component: path.resolve("./src/templates/post-list-template.js"),
       context: {
-        category: ''
+        title: "All Posts",
+        filter: {}
       },
     })
 
+    // Posts By Category
     const categories = new Set(posts.map(post => post.node.frontmatter.category))
     categories.forEach(categoryName => {
       const postWithCategory = posts.filter(post => post.node.frontmatter.category === categoryName)
       paginate({
-        createPage, // The Gatsby `createPage` function
-        items: postWithCategory, // An array of objects
-        itemsPerPage: 8, // How many items you want per page
-        pathPrefix: `/${categoryName}`, // Creates pages like `/blog`, `/blog/2`, etc
+        createPage,
+        items: postWithCategory,
+        itemsPerPage: 8,
+        pathPrefix: `/${categoryName.replace(" ", "-").toLowerCase()}`,
         component: path.resolve("./src/templates/post-list-template.js"),
         context: {
-          category: categoryName
+          title: categoryName,
+          filter: { "frontmatter": { "category": { "eq": categoryName } } } 
         },
       })
     })

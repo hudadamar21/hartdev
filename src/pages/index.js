@@ -153,8 +153,8 @@ const HomePage = ({ location }) => {
             )
           })}
         </ul>
-        <a 
-          href="#latest-posts"
+        <Link 
+          to="/posts"
           className="
             flex items-end gap-2 w-max
             bg-gray-700 hover:bg-gray-600
@@ -164,7 +164,7 @@ const HomePage = ({ location }) => {
           "
         >
           LIHAT SEMUA
-        </a>
+        </Link>
       </section>
     </Layout>
   )

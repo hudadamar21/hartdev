@@ -3,7 +3,7 @@ title: "Awesome Login Page"
 date: 2021-07-19T18:46:55+07:00
 keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
-category: tailwindcss-components
+category: Tailwindcss Components
 thumb: ./tailwind-awesome-login-page.png
 ---
 
