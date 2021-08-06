@@ -71,7 +71,10 @@ const Seo = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+      
+    >
+      <script async src="https://arc.io/widget.min.js#uUD29b4D" />
+    </Helmet>
   )
 }
 

@@ -17,7 +17,7 @@ const PostList = ({ data, pageContext, location }) => {
       location={location}
       mainClass="pt-20 w-full p-5 lg:p-20"
     >
-      <Seo title="All posts" />
+      <Seo title="HartDev - Posts" />
       <h1 className="text-2xl font-bold my-5 capitalize">{title} : </h1>
       <div className="grid grid-cols-4 gap-10 w-full ">
         <main className="col-span-4 lg:col-span-3">

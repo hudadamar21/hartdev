@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import LogoType from "../components/Partials/LogoType";
 import Layout from "../components/Base/Layout";
 import PostCard from "../components/Posts/PostCard";
+import Seo from "../components/Partials/Seo";
 
 const HomePage = ({ location }) => {
 
@@ -77,6 +78,7 @@ const HomePage = ({ location }) => {
 
   return (
     <Layout location={location} navbarDark={isTop}>
+      <Seo title="HartDev - Home" />
       <section className="
         relative
         h-screen overflow-hidden 
