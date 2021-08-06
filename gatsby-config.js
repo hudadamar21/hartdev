@@ -1,3 +1,9 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
+const config = require('gatsby-plugin-config').default;
+
 module.exports = {
   siteMetadata: {
     title: `HartDev`,
@@ -76,12 +82,12 @@ module.exports = {
         }
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.GOOGLE_ANALYTIC_TRACKING_ID,
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
