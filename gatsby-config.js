@@ -12,12 +12,26 @@ module.exports = {
       summary: `Search A New Somethings`,
     },
     description: `All Stuff for Web Developers`,
-    siteUrl: `https://hartdev.netlify.app/`,
+    siteUrl: `https://hartdev.site/`,
     social: {
       twitter: `hudadamar21`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@": "src",
+        },
+        extensions: [
+          "js",
+          "jpg",
+          "png",
+          "svg"
+        ],
+      }
+    },
     'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
@@ -29,8 +43,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
-        name: `content`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/source-code`,
+        name: `source-code`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/tutorial`,
+        name: `tutorial`,
       },
     },
     {

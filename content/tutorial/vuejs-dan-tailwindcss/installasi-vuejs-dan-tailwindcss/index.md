@@ -4,9 +4,10 @@ description: "Pada tahap ini kalian akan menginstall vuejs dan tailwindcss denga
 date: 2021-07-20T20:19:50+07:00
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
-category: Tutorial
-series: First App Menggunakan Vuejs dan Tailwindcss
+category: tutorial
+series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss
 thumb: ./instalasi-vuejs-dan-tailwindcss.png
+contentType: single
 ---
 
 # Install Vuejs

@@ -2,10 +2,10 @@ import * as React from "react"
 import { Link,navigate, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Bio from "../components/Partials/Bio"
-import Seo from "../components/Partials/Seo"
-import Layout from "../components/Base/Layout"
-import SideContent from "../components/Base/SideContent";
+import Bio from "@/components/Partials/Bio"
+import Seo from "@/components/Partials/Seo"
+import Layout from "@/components/Base/Layout"
+import SideContent from "@/components/Base/SideContent";
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -187,6 +187,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         dateFromNow: date(fromNow: true)
         description
+        tags
         thumb {
           childImageSharp {
             gatsbyImageData(

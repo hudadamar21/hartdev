@@ -10,7 +10,7 @@ function Postlist({ post, title, withDescription = true }) {
         <article
           className="
             flex flex-col 
-            overflow-hidden rounded
+            overflow-hidden rounded-md
             hover:-translate-y-1 hover:shadow-lg
             transition duration-200
             group
@@ -18,38 +18,43 @@ function Postlist({ post, title, withDescription = true }) {
           itemScope
           itemType="http://schema.org/Article"
         >
-          {
-            postThumb && 
-            <div className="relative">
+          <div className="relative min-h-32 bg-gray-200 rounded-b-md overflow-hidden">
+            {
+              postThumb &&
               <GatsbyImage 
-                className="group-hover:opacity-80 transition"
+                className="group-hover:opacity-80 transition "
                 image={postThumb} alt={title} 
               />
-              <ul className="absolute bottom-0 right-0 flex items-center gap-1 text-sm">
-                <li className="bg-gray-700/90 rounded-sm text-white px-1">
-                  tailwindcss
-                </li>
-                <li className="bg-gray-700/90 rounded-sm text-white px-1">
-                  components
-                </li>
-              </ul>
-            </div>
-          }
-          <section className="p-5 pt-2">
+            }
+            <h3 className="absolute rounded-tl-md pt-px bottom-0 right-0 bg-gray-700/80 rounded-sm text-white px-2">
+              {post.frontmatter.category}
+            </h3>
+          </div>
+          <section className="relative p-5 pt-2">
             <div className="divide-x flex items-center mt-1 gap-1 text-xs text-gray-400">
-              <span>{post.frontmatter.date}</span>
-              <span className="pl-1">{post.frontmatter.dateFromNow}</span>
+              <span>{post.frontmatter?.date}</span>
+              <span className="pl-1">{post.frontmatter?.dateFromNow}</span>
             </div>
-            <h2 className="text-xl line-clamp-1 font-semibold mt-1" itemProp="headline">
+            
+            <h2 className="text-xl line-clamp-1 font-semibold mt-2" itemProp="headline">
               {title}
             </h2>
             { 
               withDescription &&
-              post.frontmatter.description &&
+              post.frontmatter?.description &&
               <p className="text-gray-600 text-sm line-clamp-3 mt-1">
-                {post.frontmatter.description}
+                {post.frontmatter?.description}
               </p>
             }
+            {/*<ul className="mt-3 -ml-2 flex items-center text-sm divide-x text-gray-400">
+              {
+                post.frontmatter.tags.map(tag => (
+                  <li className="px-2" key={tag}>
+                    {tag}
+                  </li>
+                ))
+              }
+            </ul>*/}
           </section>
         </article>
       </Link>

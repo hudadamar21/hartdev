@@ -1,23 +1,25 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from "gatsby";
 
-import YoutubeSubscribe from '../Partials/YoutubeSubscribe'
+import YoutubeSubscribe from '@/components/Partials/YoutubeSubscribe'
 
 function SideContent() {
 
   const queryCategories = useStaticQuery(graphql`
     {
       allMarkdownRemark {
-        nodes {
-          frontmatter {
-            category
+        edges {
+          node {
+            fields {
+              collection
+            }
           }
         }
       }
     }
   `)
-  const mapCategories = new Set(queryCategories.allMarkdownRemark.nodes
-    .map(c => c.frontmatter.category))
+  const mapCategories = new Set(queryCategories.allMarkdownRemark.edges
+    .map(c => c.node.fields.collection))
   const categories = [...mapCategories]
 
   return (
@@ -36,10 +38,6 @@ function SideContent() {
               )
             })
           }
-          <li className="hover:underline">
-            <Link to="/blog">Artikel Blog</Link>
-          </li>
-          
         </ul>
       </div>
       <YoutubeSubscribe/>

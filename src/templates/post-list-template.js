@@ -1,16 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-import Seo from "../components/Partials/Seo"
-import Layout from "../components/Base/Layout"
-import SideContent from "../components/Base/SideContent";
-import PostCard from "../components/Posts/PostCard";
-import Pagination from "../components/Partials/Pagination";
+import Seo from "@/components/Partials/Seo"
+import Layout from "@/components/Base/Layout"
+import SideContent from "@/components/Base/SideContent";
+import PostCard from "@/components/Posts/PostCard";
+import Pagination from "@/components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data.allMarkdownRemark.edges
-  // const title = location.pathname
+  const query = data.allMarkdownRemark.edges
 
+  const postsList = query.filter(post => 
+    post.node.frontmatter.contentType === 'list' && post.node.frontmatter.collection === pageContext.title
+  )
+
+  console.log(query)
   return (
     <Layout
       location={location}
@@ -23,15 +27,25 @@ const PostList = ({ data, pageContext, location }) => {
       <div className="grid grid-cols-4 gap-10 w-full ">
         <main className="col-span-4 lg:col-span-3">
           <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
-            {posts.map(post => {
-              const title = post.node.frontmatter.title || post.node.fields.slug
+            {query.map(post => {
+              const title = post.node.frontmatter.title
               return <PostCard post={post.node} title={title} key={post.node.fields.slug} />
             })}
           </ul>
           <Pagination pageContext={pageContext}/>
+
+{/*          <div className="mt-10 pt-10 border-t-2 h-screen">
+            {
+              seriesList.map(({node}) => {
+                return <Link to={node.fields.slug}>{node.frontmatter.series}</Link>
+              })
+            }
+          </div>  */}
         </main>
+        
         <SideContent/>
       </div>
+      
     </Layout>
   )
 }
@@ -57,6 +71,10 @@ export const pageQuery = graphql`
             title
             description
             category
+            tags
+            series
+            contentType
+            collection
             thumb {
               childImageSharp {
                 gatsbyImageData(

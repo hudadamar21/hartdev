@@ -15,9 +15,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             node {
               fields {
                 slug
+                collection
               }
               frontmatter {
-                category
+                title
+                contentType
+                collection
               }
               id
             }
@@ -40,22 +43,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
 
-
     // Single Post
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].node.id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
 
-      createPage({
-        path: post.node.fields.slug,
-        component: path.resolve("./src/templates/single-post-template.js"),
-        context: {
-          id: post.node.id,
-          previousPostId,
-          nextPostId,
-          filter: {}
-        },
-      })
+      const { id, fields, frontmatter, contentType } = post.node
+
+      if(contentType !== 'list') {
+        createPage({
+          path: '/' + fields.collection + fields.slug,
+          component: path.resolve("./src/templates/single-post-template.js"),
+          context: {
+            id,
+            previousPostId,
+            nextPostId,
+            filter: {}
+          },
+        })
+      }
+
     })
 
     // All Posts
@@ -71,19 +78,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
 
-    // Posts By Category
-    const categories = new Set(posts.map(post => post.node.frontmatter.category))
-    categories.forEach(categoryName => {
-      const postWithCategory = posts.filter(post => post.node.frontmatter.category === categoryName)
+    // Posts By Collection
+    const mapCollections = posts.map(item => item.node.fields.collection)
+    const collections = new Set([...mapCollections])
+
+    console.log(collections);
+
+    collections.forEach(collection => {
       paginate({
         createPage,
-        items: postWithCategory,
+        items: posts,
         itemsPerPage: 8,
-        pathPrefix: `/${categoryName.replace(" ", "-").toLowerCase()}`,
+        pathPrefix: `/${collection}`,
         component: path.resolve("./src/templates/post-list-template.js"),
         context: {
-          title: categoryName,
-          filter: { "frontmatter": { "category": { "eq": categoryName } } } 
+          title: collection,
+          filter: { 
+            "frontmatter": { 
+              "collection": { "eq": collection } 
+            } 
+          } 
         },
       })
     })
@@ -102,6 +116,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+
+    const parent = getNode(node.parent);
+    let collection = parent.sourceInstanceName;
+    createNodeField({
+      node,
+      name: 'collection',
+      value: collection,
+    });
   }
 }
 

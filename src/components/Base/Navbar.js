@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
 
 function Navbar({title, darkmode = false}) {
-  const listClass = `border-b-4 border-transparent ${darkmode ? 'hover:border-white' : 'hover:border-gray-700'}`
+  const listClass = `border-b-4 border-transparent font-semibold ${darkmode ? 'hover:border-white' : 'hover:border-gray-700 '}`
 
   return (
     <nav className={`
