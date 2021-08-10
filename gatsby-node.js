@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               frontmatter {
                 title
                 contentType
-                collection
+                series
               }
               id
             }
@@ -48,9 +48,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostId = index === 0 ? null : posts[index - 1].node.id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
 
-      const { id, fields, frontmatter, contentType } = post.node
+      const { id, fields, frontmatter } = post.node
 
-      if(contentType !== 'list') {
+      if(frontmatter.contentType === 'single') {
         createPage({
           path: '/' + fields.collection + fields.slug,
           component: path.resolve("./src/templates/single-post-template.js"),
@@ -68,40 +68,91 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // All Posts
     paginate({
       createPage,
-      items: posts,
-      itemsPerPage: 8,
+      items: posts.filter(post => post.node.frontmatter.contentType === 'single'),
+      itemsPerPage: 9,
       pathPrefix: `/posts`,
-      component: path.resolve("./src/templates/post-list-template.js"),
+      component: path.resolve("./src/templates/series-list-template.js"),
       context: {
         title: "All Posts",
-        filter: {}
+        filter: {"frontmatter": {"contentType": {"eq": "single"}}}
       },
     })
 
-    // Posts By Collection
+    // Collection of Post
     const mapCollections = posts.map(item => item.node.fields.collection)
     const collections = new Set([...mapCollections])
 
-    console.log(collections);
-
     collections.forEach(collection => {
+      const items = posts.filter(({node}) => {
+
+        return node.fields.collection === collection 
+          && node.fields.slug !== '/' 
+          && node.frontmatter.contentType === 'list'
+      })
       paginate({
         createPage,
-        items: posts,
-        itemsPerPage: 8,
+        items,
+        itemsPerPage: 9,
         pathPrefix: `/${collection}`,
-        component: path.resolve("./src/templates/post-list-template.js"),
+        component: path.resolve("./src/templates/series-list-template.js"),
         context: {
           title: collection,
-          filter: { 
-            "frontmatter": { 
-              "collection": { "eq": collection } 
-            } 
-          } 
+          items,
+          filter: {
+            "fields": {
+              "collection": {eq: collection}, 
+              "slug": {ne: "/"}
+            }, 
+            "frontmatter": {"contentType": {eq: "list"}}
+          }
         },
       })
     })
-  }
+
+    const seriesQuery = await graphql(`
+      {
+        allMarkdownRemark(
+          filter: {frontmatter: {contentType: {eq: "list"}}, fields: {slug: {ne: "/"}}}
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+              fields {
+                collection
+                slug
+              }
+            }
+          }
+        }
+      }
+    `)
+
+    const seriesList = seriesQuery.data.allMarkdownRemark.edges
+
+    seriesList.forEach(post => {
+      const { slug, collection } = post.node.fields
+      const { title } = post.node.frontmatter
+
+      const items = posts.filter(item => item.node.frontmatter.series === title)
+
+      paginate({
+        createPage,
+        items,
+        itemsPerPage: 8,
+        pathPrefix: '/' + collection + slug.slice(0, -1),
+        component: path.resolve("./src/templates/post-list-template.js"),
+        context: {
+          title,
+          filter: {
+            "frontmatter": {"series": {eq: title}}
+          }
+        },
+      })
+    })
+
+  } // end if
 
 }
 

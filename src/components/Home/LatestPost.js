@@ -5,10 +5,11 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 function LatestPost() {
 
   const data = useStaticQuery(graphql`
-    query {
+    {
       allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 8
+        filter: {frontmatter: {contentType: {eq: "single"}}}
       ) {
         edges {
           node {

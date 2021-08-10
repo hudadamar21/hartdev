@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-custom-dropdown.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Custom Dropdown

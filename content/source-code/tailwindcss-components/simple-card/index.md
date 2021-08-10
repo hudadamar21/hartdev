@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-simple-card.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Simple Card

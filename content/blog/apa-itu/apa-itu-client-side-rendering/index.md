@@ -5,6 +5,8 @@ date: 2021-07-20T20:19:50+07:00
 keyword: [client side rendering, website]
 tags: [apa itu?]
 thumb:
-category: apa itu
+series: Apa Itu?
 contentType: single
 ---
+
+qwe

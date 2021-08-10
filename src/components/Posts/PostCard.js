@@ -4,9 +4,11 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Postlist({ post, title, withDescription = true }) {
   const postThumb = getImage(post.frontmatter?.thumb)
+
+  const {collection, slug} = post.fields
   return (
-    <li className="py-2">
-      <Link to={post.fields.slug} itemProp="url">
+    <li className="w-full">
+      <Link to={"/"+collection+slug} itemProp="url">
         <article
           className="
             flex flex-col 
@@ -27,7 +29,7 @@ function Postlist({ post, title, withDescription = true }) {
               />
             }
             <h3 className="absolute rounded-tl-md pt-px bottom-0 right-0 bg-gray-700/80 rounded-sm text-white px-2">
-              {post.frontmatter.category}
+              {post.fields.collection.split('-').join(' ')}
             </h3>
           </div>
           <section className="relative p-5 pt-2">

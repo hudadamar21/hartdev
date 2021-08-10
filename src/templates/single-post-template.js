@@ -110,7 +110,7 @@ const BlogPostTemplate = ({ data, location }) => {
                       px-3 py-2 
                       font-semibold
                     " 
-                    to={previous.fields.slug} 
+                    to={"/"+previous.fields.collection+previous.fields.slug} 
                     rel="prev"
                   >
                     <svg 
@@ -138,7 +138,7 @@ const BlogPostTemplate = ({ data, location }) => {
                       px-3 py-2 
                       font-semibold
                     " 
-                    to={next.fields.slug} 
+                    to={"/"+next.fields.collection+next.fields.slug} 
                     rel="next"
                   >
                     {next.frontmatter.title} 
@@ -158,7 +158,6 @@ const BlogPostTemplate = ({ data, location }) => {
           </nav>
 
         </main>
-        <SideContent/>
       </div>
     </Layout>
   )
@@ -203,6 +202,7 @@ export const pageQuery = graphql`
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
         slug
+        collection
       }
       frontmatter {
         title
@@ -211,6 +211,7 @@ export const pageQuery = graphql`
     next: markdownRemark(id: { eq: $nextPostId }) {
       fields {
         slug
+        collection
       }
       frontmatter {
         title

@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-toast-notification.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Toast Notification

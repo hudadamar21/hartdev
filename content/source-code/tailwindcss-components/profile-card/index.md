@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-profile-card.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Profile Card

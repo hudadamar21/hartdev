@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-modal-with-animation.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Modal With Animation

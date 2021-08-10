@@ -10,30 +10,28 @@ import Pagination from "@/components/Partials/Pagination";
 const PostList = ({ data, pageContext, location }) => {
   const posts = data.allMarkdownRemark.edges
 
-  console.log(pageContext)
   return (
     <Layout
       location={location}
-      mainClass="pt-20 w-full p-5 lg:p-20"
+      mainClass="w-full px-14 pt-20 flex items-center flex-col"
     >
       <Seo title="HartDev - Posts" />
       <h1 className="text-2xl font-bold my-5 capitalize">
-        {pageContext.title} : 
+        {pageContext.title.split("-").join(" ")}
       </h1>
-      <div className="grid grid-cols-4 gap-10 w-full ">
-        <main className="col-span-4 lg:col-span-3">
-          <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
-            {posts.map(post => {
-              const title = post.node.frontmatter.title
-              return <PostCard post={post.node} title={title} key={post.node.fields.slug} />
-            })}
-          </ul>
-        
-          <Pagination pageContext={pageContext}/>
-        </main>
-        
-        <SideContent collection={posts[0].node.fields.collection}/>
-      </div>
+      <main className="flex items-center justify-center flex-col w-full">
+        <ul className="flex justify-center flex-wrap w-full">
+          {posts.map(post => {
+            const title = post.node.frontmatter.title
+            return (
+              <div className="w-1/3 p-8">
+                <PostCard post={post.node} title={title} key={post.node.fields.slug} />
+              </div>
+            )
+          })}
+        </ul>
+        <Pagination pageContext={pageContext}/>
+      </main>
       
     </Layout>
   )
@@ -42,7 +40,7 @@ const PostList = ({ data, pageContext, location }) => {
 export default PostList
 
 export const pageQuery = graphql`
-  query PostList($skip: Int!, $limit: Int!, $filter: MarkdownRemarkFilterInput) {
+  query SeriesList($skip: Int!, $limit: Int!, $filter: MarkdownRemarkFilterInput) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 

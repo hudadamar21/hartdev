@@ -34,7 +34,7 @@ const HomePage = ({ location }) => {
       name: 'Artikel Blog'
     },
     {
-      to: '/tailwindcss-components',
+      to: '/source-code',
       imageSrc: '/tailwind_components.svg',
       name: 'Tailwind Components'
     },

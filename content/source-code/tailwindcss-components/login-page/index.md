@@ -5,6 +5,8 @@ keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
 thumb: ./tailwind-login-page.png
+series: Tailwindcss Components
+contentType: single
 ---
 
 # Tailwindcss Components - Login Page
