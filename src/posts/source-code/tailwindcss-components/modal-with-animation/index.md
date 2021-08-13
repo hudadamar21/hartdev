@@ -98,4 +98,7 @@ function openModal (value){
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="iGTfSxtxj4A"/>

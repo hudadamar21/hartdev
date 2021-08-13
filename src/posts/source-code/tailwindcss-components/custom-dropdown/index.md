@@ -74,4 +74,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="mXzrQtOtI1A"/>

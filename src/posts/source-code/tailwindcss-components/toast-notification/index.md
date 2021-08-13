@@ -115,4 +115,7 @@ versi 1 ini digunakan ketika ada notification error
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="fTHUz-Cs9n8"/>

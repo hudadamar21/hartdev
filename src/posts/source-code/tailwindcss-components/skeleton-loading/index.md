@@ -121,4 +121,7 @@ Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari ki
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="MwlGNXU1JPU"/>

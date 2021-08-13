@@ -69,4 +69,7 @@ closeModal.forEach(close => {
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="Vlllw3vnP5Q"/>

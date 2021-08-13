@@ -57,4 +57,7 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="1B8r42x8QbM"/>

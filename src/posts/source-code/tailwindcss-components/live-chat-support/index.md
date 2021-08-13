@@ -165,4 +165,7 @@ closeChat.addEventListener('click', function (){
 
 &nbsp;
 
+import YoutubePlay from "@/components/Partials/YoutubePlay"
+
 # Video Tutorial
+<YoutubePlay id="UmLU5lLszn8"/>
