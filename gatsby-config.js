@@ -12,12 +12,46 @@ module.exports = {
       summary: `Search A New Somethings`,
     },
     description: `All Stuff for Web Developers`,
-    siteUrl: `https://hartdev.site/`,
+    siteUrl: `https://hartdev.site`,
     social: {
       twitter: `hudadamar21`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          // posts: require.resolve("./src/components/posts-layout.js"),
+          default: require.resolve("./src/components/Layouts/default.js"),
+        },  
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'gatsby-code-title',
+            },
+          }, 
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 630,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -43,21 +77,21 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/src/posts/blog`,
         name: `blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/source-code`,
+        path: `${__dirname}/src/posts/source-code`,
         name: `source-code`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/tutorial`,
+        path: `${__dirname}/src/posts/tutorial`,
         name: `tutorial`,
       },
     },
@@ -66,35 +100,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-code-titles',
-            options: {
-              className: 'gatsby-code-title',
-            },
-          }, 
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 630,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-smartypants`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-prismjs`,
-        ],
       },
     },
     `gatsby-transformer-sharp`,
@@ -172,12 +177,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `HartDev`,
-        short_name: `GatsbyJS`,
+        short_name: `Hartdev`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

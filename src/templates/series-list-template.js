@@ -1,14 +1,13 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Seo from "@/components/Partials/Seo"
 import Layout from "@/components/Base/Layout"
-import SideContent from "@/components/Base/SideContent";
 import PostCard from "@/components/Posts/PostCard";
 import Pagination from "@/components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
 
   return (
     <Layout
@@ -40,8 +39,8 @@ const PostList = ({ data, pageContext, location }) => {
 export default PostList
 
 export const pageQuery = graphql`
-  query SeriesList($skip: Int!, $limit: Int!, $filter: MarkdownRemarkFilterInput) {
-    allMarkdownRemark(
+  query SeriesList($skip: Int!, $limit: Int!, $filter: MdxFilterInput) {
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit

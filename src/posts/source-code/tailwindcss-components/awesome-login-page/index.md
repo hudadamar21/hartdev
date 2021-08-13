@@ -79,3 +79,4 @@ https://tailwindcss.com
 &nbsp;
 
 # Video Tutorial
+<YoutubePlay id="MwlGNXU1JPU"/>

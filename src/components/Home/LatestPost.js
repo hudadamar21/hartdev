@@ -1,12 +1,14 @@
 import React from 'react'
+import { graphql, useStaticQuery } from "gatsby";
+
 import PostCard from "@/components/Posts/PostCard";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import HartButton from "@/components/Partials/HartButton";
 
 function LatestPost() {
 
-  const data = useStaticQuery(graphql`
+  const data =  useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 8
         filter: {frontmatter: {contentType: {eq: "single"}}}
@@ -15,6 +17,7 @@ function LatestPost() {
           node {
             fields {
               slug
+              collection
             }
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
@@ -40,9 +43,7 @@ function LatestPost() {
     }
   `)
 
-  const posts = data.allMarkdownRemark.edges
-
-  console.log(posts)
+  const posts = data.allMdx.edges
 
   return (
     <section className="flex flex-col items-center pb-40 px-5 md:px-20">
@@ -63,7 +64,7 @@ function LatestPost() {
         })
       } 
       </ul>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mb-10">
         {posts.slice(2).map(post => {
           return (
             <PostCard 
@@ -75,17 +76,9 @@ function LatestPost() {
           )
         })}
       </ul>
-      <Link 
-        to="/posts"
-        className="
-          px-3 py-2 mt-10
-          flex items-center gap-2 w-max rounded-md text-white
-          bg-gradient-to-r from-gray-800 to-gray-700 hover:saturate-200
-          font-medium  text-base md:text-lg
-        "
-      >
-        Show More
-      </Link>
+      <HartButton to="/posts">
+        Show more
+      </HartButton>
     </section>
   )
 }

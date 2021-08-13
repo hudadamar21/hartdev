@@ -28,15 +28,15 @@ const Bio = () => {
         formats={["AUTO", "WEBP", "AVIF"]}
         placeholder="tracedSVG"
         src="../../images/logo.png"
-        width={25}
-        height={25}
+        width={20}
+        height={20}
         quality={60}
         alt="Profile picture"
       />
       {
         author?.name && 
         <p className="text-sm text-gray-500">
-          Written by <strong>{author.name}</strong>
+          {author.name}
         </p>
       }
     </div>

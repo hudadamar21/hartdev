@@ -4,7 +4,6 @@ date: 2021-07-19T18:46:55+07:00
 description: "sebelum memulai membuat aplikasi todolist, alangkah baiknya kita mempersiapkan terlebih dahulu semua yang diperlukan untuk membuat aplikasi todolist menggunakan vuejs dan tailwindcss"
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
-category: tutorial
 series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss
 thumb: ./persiapan-sebelum-memulai.png
 contentType: single
@@ -12,7 +11,7 @@ contentType: single
 
 # Persiapan
 
-Hei coder, pada tutorial kali ini kalian akan membuat aplikasi web pertama kalian menggunakan vuejs dan tailwindcss, jika ini bukan pertama kali kalian membuat aplikasi web dengan vuejs dan tailwindcss. kalian tetap dapat mengikutinya ya wkwkwk :D
+Hei coder, pada tutorial kali ini kita akan membuat aplikasi web menggunakan vuejs dan tailwindcss.
 
 Sebelum kita menginstall vuejs dan tailwindcss alangkah baiknya mempersiapkan dahulu apa saja yang diperlukan untuk mengikuti tutorial ini.
 
@@ -25,9 +24,9 @@ Kalian dapat mendownload vsode pada website resminya sebagai berikut:
 
 https://code.visualstudio.com/download
 
-menginstall vscode untuk pengguna windows cukup mudah, kalian hanya perlu menginstall seperti aplikasi pada umumnya.
+menginstall vscode untuk pengguna windows cukup mudah, kita hanya perlu menginstall seperti aplikasi pada umumnya.
 
-kalian juga boleh menggunakan code editor lain ya, seperti sublime text, atom, IDE, dan lain-lain.
+kita juga boleh menggunakan code editor lain ya, seperti sublime text, atom, IDE, dan lain-lain.
 
 &nbsp;
 
@@ -60,7 +59,7 @@ Extension vuejs yang saya sarankan yaitu:
 
 kebetulan pada tutorial ini kita akan menggunakan vuejs 3
 
-kalian bisa menggunakan salah satunya atau dua-dua nya, tidak ada masalah.
+kita bisa menggunakan salah satunya atau dua-dua nya, tidak ada masalah.
 
 &nbsp;
 
@@ -84,12 +83,12 @@ Untuk menginstall vuejs dan tailwindss kita memerlukan npm (node package manager
 
 Agar dapat menggunakan npm kita perlu menginstall Nodejs
 
-Install nodejs cukup mudah, kalian hanya perlu download di sini dan install seperti biasa:
+Install nodejs cukup mudah, kita hanya perlu download di sini dan install seperti biasa:
 
 [Download Node.js](https://nodejs.org/en/)
 
 
-Setelah menginstall nodejs kalian perlu memastikan nodejs dan npm sudah terinstall.
+Setelah menginstall nodejs kita perlu memastikan nodejs dan npm sudah terinstall.
 
 Kalian hanya perlu ketikan ini di cmd (commandline)
 ```bash

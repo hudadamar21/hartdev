@@ -1,6 +1,7 @@
 import * as React from "react"
-import { Link,navigate, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "@/components/Partials/Bio"
 import Seo from "@/components/Partials/Seo"
@@ -8,10 +9,18 @@ import Layout from "@/components/Base/Layout"
 import SideContent from "@/components/Base/SideContent";
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const { previous, next, post, posts } = data
+
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
   const thumbImage = getImage(post.frontmatter.thumb)
+
+  const listOnSeries = posts.nodes.filter(item => 
+    item.frontmatter.series === post.frontmatter.series
+  )
+
+  const { collection } = post.fields
+  const seriesName = listOnSeries[0].fields.slug.split('/')[1]
+  const seriesSlug = `/${collection}/${seriesName}`
 
   return (
     <Layout 
@@ -23,37 +32,41 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <div className="grid grid-cols-4 gap-10">
-        <main className="
-          col-span-4 lg:col-span-3 md:px-10 lg:pl-36 lg:pr-0
-        ">
+      <div className="grid grid-cols-12">
+        <main className="col-span-12 lg:col-span-8">
           
           <article
-            className="relative col-span-8"
+            className="relative"
             itemScope
             itemType="http://schema.org/Article"
           >
 
-            <button className="lg:absolute top-0 -left-16 mb-5" onClick={() => navigate(-1)}>
-              <svg 
-                className="
-                  hover:-translate-x-2 
-                  transition duration-200 
-                  h-10 w-10 text-gray-400 hover:text-gray-300
-                " 
-                xmlns="http://www.w3.org/2000/svg" fill="none" 
-                viewBox="0 0 24 24" stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-              </svg> 
-            </button>
-
             {/* Header include Title Date and Bio */}
-            <header>
-              <h1 className="text-3xl font-bold" itemProp="headline">
-                {post.frontmatter.title}
-              </h1>
-              <div className="flex items-center justify-between my-5">
+            <header className="flex flex-col gap-3 mb-3">
+              <div className="flex items-center gap-3">
+                <Link to={seriesSlug}>
+                  <svg 
+                    className="
+                      hover:-translate-x-2 
+                      transition duration-200 
+                      h-8 w-8 text-gray-700 hover:text-gray-500
+                    " 
+                    xmlns="http://www.w3.org/2000/svg" fill="none" 
+                    viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                  </svg> 
+                </Link>
+                <h1 className="text-3xl font-bold" itemProp="headline">
+                  {post.frontmatter.title}
+                </h1>
+              </div>
+
+              <Link to={seriesSlug} className="text-gray-500 ">
+                series of <span className="underline hover:text-gray-700">{post.frontmatter.series}</span>
+              </Link>
+              
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3 divide-x text-sm">
                   <span className="text-gray-500">
                     {post.frontmatter.date}
@@ -76,23 +89,13 @@ const BlogPostTemplate = ({ data, location }) => {
               <h1 className="text-xl font-medium -mb-4">
                 Daftar isi
               </h1>
-              <div 
-                className="pl-3" 
-                dangerouslySetInnerHTML={{ __html: post.tableOfContents }} 
-              />
+              {/* <MDXRenderer>{post.tableOfContents}</MDXRenderer> */}
             </nav>
 
             {/* Content */}
-            <section
-              id="content"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              itemProp="articleBody"
-            />
-
-            {/* Footer */}
-            <footer className="mt-10">
-              <Bio />
-            </footer>
+            <section id="content" itemProp="articleBody" >
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </section>
 
           </article>
 
@@ -158,6 +161,11 @@ const BlogPostTemplate = ({ data, location }) => {
           </nav>
 
         </main>
+        <SideContent 
+          collection={collection} 
+          lists={listOnSeries} 
+          seriesSlug={seriesSlug}
+        />
       </div>
     </Layout>
   )
@@ -176,17 +184,21 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    post: mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       tableOfContents
+      fields {
+        collection
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         dateFromNow: date(fromNow: true)
         description
         tags
+        series
         thumb {
           childImageSharp {
             gatsbyImageData(
@@ -199,7 +211,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
         collection
@@ -208,13 +220,25 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
         collection
       }
       frontmatter {
         title
+      }
+    }
+    posts: allMdx(filter: {frontmatter: {contentType: {eq: "single"}}}) {
+      nodes {
+        fields {
+          collection
+          slug
+        }
+        frontmatter {
+          title
+          series
+        }
       }
     }
   }

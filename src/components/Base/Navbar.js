@@ -41,8 +41,8 @@ function Navbar({title, darkmode = false}) {
         formats={["AUTO", "WEBP", "AVIF"]}
         placeholder="tracedSVG"
         src="../../images/logo.png"
-        width={35}
-        height={35}
+        width={30}
+        height={30}
         quality={60}
         alt="Logo"
       />

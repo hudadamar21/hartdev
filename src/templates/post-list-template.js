@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Seo from "@/components/Partials/Seo"
 import Layout from "@/components/Base/Layout"
@@ -8,9 +8,13 @@ import PostCard from "@/components/Posts/PostCard";
 import Pagination from "@/components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.posts.edges
+  const listOfCollection = data.listOfCollection.nodes
 
-  console.log(pageContext)
+  const seriesByCollection = listOfCollection.filter(series => 
+    series.fields.collection === pageContext.collection
+  )
+
   return (
     <Layout
       location={location}
@@ -20,8 +24,8 @@ const PostList = ({ data, pageContext, location }) => {
       <h1 className="text-2xl font-bold my-5 capitalize">
         {pageContext.title} : 
       </h1>
-      <div className="grid grid-cols-4 gap-10 w-full ">
-        <main className="col-span-4 lg:col-span-3">
+      <div className="grid grid-cols-12 gap-10 w-full ">
+        <main className="col-span-12 lg:col-span-8">
           <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
             {posts.map(post => {
               const title = post.node.frontmatter.title
@@ -32,7 +36,11 @@ const PostList = ({ data, pageContext, location }) => {
           <Pagination pageContext={pageContext}/>
         </main>
         
-        <SideContent collection={posts[0].node.fields.collection}/>
+        <SideContent 
+          collection={posts[0].node.fields.collection} 
+          lists={seriesByCollection}
+          seriesSlug={"/"+ pageContext.collection}
+         />
       </div>
       
     </Layout>
@@ -42,8 +50,8 @@ const PostList = ({ data, pageContext, location }) => {
 export default PostList
 
 export const pageQuery = graphql`
-  query PostList($skip: Int!, $limit: Int!, $filter: MarkdownRemarkFilterInput) {
-    allMarkdownRemark(
+  query PostList($skip: Int!, $limit: Int!, $filter: MdxFilterInput) {
+    posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
@@ -74,6 +82,20 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+
+    listOfCollection: allMdx(
+      filter: {fields: {slug: {ne: "/"}}, frontmatter: {contentType: {eq: "list"}}}
+    ) {
+      nodes {
+        fields {
+          collection
+          slug
+        }
+        frontmatter {
+          title
         }
       }
     }

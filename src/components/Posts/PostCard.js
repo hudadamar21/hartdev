@@ -6,6 +6,7 @@ function Postlist({ post, title, withDescription = true }) {
   const postThumb = getImage(post.frontmatter?.thumb)
 
   const {collection, slug} = post.fields
+
   return (
     <li className="w-full">
       <Link to={"/"+collection+slug} itemProp="url">
@@ -29,7 +30,7 @@ function Postlist({ post, title, withDescription = true }) {
               />
             }
             <h3 className="absolute rounded-tl-md pt-px bottom-0 right-0 bg-gray-700/80 rounded-sm text-white px-2">
-              {post.fields.collection.split('-').join(' ')}
+              {collection.replaceAll('-', ' ')}
             </h3>
           </div>
           <section className="relative p-5 pt-2">
@@ -38,7 +39,7 @@ function Postlist({ post, title, withDescription = true }) {
               <span className="pl-1">{post.frontmatter?.dateFromNow}</span>
             </div>
             
-            <h2 className="text-xl line-clamp-1 font-semibold mt-2" itemProp="headline">
+            <h2 className="text-lg line-clamp-2 font-semibold mt-2" itemProp="headline">
               {title}
             </h2>
             { 
