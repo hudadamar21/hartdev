@@ -49,15 +49,15 @@ function Postlist({ post, title, withDescription = true }) {
                 {post.frontmatter?.description}
               </p>
             }
-            {/*<ul className="mt-3 -ml-2 flex items-center text-sm divide-x text-gray-400">
+            <ul className="mt-3 -ml-2 flex items-center text-sm gap-1 text-gray-400">
               {
                 post.frontmatter.tags.map(tag => (
-                  <li className="px-2" key={tag}>
+                  <li className="px-2 py-px bg-gray-100 rounded-lg" key={tag}>
                     {tag}
                   </li>
                 ))
               }
-            </ul>*/}
+            </ul>
           </section>
         </article>
       </Link>

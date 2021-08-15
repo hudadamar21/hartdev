@@ -19,7 +19,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Wrapper
 wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
@@ -31,7 +31,7 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Simple Card
 ```html
@@ -55,7 +55,7 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
   </div>
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

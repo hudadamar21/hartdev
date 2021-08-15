@@ -19,7 +19,7 @@ live chat support ini diperuntukan untuk consumer yang ingin menanyakan seputar 
 
 live chat sangat banyak digunakan di berbagai website modern salah satunya adalah website kursus online seperti dicoding.
 
-&nbsp;
+<br/>
 
 Oh iya live chat disini hanya tampilan saja, yang berarti secara fungsional tidak berjalan.
 
@@ -29,7 +29,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Live Chat Support
 ```html
@@ -163,7 +163,7 @@ closeChat.addEventListener('click', function (){
 });
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

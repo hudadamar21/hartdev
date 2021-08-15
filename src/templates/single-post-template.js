@@ -3,15 +3,17 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "@/components/Partials/Bio"
 import Seo from "@/components/Partials/Seo"
 import Layout from "@/components/Base/Layout"
 import SideContent from "@/components/Base/SideContent";
+import DisqusComment from "@/components/Partials/DisqusComment";
+import PaginationSimple from "@/components/Partials/PaginationSimple";
+import TableOfContent from "@/components/Partials/TableOfContent";
 
 const BlogPostTemplate = ({ data, location }) => {
-  const { previous, next, post, posts } = data
+  const { previous, next, post, posts, site } = data
 
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = site.siteMetadata?.title || `Title`
   const thumbImage = getImage(post.frontmatter.thumb)
 
   const listOnSeries = posts.nodes.filter(item => 
@@ -32,7 +34,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 lg:pl-36">
         <main className="col-span-12 lg:col-span-8">
           
           <article
@@ -41,10 +43,11 @@ const BlogPostTemplate = ({ data, location }) => {
             itemType="http://schema.org/Article"
           >
 
-            {/* Header include Title Date and Bio */}
-            <header className="flex flex-col gap-3 mb-3">
-              <div className="flex items-center gap-3">
+            {/* Header include Title, Series of, Date */}
+            <header className="flex flex-col">
+              <div className="flex items-center gap-3 lg:-translate-x-11">
                 <Link to={seriesSlug}>
+                  {/* Arrow Left */}
                   <svg 
                     className="
                       hover:-translate-x-2 
@@ -57,108 +60,37 @@ const BlogPostTemplate = ({ data, location }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
                   </svg> 
                 </Link>
-                <h1 className="text-3xl font-bold" itemProp="headline">
+                <h1 className="text-2xl font-bold" itemProp="headline">
                   {post.frontmatter.title}
                 </h1>
               </div>
-
-              <Link to={seriesSlug} className="text-gray-500 ">
+              <Link to={seriesSlug} className="text-gray-500 text-sm">
                 series of <span className="underline hover:text-gray-700">{post.frontmatter.series}</span>
               </Link>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3 divide-x text-sm">
-                  <span className="text-gray-500">
-                    {post.frontmatter.date}
-                  </span>
-                  <span className="pl-3 text-gray-500">
-                    {post.frontmatter.dateFromNow}
-                  </span>
-                </div>
-                <Bio />
+
+              <div className="flex items-center justify-between text-[0.8rem] text-gray-500 mt-5 mb-2">
+                <span>{post.fields.birthTime}</span>
+                <span>{post.fields.birthTimeFormNow}</span>
               </div>
             </header>
 
             {/* Feature Image */}
-            <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />
+            {thumbImage && <GatsbyImage image={thumbImage} alt={post.frontmatter.title} />}
             <script async="async" data-cfasync="false" src="//hungrylongingtile.com/f322d3f05a05bdf9446863398c6a1a90/invoke.js"></script>
             <div id="container-f322d3f05a05bdf9446863398c6a1a90"></div>
 
-            {/* Table Of Contents */}
-            <nav id="table-of-contents">
-              <h1 className="text-xl font-medium -mb-4">
-                Daftar isi
-              </h1>
-              {/* <MDXRenderer>{post.tableOfContents}</MDXRenderer> */}
-            </nav>
+            <TableOfContent title="Daftar Isi" headings={post.headings} />
 
             {/* Content */}
             <section id="content" itemProp="articleBody" >
               <MDXRenderer>{post.body}</MDXRenderer>
             </section>
 
+            <PaginationSimple previous={previous} next={next} />
+
+            <DisqusComment post={post} />
+
           </article>
-
-
-          {/* Paginate to Prev and Next Post */}
-          <nav className="mt-10">
-            <ul className="flex flex-wrap justify-between">
-              <li>
-                {previous && (
-                  <Link 
-                    className="
-                      group
-                      flex items-center gap-2
-                      transition duration-200 
-                      px-3 py-2 
-                      font-semibold
-                    " 
-                    to={"/"+previous.fields.collection+previous.fields.slug} 
-                    rel="prev"
-                  >
-                    <svg 
-                      className="
-                        group-hover:-translate-x-2 
-                        transition-transform duration-200 
-                        h-6 w-6
-                      " 
-                      xmlns="http://www.w3.org/2000/svg" fill="none" 
-                      viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                    </svg> 
-                    {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link 
-                    className="
-                      group
-                      flex items-center gap-2
-                      transition duration-200 
-                      px-3 py-2 
-                      font-semibold
-                    " 
-                    to={"/"+next.fields.collection+next.fields.slug} 
-                    rel="next"
-                  >
-                    {next.frontmatter.title} 
-                    <svg 
-                      className="
-                        group-hover:translate-x-2 
-                        transition-transform duration-200 
-                        h-6 w-6
-                      "
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
 
         </main>
         <SideContent 
@@ -182,6 +114,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     post: mdx(id: { eq: $id }) {
@@ -190,12 +123,17 @@ export const pageQuery = graphql`
       body
       tableOfContents
       fields {
+        slug
         collection
+        birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+        birthTimeFormNow: birthTime(fromNow: true, locale: "id-ID")
+      }
+      headings {
+        depth
+        value
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        dateFromNow: date(fromNow: true)
         description
         tags
         series
@@ -229,7 +167,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    posts: allMdx(filter: {frontmatter: {contentType: {eq: "single"}}}) {
+    posts: allMdx(
+      filter: {frontmatter: {contentType: {eq: "single"}}}
+      sort: {fields: frontmatter___date, order: ASC}
+    ) {
       nodes {
         fields {
           collection

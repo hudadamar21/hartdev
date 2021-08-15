@@ -37,7 +37,7 @@ untuk penjelasan lengkapnya kalian dapat ke website tailwindcss :
 
 oh iya switch darkmode ini juga saya gunakan pada website ini hehehe..
 
-&nbsp;
+<br/>
 
 ## Wrapper
 pada body ini kita akan menempatkan class 'dark' agar darkmode berjalan
@@ -119,7 +119,7 @@ switchTheme()
 
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

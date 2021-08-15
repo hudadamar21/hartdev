@@ -19,7 +19,9 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+
+<br/>
+
 
 ## Basic Button
 ```html
@@ -65,6 +67,8 @@ https://tailwindcss.com
   </button>
 
 ```
+
+<br/>
 
 ## Outline Button
 ```html
@@ -115,6 +119,8 @@ https://tailwindcss.com
   </button>
 
 ```
+
+<br/>
 
 ## Gradient Button
 ```html
@@ -171,7 +177,7 @@ https://tailwindcss.com
   
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

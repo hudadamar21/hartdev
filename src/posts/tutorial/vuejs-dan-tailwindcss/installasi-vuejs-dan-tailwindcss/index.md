@@ -1,7 +1,7 @@
 ---
-title: "Install Vuejs dan Tailwindcss #2"
+title: "Install Vuejs Dan Tailwindcss #2"
 description: "Pada tahap ini kita akan menginstall vuejs dan tailwindcss dengan melakukan setup sampai website dapat ditampilkan."
-date: 2021-07-20T20:19:50+07:00
+date: 2021-07-19T20:19:50+07:00
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
 series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss
@@ -20,7 +20,7 @@ Dengan menggunakan Vitejs kita dapat menjalankan server dengan sangat cepat hany
 Kalian juga bisa lihat penjelasannya lengkapnya disini:
 [Why Vite?](https://vitejs.dev/guide/why.html)
 
-&nbsp;
+<br/>
 
 ## Init Vitejs App
 
@@ -44,7 +44,8 @@ jalankan server vuejs yang akan jalan pada http://localhost:3000
 npm run dev
 ```
 
-&nbsp;
+<br/>
+
 ## First look Vuejs App
 ![firstlook-vuejs](firstlook-vuejs-app.png)
 
@@ -91,7 +92,8 @@ module.exports = {
 }
 ```
 
-&nbsp;
+<br/>
+
 ## Hapus css yang tidak terpakai dengan purge
 
 pada file <b>'tailwind.config.js'</b>, ubah option purge menjadi seperti ini.
@@ -114,12 +116,21 @@ pada file <b>'tailwind.config.js'</b>, ubah option purge menjadi seperti ini.
   } 
 ```
 
-&nbsp;
+<br/>
+
 ## Aktifkan JIT Mode
 
 Apa itu jit mode pada tailwindcss ?
 
-Baca: https://tailwindcss.com/docs/just-in-time-mode
+JIT Mode adalah feature dari tailwindcss 2, yang disebut sebagai The Next Generation of Tailwind CSS
+
+JIT Mode punya beberapa kelebihan yang sangat keren, antara lain:
+- Build CSS yang sangat cepat, hanya membutuhkan 800ms, dan saat mode watch hanya butuh 3ms untuk rebuild
+- Semua variant terbuka tanpa harus configurasi terlebih dahulu
+- Generate custom css langsung dengan tailwindcss. contoh: text-[#ff0000], h-[200px]
+- dll.
+
+Baca Selengkapnya di https://tailwindcss.com/docs/just-in-time-mode
 
 pada file <b>'tailwind.config.js'</b>, tambahkan option mode dan isi dengan 'jit', seperti ini.
 
@@ -141,7 +152,8 @@ pada file <b>'tailwind.config.js'</b>, tambahkan option mode dan isi dengan 'jit
   } 
 ```
 
-&nbsp;
+<br/>
+
 ## Masukan Tailwind pada file css
 
 buat dulu file pada <b>'/src/tailwind.css'</b> dan masukan kode ini.
@@ -160,7 +172,7 @@ import './tailwind.css'
 createApp(App).mount('#app')
 ```
 
-&nbsp;
+<br/>
 
 ## Mencoba Tailwindcss
 
@@ -188,14 +200,14 @@ export default {
 jika tampilkan kita seperti ini, berarti tailwindcss sudah bisa digunakan. congrats!! :D
 ![firstlook-tailwind](./firstlook-tailwind.png)
 
-&nbsp;
+<br/>
 
 # Kesimpulan
 pada tutorial pertama ini kita menginstall vuejs menggunakan vitejs dan menginstall tailwindcss beserta package pendukungnya seperti postcss dan autoprefixer.
 
 kita juga sudah mengkonfigurasi tailwindcss, dari mengkonfigurasi agar menghapus css yang tidak terpakai sampai tailwindcss siap untuk digunakan.
 
-&nbsp;
+<br/>
 
 sampai nanti di tutorial selanjutnya di series:
  

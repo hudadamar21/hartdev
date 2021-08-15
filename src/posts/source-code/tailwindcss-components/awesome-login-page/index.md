@@ -19,7 +19,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Awesome Login Page
 ```html
@@ -76,7 +76,7 @@ https://tailwindcss.com
 }
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

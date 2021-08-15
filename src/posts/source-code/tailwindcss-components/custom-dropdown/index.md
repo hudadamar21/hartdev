@@ -19,7 +19,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Wrapper
 wrapper hanya untuk menengahkan dropdown (optional digunakan)
@@ -72,7 +72,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 </button>
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

@@ -14,10 +14,16 @@ module.exports = {
     description: `All Stuff for Web Developers`,
     siteUrl: `https://hartdev.site`,
     social: {
-      twitter: `hudadamar21`,
+      facebook: `https://facebook.com/hudadamar21`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `hartdev-site`
+      }
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -45,10 +51,20 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-smartypants`,
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `heading-content`,
+              icon: false,
+              maintainCase: false,
+              removeAccents: false,
+              isIconAfterHeader: false,
+              elements: [`h1`, `h2`, `h3`],
+            },
+          },
+          `gatsby-remark-smartypants`,
+          // `gatsby-remark-copy-linked-files`,
         ],
       },
     },

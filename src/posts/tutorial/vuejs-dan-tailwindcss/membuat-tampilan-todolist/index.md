@@ -1,6 +1,6 @@
 ---
 title: "Membuat Tampilan Todolist #3"
-date: 2021-08-11T20:45:55+07:00
+date: 2021-07-20T20:45:55+07:00
 description: "Disini kita akan membuat tampilan todolist menggunakan tailwindcss sebagai styling-nya, dan refactor code-nya menggunakan component vuejs agar lebih modular dan mudah di maintenance."
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
@@ -16,7 +16,7 @@ kita juga akan me-refactor code kita agar lebih modular menggunakan component vu
 
 kita mulai dari membuat layout utama dengan mengubah file **App.vue** pada folder **src**
 
-&nbsp;
+<br/>
 
 # Layout Utama
 
@@ -80,15 +80,15 @@ export default {
 
 Code yang di highlight adalah sebuah component yang nanti kita buat pada file terpisah
 
-> pada Component FormInput akan berisi form yang digunakan untuk menginput data todolist beserta tombol submitnya
+> pada **"Component FormInput"** akan berisi form yang digunakan untuk menginput data todolist beserta tombol submitnya
 
-> pada Component TodoInProgress akan berisi todo yang sedang dikerjakan dan belum diselesaikan
+> pada **"Component TodoInProgress"** akan berisi todo yang sedang dikerjakan dan belum diselesaikan
 
-> pada Component TodoCompleted akan berisi todo yang sudah diselesaikan.
+> pada **"Component TodoCompleted"** akan berisi todo yang sudah diselesaikan.
 
 Kita juga perlu untuk mengimportnya dan mendaftarkan component-component di atas seperti pada tag script.
 
-&nbsp;
+<br/>
 
 # Component FormInput
 

@@ -18,7 +18,7 @@ Skeleton loading adalah efek loading yang berbentuk seperti kerangka konten, ske
 
 Sekarang ini skeleton loading adalah efek loading yang sedang populer dan banyak sekali digunakan di website modern seperti tokopedia, facebook, bahkan youtube.
 
-&nbsp;
+<br/>
 
 Ok langsung saja kita buat skeleton loadingnya menggunakan tailwindcss
 
@@ -26,7 +26,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Wrapper
 Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
@@ -39,7 +39,7 @@ Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Skeleton Loading Versi 1
 
@@ -73,7 +73,7 @@ Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, 
 </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Skeleton Loading Versi 2
 
@@ -97,7 +97,7 @@ Pada versi 2 ini cocok untuk list article yang memiliki thumbnail, title, dan de
 </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Style CSS
 Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari kiri ke kanan
@@ -119,7 +119,7 @@ Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari ki
 }
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

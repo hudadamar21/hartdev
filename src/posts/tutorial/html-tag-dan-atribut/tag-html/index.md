@@ -1,6 +1,6 @@
 ---
-title: "Tag HTML dan Semua Propertynya #1"
-description: "Penjelasan tag html dan semua propertynya"
+title: "Tag HTML Dan Semua Atributnya #1"
+description: "Penjelasan tag html dan semua Atributnya"
 date: 2021-07-20T20:19:50+07:00
 keyword: [html]
 tags: [html]

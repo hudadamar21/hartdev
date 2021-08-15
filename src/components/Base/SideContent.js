@@ -8,7 +8,7 @@ function SideContent({ collection, lists, seriesSlug }) {
 
   const notSourceCode = collection !== 'source-code' ? 'sticky top-20 mt-2 left-0' : ''
   return (
-    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-8 pl-10">
+    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-8 lg:pl-10 mt-10 lg:mt-0">
       <div className={
         `${notSourceCode} flex flex-col shadow-lg border rounded-lg p-5`
       }>

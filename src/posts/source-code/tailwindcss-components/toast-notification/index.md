@@ -19,7 +19,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Wrapper
 wrapper ini akan menempatkan toast notification pada pojok atas kanan layar.
@@ -31,7 +31,7 @@ wrapper ini akan menempatkan toast notification pada pojok atas kanan layar.
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Versi 1 (Success)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v1.png)
@@ -51,7 +51,7 @@ versi 1 ini digunakan ketika ada notification success
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Versi 2 (Info)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v2.png)
@@ -72,7 +72,7 @@ versi 1 ini digunakan ketika ada notification info
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Versi 3 (Warning)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v3.png)
@@ -92,7 +92,7 @@ versi 1 ini digunakan ketika ada notification warning
   </div>
 ```
 
-&nbsp;
+<br/>
 
 ## Versi 4 (Error)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v4.png)
@@ -113,7 +113,7 @@ versi 1 ini digunakan ketika ada notification error
   </div>
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 

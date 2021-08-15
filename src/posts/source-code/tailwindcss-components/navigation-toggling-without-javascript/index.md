@@ -23,7 +23,7 @@ jadi logikanya adalah ketika button focus maka menu akan ditampilkan.
 
 dan ajaibnya kalian dapat menutup menu dengan mengklik diluar menu.. sangat ajaib
 
-&nbsp;
+<br/>
 
 Ok langsung saja kita buat navigation ini.
 
@@ -31,7 +31,7 @@ Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses li
 
 https://tailwindcss.com
 
-&nbsp;
+<br/>
 
 ## Navigation Toggling Without Javascript
 ```html
@@ -62,7 +62,7 @@ https://tailwindcss.com
 </nav>
 ```
 
-&nbsp;
+<br/>
 
 import YoutubePlay from "@/components/Partials/YoutubePlay"
 
