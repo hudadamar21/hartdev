@@ -35,8 +35,8 @@ const HomePage = ({ location }) => {
     },
     {
       to: '/source-code',
-      imageSrc: '/tailwind_components.svg',
-      name: 'Tailwind Components'
+      imageSrc: '/source-code.svg',
+      name: 'Source Code'
     },
     {
       to: '/tutorial',
@@ -57,8 +57,8 @@ const HomePage = ({ location }) => {
         px-5 lg:px-20
       ">
         <img 
-          src="/banner-background.jpg" 
-          className="absolute bottom-0 left-0 z-0 opacity-30" 
+          src="/banner-background.svg" 
+          className="absolute bottom-0 w-full h-full left-0 z-0" 
           alt=""
         />
         <div className="text-white relative z-10">
@@ -83,7 +83,7 @@ const HomePage = ({ location }) => {
           <LogoType/>
         </div>
       </section>
-      <section className="flex flex-col items-center pt-20 pb-40 md:py-40 px-5 md:px-20">
+      <section className="flex flex-col items-center pt-20 pb-40 md:py-40 px-5 md:px-20 min-h-screen">
         <h1 id="contents" className="pt-20 -mt-20 text-2xl md:text-3xl font-bold mb-6 md:mb-10 uppercase">Content List</h1>
         <div className="flex flex-wrap justify-center">
           {

@@ -2,7 +2,7 @@
   "name": "hartdev",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Huda Damar",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
@@ -11,7 +11,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "dotenv": "^10.0.0",
-    "gatsby": "^3.10.2",
+    "gatsby": "^3.12.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-config": "^1.0.7",
@@ -41,13 +41,13 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.2.1",
     "autoprefixer": "^10.3.1",
     "gatsby-plugin-postcss": "^4.10.0",
     "gatsby-remark-code-titles": "^1.1.0",
     "postcss": "^8.3.6",
     "prettier": "2.3.2",
-    "tailwindcss": "^2.2.7",
-    "@tailwindcss/line-clamp": "^0.2.1"
+    "tailwindcss": "^2.2.7"
   },
   "homepage": "https://hartdev.site",
   "keywords": [

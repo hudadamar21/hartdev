@@ -4,16 +4,11 @@
  * @author Martijn Swaagman
  * @license MIT 2015
  */
-
- @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
  code[class*="language-"],
  pre[class*="language-"] {
-   color: #f7f7f7;
-   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
-    monospace;
+   color: #f8f8f2;
+   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
    direction: ltr;
    text-align: left;
    white-space: pre;
@@ -41,7 +36,7 @@
  
  :not(pre) > code[class*="language-"],
  pre[class*="language-"] {
-   background: #0f0800;
+   background: #272822;
  }
  
  :not(pre) > code[class*="language-"] {
@@ -57,7 +52,7 @@
  }
  
  .token.punctuation {
-   color: #dfdfdf;
+   color: #F8F8F2;
  }
  
  .namespace {
@@ -69,7 +64,7 @@
  .token.constant,
  .token.symbol,
  .token.deleted {
-   color: #f34343;
+   color: #F92672;
  }
  
  .token.boolean,
@@ -79,11 +74,10 @@
  
  .token.selector,
  .token.attr-name,
- 
+ .token.string,
  .token.char,
  .token.builtin,
- .token.inserted,
- .token.function {
+ .token.inserted {
    color: #A6E22E;
  }
  
@@ -93,17 +87,17 @@
  .language-css .token.string,
  .style .token.string,
  .token.variable {
-   color: #ffffff;
+   color: #F8F8F2;
  }
  
  .token.atrule,
  .token.attr-value,
- .token.string {
+ .token.function {
    color: #E6DB74;
  }
  
  .token.keyword {
-   color: #ee2b2b;
+   color: #F92672;
  }
  
  .token.regex,

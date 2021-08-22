@@ -34,7 +34,7 @@ function Navbar({title, darkmode = false}) {
       flex items-center justify-between 
       h-16 px-5 md:px-12 lg:px-20 
       backdrop-blur-md transition duration-400 
-      ${darkmode ? 'bg-black/80 text-white' : 'bg-white/80 text-gray-700'}
+      ${darkmode ? 'bg-transparent text-white' : 'bg-white/80 text-gray-700'}
     `}>
       <Link to="/" className="flex items-center gap-3">
       <StaticImage

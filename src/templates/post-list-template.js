@@ -8,11 +8,11 @@ import PostCard from "@/components/Posts/PostCard";
 import Pagination from "@/components/Partials/Pagination";
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data.posts.edges
-  const listOfCollection = data.listOfCollection.nodes
+  const posts = data?.posts?.edges
+  const listOfCollection = data?.listOfCollection?.nodes
 
   const seriesByCollection = listOfCollection.filter(series => 
-    series.fields.collection === pageContext.collection
+    series?.fields.collection === pageContext?.collection
   )
 
   return (
@@ -22,24 +22,29 @@ const PostList = ({ data, pageContext, location }) => {
     >
       <Seo title="HartDev - Posts" />
       <h1 className="text-2xl font-bold my-5 capitalize">
-        {pageContext.title} : 
+        {pageContext?.title} : 
       </h1>
       <div className="grid grid-cols-12 gap-10 w-full ">
         <main className="col-span-12 lg:col-span-8">
-          <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
-            {posts.map(post => {
-              const title = post.node.frontmatter.title
-              return <PostCard post={post.node} title={title} key={post.node.fields.slug} />
-            })}
-          </ul>
-        
+          {
+            posts.length > 0 ? (
+              <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
+                {posts?.map(post => {
+                  const title = post?.node?.frontmatter?.title
+                  return <PostCard post={post?.node} title={title} key={post?.node?.fields?.slug} />
+                })}
+              </ul>
+            ) : (
+              <div>Tidak Ada Posts</div>
+            )
+          }
           <Pagination pageContext={pageContext}/>
         </main>
         
         <SideContent 
-          collection={posts[0].node.fields.collection} 
+          collection={posts[0]?.node?.fields?.collection} 
           lists={seriesByCollection}
-          seriesSlug={"/"+ pageContext.collection}
+          seriesSlug={"/"+ pageContext?.collection}
          />
       </div>
       

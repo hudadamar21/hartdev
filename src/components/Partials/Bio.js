@@ -12,7 +12,7 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            facebook
           }
         }
       }
