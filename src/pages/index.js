@@ -89,10 +89,9 @@ const HomePage = ({ location }) => {
           {
             contents.map(({to, imageSrc, name}) => {
               return (
-                <div className="w-full md:w-1/2 lg:w-1/3 p-3">
+                <div className="w-full md:w-1/2 lg:w-1/3 p-3" key={to}>
                   <Link 
                     to={to}
-                    key={to}
                     className="hover:opacity-90 w-full h-full block overflow-hidden group rounded-md"
                   >
                     <img 

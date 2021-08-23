@@ -137,58 +137,58 @@ module.exports = {
         trackingId: config.GOOGLE_ANALYTIC_TRACKING_ID,
       },
     },
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, AllMdx } }) => {
-              return AllMdx.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
-            },
-            query: `
-              {
-                AllMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  nodes {
-                    excerpt
-                    html
-                    fields {
-                      slug
-                    }
-                    frontmatter {
-                      title
-                      date
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, AllMdx } }) => {
+    //           return AllMdx.nodes.map(node => {
+    //             return Object.assign({}, node.frontmatter, {
+    //               description: node.excerpt,
+    //               date: node.frontmatter.date,
+    //               url: site.siteMetadata.siteUrl + node.fields.slug,
+    //               guid: site.siteMetadata.siteUrl + node.fields.slug,
+    //               custom_elements: [{ "content:encoded": node.html }],
+    //             })
+    //           })
+    //         },
+    //         query: `
+    //           {
+    //             allMdx(
+    //               sort: { order: DESC, fields: [frontmatter___date] },
+    //             ) {
+    //               nodes {
+    //                 excerpt
+    //                 body
+    //                 fields {
+    //                   slug
+    //                 }
+    //                 frontmatter {
+    //                   title
+    //                   date
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: "/rss.xml",
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

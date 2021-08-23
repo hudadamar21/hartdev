@@ -30,7 +30,7 @@ function Postlist({ post, title, withDescription = true }) {
               />
             }
             <h3 className="absolute rounded-tl-md pt-px bottom-0 right-0 bg-gray-700/80 rounded-sm text-white px-2">
-              {collection.replaceAll('-', ' ')}
+              {collection.split(' ').join('-')}
             </h3>
           </div>
           <section className="relative p-5 pt-2">

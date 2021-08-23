@@ -161,3 +161,6 @@ export default {
 Disini kita membuat sebuat form yang didalamnya ada input text, text waktu sekarang, dan button untuk submit/save todo.
 
 Pada code yang di highlight adalah waktu sekarang dan telah di format menjadi 8/11/2021, yang akan digunakan juga sebagai waktu/kapan todolist dibuat.
+
+
+----- belum selesai -----

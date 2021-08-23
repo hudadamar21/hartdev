@@ -1,9 +1,23 @@
 import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 const DisqusComment = ({post}) => {
+
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
+
+  const url = site.siteMetadata.siteUrl + '/' + post.fields.collection + post.fields.slug
+
   let disqusConfig = {
-    url: window.location.href,
+    url,
     identifier: post.id,
     title: post.title,
   }
