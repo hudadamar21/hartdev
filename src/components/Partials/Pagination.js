@@ -4,7 +4,12 @@ import PropTypes from "prop-types"
 
 function Pagination({ pageContext, collection }) {
 
-  const paginationClass = `flex items-center gap-2 text-lg font-semibold hover:bg-gray-100 px-4 py-1.5`
+  const paginationClass = `
+    flex items-center gap-2 
+    text-lg font-semibold
+    hover:bg-gray-100 dark:hover:bg-gray-700 
+    px-4 py-1.5 rounded-md
+  `
 
   const paginate = (toPage) => 
     `${paginationClass} ${!toPage ? 'opacity-50 pointer-events-none' : ''}`

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import PostCard from "@/components/Posts/PostCard";
 import HartButton from "@/components/Partials/HartButton";
+import LazyLoad from '@/components/Partials/LazyLoad';
 
 function LatestPost() {
 
@@ -54,12 +55,14 @@ function LatestPost() {
       {
         posts.slice(0, 2).map(post => {
           return (
-            <PostCard 
-              post={post.node} 
-              withDescription={false} 
-              title={post.node.frontmatter.title || 'No Title'} 
-              key={post.node.fields.slug} 
-            />
+            <LazyLoad skeletonTemplate="big-post-card">  
+              <PostCard 
+                post={post.node} 
+                withDescription={false} 
+                title={post.node.frontmatter.title || 'No Title'} 
+                key={post.node.fields.slug} 
+              />
+            </LazyLoad>
           )
         })
       } 
@@ -67,18 +70,22 @@ function LatestPost() {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mb-10">
         {posts.slice(2).map(post => {
           return (
-            <PostCard 
-              post={post.node} 
-              withDescription={false} 
-              title={post.node.frontmatter.title || 'No Title'} 
-              key={post.node.fields.slug} 
-            />
+            <LazyLoad skeletonTemplate="post-card">
+              <PostCard 
+                post={post.node} 
+                withDescription={false} 
+                title={post.node.frontmatter.title || 'No Title'} 
+                key={post.node.fields.slug} 
+              />
+            </LazyLoad>
           )
         })}
       </ul>
-      <HartButton to="/posts">
-        Show more
-      </HartButton>
+      <LazyLoad skeletonTemplate="box">
+        <HartButton to="/posts">
+          Show more
+        </HartButton>
+      </LazyLoad>
     </section>
   )
 }

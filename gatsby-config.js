@@ -19,6 +19,34 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/_contents/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/_contents/source-code`,
+        name: `source-code`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/_contents/tutorial`,
+        name: `tutorial`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `hartdev-site`
@@ -29,7 +57,6 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
-          // posts: require.resolve("./src/components/posts-layout.js"),
           default: require.resolve("./src/components/Layouts/default.js"),
         },  
         gatsbyRemarkPlugins: [
@@ -90,34 +117,6 @@ module.exports = {
         color: `#2b83d6`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/posts/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/posts/source-code`,
-        name: `source-code`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/posts/tutorial`,
-        name: `tutorial`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -137,58 +136,58 @@ module.exports = {
         trackingId: config.GOOGLE_ANALYTIC_TRACKING_ID,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`,
-    //   options: {
-    //     query: `
-    //       {
-    //         site {
-    //           siteMetadata {
-    //             title
-    //             description
-    //             siteUrl
-    //             site_url: siteUrl
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, AllMdx } }) => {
-    //           return AllMdx.nodes.map(node => {
-    //             return Object.assign({}, node.frontmatter, {
-    //               description: node.excerpt,
-    //               date: node.frontmatter.date,
-    //               url: site.siteMetadata.siteUrl + node.fields.slug,
-    //               guid: site.siteMetadata.siteUrl + node.fields.slug,
-    //               custom_elements: [{ "content:encoded": node.html }],
-    //             })
-    //           })
-    //         },
-    //         query: `
-    //           {
-    //             allMdx(
-    //               sort: { order: DESC, fields: [frontmatter___date] },
-    //             ) {
-    //               nodes {
-    //                 excerpt
-    //                 body
-    //                 fields {
-    //                   slug
-    //                 }
-    //                 frontmatter {
-    //                   title
-    //                   date
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         `,
-    //         output: "/rss.xml",
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    excerpt
+                    body
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

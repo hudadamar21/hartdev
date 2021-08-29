@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (postsQuery.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
+      `There was an error loading your posts`,
       postsQuery.errors
     )
     return
@@ -51,11 +51,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const { id, fields, frontmatter } = post.node
 
       if(frontmatter.contentType === 'single') {
+        const seriesSlug = fields.slug.split('/')[1]
         createPage({
           path: '/' + fields.collection + fields.slug,
-          component: path.resolve("./src/templates/single-post-template.js"),
+          component: path.resolve("./src/templates/single-post-template/index.js"),
           context: {
             id,
+            pathSeries: `/${fields.collection}/${seriesSlug}`,
             previousPostId,
             nextPostId,
             filter: {}
@@ -190,38 +192,47 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
   
-//   createTypes(`
-//     type SiteSiteMetadata {
-//       author: Author
-//       siteUrl: String
-//       social: Social
-//     }
+  createTypes(`
+    type SiteSiteMetadata {
+      title: String
+      author: Author
+      siteUrl: String
+      social: Social
+    }
 
-//     type Author {
-//       name: String
-//       summary: String
-//     }
+    type Author {
+      name: String
+      summary: String
+    }
 
-//     type Social {
-//       twitter: String
-//     }
+    type Social {
+      facebook: String
+    }
 
-//     type MarkdownRemark implements Node {
-//       frontmatter: Frontmatter
-//       fields: Fields
-//     }
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
 
-//     type Frontmatter {
-//       title: String
-//       description: String
-//       date: Date @dateformat
-//     }
+    type Frontmatter {
+      category: String
+      contentType: String
+      date: Date @dateformat
+      description: String
+      keyword: [String]
+      series: String
+      tags: [String]
+      title: String
+    }
 
-//     type Fields {
-//       slug: String
-//     }
-//   `)
-// }
+    type Fields {
+      birthTime: Date @dateformat
+      collection: String
+      modifiedTime: Date @dateformat
+      slug: String
+    }
+  `)
+}

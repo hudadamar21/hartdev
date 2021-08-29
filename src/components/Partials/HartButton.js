@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 function HartButton({ to, children, small }) {
 
-  const isSmall = small ? 'px-2 py-1 text-base' : 'px-3 py-2 text-base md:text-lg'
+  const isSmall = small ? 'px-2.5 py-1.5 text-base' : 'px-3 py-2 text-base md:text-lg'
   return (
     <Link 
       to={to}

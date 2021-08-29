@@ -11,7 +11,7 @@ const NotFoundPage = ({ data, location }) => {
       <Seo title="404 Not Found" />
       <div className="flex flex-col items-center ">
         <h1>{siteTitle}</h1>
-        <h1 className="text-5xl text-gray-600 font-bold mb-5">404 Not Found</h1>
+        <h2 className="text-5xl text-gray-600 font-bold mb-5">404 Not Found</h2>
         <p>back to <Link to="/" className="underline text-blue-500">home</Link></p>
       </div>
     </div>

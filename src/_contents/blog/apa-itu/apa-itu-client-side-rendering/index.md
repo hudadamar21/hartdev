@@ -16,7 +16,7 @@ langsung aja yuk disimak.
 
 <br/>
 
-## Apa Itu Client Side Rendering?
+# Apa Itu Client Side Rendering?
 
 Client Side Rendering adalah teknik untuk merender sebuah website yang dilakukan secara langsung didalam browsernya menggunakan bantuan bahasa pemrogramman javascript.
 
@@ -26,21 +26,21 @@ Namun walaupun begitu Client Side Rendering (SSR) juga memiliki Kelebihan dan Ke
 
 <br/>
 
-### Kelebihan
+## Kelebihan
   - Website menjadi cepat karena hanya membutuhkan 1 halaman html dan selanjutnya hanya memanipulasi DOM mengunakan javascript
   - Website lebih interaktif, flexible, dan mudah dioptimasi
   - Karena tidak membutuhkan server, oleh karena itu website bisa di hosting dilayanan gratis, sperti netlify, vercel, github pages, dll.
 
 <br/>
 
-### Kekurangan 
+## Kekurangan 
   - Tidak Bagus untuk Search Engine Optimization (SEO), karena untuk SEO, Search Engine memerlukan halaman awal website yang sudah siap ditampilkan, sedangkan SSR membutuhkan javascript untuk menampikan website.
   - Tidak Bagus untuk Social Media Optimization (SMO),saat men-share website pada media social, hasil share tidak dapat menampilkan preview halaman website. memerlukan langkah ekstra seperti menambahkan meta tag pada laman website.
   - Ukuran file javacript terbilang cukup besar, yang dapat mempengaruhi performa website (hanya saat website terbuka untuk pertama kali)
 
 <br/>
 
-## Penutup
+# Penutup
 
 Jadi itu penjelasan mengenai Apa Itu Client Side Rendering (SSR), Kelebihan dan juga Kekurangannya.
 

@@ -2,19 +2,22 @@ import React from 'react'
 import { Link } from "gatsby";
 
 function PaginationSimple({previous, next}) {
+
+  const paginationStyle = `
+    group
+    flex items-center gap-2
+    transition duration-200 
+    px-3 py-2 
+    font-semibold
+  `
+
   return (
     <nav className="mt-10">
       <ul className="flex flex-wrap justify-between">
         <li>
           {previous && (
             <Link 
-              className="
-                group
-                flex items-center gap-2
-                transition duration-200 
-                px-3 py-2 
-                font-semibold
-              " 
+              className={paginationStyle}
               to={"/"+previous.fields.collection+previous.fields.slug} 
               rel="prev"
             >
@@ -36,13 +39,7 @@ function PaginationSimple({previous, next}) {
         <li>
           {next && (
             <Link 
-              className="
-                group
-                flex items-center gap-2
-                transition duration-200 
-                px-3 py-2 
-                font-semibold
-              " 
+              className={paginationStyle}
               to={"/"+next.fields.collection+next.fields.slug} 
               rel="next"
             >

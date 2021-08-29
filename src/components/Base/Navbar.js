@@ -1,32 +1,27 @@
 import * as React from 'react'
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
+import menulist from '@/data/menulist'
 
-function Navbar({title, darkmode = false}) {
-  const listClass = `border-b-4 border-transparent font-semibold ${darkmode ? 'hover:border-white' : 'hover:border-gray-700 '}`
+import useDarkmode from '@/hooks/useDarkmode'
 
-  const links = [
-    {
-      to: '/',
-      name: 'Home',
-    },
-    {
-      to: '/blog',
-      name: 'Blog',
-    },
-    {
-      to: '/tutorial',
-      name: 'Tutorial',
-    },
-    {
-      to: '/source-code',
-      name: 'Source Code',
-    },
-    {
-      to: '/about',
-      name: 'About',
-    },
-  ]
+function Navbar({title, darknav = false, pageActive}) {
+
+  const { darkmode, toggleDarkmode, icons } = useDarkmode(false)
+
+  const listClass = `border-b-4 border-transparent font-semibold ${darknav ? 'hover:border-white' : 'hover:border-gray-700 dark:hover:border-white'}`
+
+  const list = menulist.map(link => (
+    <li className={`
+      ${pageActive === link.slug && link.slug === 'home' ? 'border-white' 
+        : pageActive === link.slug ? 'border-gray-700' 
+        : ''
+      }    
+      ${listClass}
+    `} key={link.name}>
+      <Link to={link.to}>{link.name}</Link>
+    </li>
+  ))
 
   return (
     <nav className={`
@@ -34,7 +29,7 @@ function Navbar({title, darkmode = false}) {
       flex items-center justify-between 
       h-16 px-5 md:px-12 lg:px-20 
       backdrop-blur-md transition duration-400 
-      ${darkmode ? 'bg-transparent text-white' : 'bg-white/80 text-gray-700'}
+      ${darknav ? 'bg-transparent text-white' : 'bg-white/80  text-gray-700 dark:bg-transparent dark:text-white'}
     `}>
       <Link to="/" className="flex items-center gap-3">
       <StaticImage
@@ -48,15 +43,14 @@ function Navbar({title, darkmode = false}) {
       />
         <h1 className="text-xl font-bold">{title}</h1>
       </Link>
-      <ul className="flex items-center gap-10 font-medium">
-      {
-        links.map(link => (
-          <li className={listClass} key={link.name}>
-            <Link to={link.to}>{link.name}</Link>
-          </li>
-        ))
-      }
-      </ul>
+      <div className="flex items-start gap-10">
+        <ul className="hidden md:flex items-center gap-10 font-medium">
+          {list}
+        </ul>
+        <button onClick={toggleDarkmode} name="change-theme">
+          {darkmode ? icons.light : icons.dark}
+        </button>
+      </div>
     </nav>
   )
 }
