@@ -71,9 +71,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     paginate({
       createPage,
       items: posts.filter(post => post.node.frontmatter.contentType === 'single'),
-      itemsPerPage: 9,
+      itemsPerPage: 10,
       pathPrefix: `/posts`,
-      component: path.resolve("./src/templates/series-list-template.js"),
+      component: path.resolve("./src/templates/post-list-template.js"),
       context: {
         title: "All Posts",
         filter: {"frontmatter": {"contentType": {"eq": "single"}}}

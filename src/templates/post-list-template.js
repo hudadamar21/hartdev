@@ -57,7 +57,7 @@ const PostList = ({ data, pageContext, location }) => {
           </main>
           <LazyLoad skeletonTemplate="big-box">
             <SideContent
-              title="Another Series"
+              title="Another"
               collection={posts[0]?.fields?.collection} 
               lists={seriesByCollection}
               seriesSlug={"/"+ pageContext?.collection}
@@ -133,5 +133,6 @@ export const pageQuery = graphql`
         }
       }
     }
+    
   }
 `

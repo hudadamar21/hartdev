@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import SkeletonLoading from '@/components/Partials/SkeletonLoading';
@@ -12,20 +12,57 @@ function Thumbnail({image, title}) {
 }
 
 function SideContent({title, collection, lists, seriesSlug, contentType }) {
+
+  const query = useStaticQuery(graphql`
+    query {
+      allMdx(
+        filter: {
+          frontmatter: {
+            contentType: {eq: "single"}
+          }
+        }
+      ) {
+        distinct(field: frontmatter___series)
+        distinctByCollection: distinct(field: fields___collection)
+        nodes {
+          frontmatter {
+            series
+            title
+          }
+          fields {
+            collection
+          }
+        }
+      }
+    }
+  `)
   
-  function toCapitalize (text) {
-    return text.split('-').map(txt => 
-      txt.split('').map((t,i) => 
-        i === 0 ? t.toUpperCase() : t).join('')
-    ).join(' ')
-  }
-  
+  const collectionListNames = query.allMdx.distinctByCollection
+
+  const seriesListNames = query.allMdx.distinct
+
+
+  const categoryList = collectionListNames.map(category => {
+    const seriesList = seriesListNames.map(series => {
+      const posts = query.allMdx.nodes.filter(post => post.frontmatter.series === series)
+      return {
+        title: series,
+        collection: posts[0].fields.collection,
+        count: posts.length
+      }
+    })
+    return {
+      category: category.replace(/\-/g, ' '),
+      list: seriesList.filter(post => post.collection === category)
+    }
+  })
+
+  console.log(categoryList)
+
   const HartButton = lazy(() => import("@/components/Partials/HartButton"))
   const YoutubeSubscribe = lazy(() => import("@/components/Partials/YoutubeSubscribe"))
 
   const isSourceCode = collection === 'source-code'
-
-  const collectionCapitalize = toCapitalize(collection)
 
   const contentList = lists.slice(0, 5).map(list => {
     const {collection, slug} = list.fields
@@ -61,11 +98,41 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
         `${!isSourceCode ? 'sticky top-20 mt-2 left-0' : ''} 
         flex flex-col shadow-lg border dark:border-gray-700 rounded-lg p-6`
       }>
-        <h1 className="text-xl font-semibold mb-5">
-          { title } ({collectionCapitalize})
+        <h1 className="text-xl font-semibold mb-5 capitalize">
+          { title } {collection.replace(/\-/g, ' ')}
         </h1>
         <ul className="flex flex-col gap-5">
           { lists.length > 0 ? contentList : emptyList }
+        </ul>
+        { listLimit } 
+      </div>
+      <div className={
+        `${!isSourceCode ? 'sticky top-20 mt-2 left-0' : ''} 
+        flex flex-col shadow-lg border bg-white dark:border-gray-700 rounded-lg p-6`
+      }>
+        <h1 className="text-xl font-semibold mb-5 capitalize">
+          Categories
+        </h1>
+        <ul className="flex flex-col gap-5">
+          {
+            categoryList.map(category => {
+              return (
+                <li key={category.category}>
+                  <h1 className="font-semibold text-lg capitalize mb-2">{category.category}</h1>
+                  <ul >
+                    {category.list.map(series => {
+                      return (
+                        <li className="flex items-center justify-between w-full " key={series.title}>
+                          <h2 className="line-clamp-1" >- {series.title}</h2>
+                          <span className="">({series.count})</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </li>
+              )
+            })
+          }
         </ul>
         { listLimit } 
       </div>
