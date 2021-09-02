@@ -63,7 +63,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
           </main>
           <LazyLoad skeletonTemplate="box">
             <SideContent
-              title="Related Post"
+              title="Related"
               collection={collection} 
               lists={listOnSeries}
               seriesSlug={pageContext.seriesSlug}

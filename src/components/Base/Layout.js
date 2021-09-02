@@ -21,7 +21,7 @@ const Layout = ({ location, children, mainClass, navbarDark, pageActive }) => {
 
   return (
     <div 
-      className="text-gray-700 dark:text-white min-h-screen flex flex-col bg-white dark:bg-gray-800 transition"
+      className="text-gray-700 dark:text-white min-h-screen flex flex-col bg-white dark:bg-gray-900 transition"
       data-is-root-path={isRootPath}
     >
       <Navbar title={title} darknav={navbarDark} pageActive={pageActive} />

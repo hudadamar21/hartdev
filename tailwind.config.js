@@ -4,8 +4,13 @@ module.exports = {
   mode: 'jit',
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      display: ['Bebas Neue', 'cursive'],
+    },
     extend: {
-      gray: colors.coolGray
+      colors: {
+        gray: colors.coolGray
+      },
     },
   },
   variants: {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-function TitledCard({ post, title, }) {
+function ImageLink({ post, title, }) {
   const postThumb = getImage(post.frontmatter?.thumb)
   const {collection, slug} = post.fields
 
@@ -20,4 +20,4 @@ function TitledCard({ post, title, }) {
   )
 }
 
-export default TitledCard
+export default ImageLink

@@ -20,7 +20,7 @@ const PostList = ({ data, pageContext, location }) => {
   )
   
   const postList = posts?.map(post => (
-    <LazyLoad skeletonTemplate="post-card">
+    <LazyLoad skeletonTemplate="post-card" key={post?.frontmatter?.title}>
       <PostCard 
         post={post} 
         title={post?.frontmatter?.title} 
@@ -39,16 +39,19 @@ const PostList = ({ data, pageContext, location }) => {
         
         <div className="grid grid-cols-12 gap-10 w-full ">
           <main className="col-span-12 lg:col-span-8 p-3 lg:p-0">
-            <h1 className="text-2xl text-center font-bold my-5 uppercase px-3 pb-5">
-              {pageContext?.title} 
-            </h1>
+            <div className="mt-5 mb-7 py-3 border-l-8 pl-4 border-gray-600">
+              <h1 className="font-display text-3xl tracking-widest mb-1">
+                {pageContext?.title} 
+              </h1>
+              <p className="w-2/3">
+                {pageContext?.description}
+              </p>
+            </div>
             {
               posts.length > 0 
-                ? (
-                    <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
-                      {postList}
-                    </ul>
-                  ) 
+                ? <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
+                    {postList}
+                  </ul>
                 : <div>Tidak Ada Posts</div>
             }
             <LazyLoad skeletonTemplate="box">
@@ -58,14 +61,13 @@ const PostList = ({ data, pageContext, location }) => {
           <LazyLoad skeletonTemplate="big-box">
             <SideContent
               title="Another"
-              collection={posts[0]?.fields?.collection} 
+              collection={pageContext?.collection} 
               lists={seriesByCollection}
               seriesSlug={"/"+ pageContext?.collection}
               contentType="list"
             />
           </LazyLoad>
         </div>
-        
       </Layout>
     </LazyLoad>
   )

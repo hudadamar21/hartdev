@@ -5,7 +5,13 @@ const LogoType = lazy(() => import('./LogoType'))
 
 function YoutubeSubscribe() {
   return (
-    <div className="sticky top-20 mt-2 left-0 flex flex-col justify-center items-center shadow-lg border dark:border-gray-700 rounded-lg p-5 py-8">
+    <div className="
+      flex flex-col justify-center items-center 
+      shadow-lg border 
+      bg-white dark:bg-gray-800 
+      dark:border-black rounded-lg 
+      p-5 py-8
+    ">
       <LazyLoad skeletonTemplate="circle">
         <LogoType width={180}/>
       </LazyLoad>

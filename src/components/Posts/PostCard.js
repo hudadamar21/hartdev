@@ -12,7 +12,7 @@ function Postlist({ post, title, withDescription = true, classes }) {
       <Link to={"/"+collection+slug} itemProp="url">
         <article
           className="
-            flex flex-col 
+            flex flex-col
             overflow-hidden rounded-md
             hover:-translate-y-1 hover:shadow-lg
             transition duration-200

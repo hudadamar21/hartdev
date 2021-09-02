@@ -4,7 +4,7 @@ import Seo from "@/components/Partials/Seo"
 import LazyLoad from "@/components/Partials/LazyLoad";
 
 const Layout = lazy(() => import("@/components/Base/Layout"))
-const TitledCard = lazy(() => import("@/components/Posts/TitledCard"))
+const ImageLink = lazy(() => import("@/components/Posts/ImageLink"))
 const Pagination = lazy(() => import("@/components/Partials/Pagination"))
 
 const PostList = ({ data, pageContext, location }) => {
@@ -17,7 +17,7 @@ const PostList = ({ data, pageContext, location }) => {
     return (
       <div className="w-72" key={post.node.fields.slug}>
         <LazyLoad skeletonTemplate="post-card">
-          <TitledCard post={post.node} title={title} />
+          <ImageLink post={post.node} title={title} />
         </LazyLoad>
       </div>
     )
@@ -28,14 +28,16 @@ const PostList = ({ data, pageContext, location }) => {
       <Layout
         pageActive={pageContext.collection}
         location={location}
-        navbarDark={true}
         mainClass="w-full flex items-center flex-col"
       >
         <Seo title="HartDev - Posts" />
-        <div className="bg-gray-800 w-full p-20 pb-12">
-          <h1 className="text-5xl font-bold my-5 mb-10 uppercase text-white">
-            {titleSlug}
-          </h1>
+        <div className="w-full p-20 pb-12">
+          <div className="my-5 mb-10 py-4 border-l-8 pl-5 border-gray-600">
+            <h1 className="font-display tracking-wide text-5xl font-bold mb-1 uppercase">
+              {titleSlug}
+            </h1>
+            <p>List tutorial pemrograman studi kasus bahasa indonesia </p>
+          </div>
           <ul className="flex gap-6">
             {postList}
           </ul>

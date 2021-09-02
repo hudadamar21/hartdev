@@ -121,6 +121,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             node {
               frontmatter {
                 title
+                description
               }
               fields {
                 collection
@@ -136,7 +137,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     seriesList.forEach(post => {
       const { slug, collection } = post.node.fields
-      const { title } = post.node.frontmatter
+      const { title, description } = post.node.frontmatter
 
       const items = posts.filter(item => item.node.frontmatter.series === title)
 
@@ -148,6 +149,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: path.resolve("./src/templates/post-list-template.js"),
         context: {
           title,
+          description,
           collection,
           filter: {
             "frontmatter": {"series": {eq: title}}

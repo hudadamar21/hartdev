@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
 import menulist from '@/data/menulist'
@@ -13,9 +13,9 @@ function Navbar({title, darknav = false, pageActive}) {
 
   const list = menulist.map(link => (
     <li className={`
-      ${pageActive === link.slug && link.slug === 'home' ? 'border-white' 
-        : pageActive === link.slug ? 'border-gray-700' 
-        : ''
+      ${
+        (pageActive === link.slug && darknav) || (pageActive === link.slug && darkmode) ? 'border-white' 
+        : pageActive === link.slug ? 'border-gray-800' : ''
       }    
       ${listClass}
     `} key={link.name}>
@@ -29,7 +29,7 @@ function Navbar({title, darknav = false, pageActive}) {
       flex items-center justify-between 
       h-16 px-5 md:px-12 lg:px-20 
       backdrop-blur-md transition duration-400 
-      ${darknav ? 'bg-transparent text-white' : 'bg-white/80  text-gray-700 dark:bg-transparent dark:text-white'}
+      ${darknav ? 'bg-transparent text-white' : 'bg-white/80 text-gray-700 dark:bg-transparent dark:text-white'}
     `}>
       <Link to="/" className="flex items-center gap-3">
       <StaticImage

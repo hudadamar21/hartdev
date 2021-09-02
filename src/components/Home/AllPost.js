@@ -47,9 +47,9 @@ function LatestPost() {
   const posts = data.allMdx.edges
 
   return (
-    <section className="flex flex-col items-center pb-40 px-5 md:px-20">
-      <h1 id="latest-posts" className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 uppercase">
-        Latest Posts
+    <section id="allpost" className="pb-40 px-5 md:px-20 pt-20">
+      <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold mb-3 md:mb-5 uppercase">
+        All Post
       </h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full mb-10">
       {
@@ -81,11 +81,11 @@ function LatestPost() {
           )
         })}
       </ul>
-      <LazyLoad skeletonTemplate="box">
+      <div className="w-full grid place-items-center">
         <HartButton to="/posts">
           Show more
         </HartButton>
-      </LazyLoad>
+      </div>
     </section>
   )
 }

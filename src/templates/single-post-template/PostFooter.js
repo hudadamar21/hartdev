@@ -1,7 +1,7 @@
 import React, { lazy } from "react"
 
 import LazyLoad from "@/components/Partials/LazyLoad"
-const DisqusComment = lazy(() => import("@/components/Partials/DisqusComment"))
+const Comments = lazy(() => import("@/components/Partials/Comments"))
 const PaginationSimple = lazy(() => import("@/components/Partials/PaginationSimple"))
 
 function PostFooter({post, paginate}) {
@@ -12,7 +12,7 @@ function PostFooter({post, paginate}) {
       </LazyLoad>
 
       <LazyLoad skeletonTemplate="big-box">
-        <DisqusComment post={post} />
+        <Comments/>
       </LazyLoad>
     </footer>
   )
