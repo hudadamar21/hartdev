@@ -76,12 +76,16 @@ const PostList = ({ data, pageContext, location }) => {
 export default PostList
 
 export const pageQuery = graphql`
-  query PostList($skip: Int!, $limit: Int!, $filter: MdxFilterInput) {
+  query PostList($skip: Int!, $limit: Int!, $title: String!) {
     posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
-      filter: $filter
+      filter: {
+        frontmatter: {
+          series: {eq: $title}
+        }
+      }
     ) {
       nodes {
         fields {

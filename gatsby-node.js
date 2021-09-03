@@ -59,25 +59,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id,
             pathSeries: `/${fields.collection}/${seriesSlug}`,
             previousPostId,
-            nextPostId,
-            filter: {}
+            nextPostId
           },
         })
       }
 
-    })
-
-    // All Posts
-    paginate({
-      createPage,
-      items: posts.filter(post => post.node.frontmatter.contentType === 'single'),
-      itemsPerPage: 10,
-      pathPrefix: `/posts`,
-      component: path.resolve("./src/templates/post-list-template.js"),
-      context: {
-        title: "All Posts",
-        filter: {"frontmatter": {"contentType": {"eq": "single"}}}
-      },
     })
 
     // Collection of Post
@@ -100,14 +86,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           title: collection,
           collection,
-          items,
-          filter: {
-            "fields": {
-              "collection": {eq: collection}, 
-              "slug": {ne: "/"}
-            }, 
-            "frontmatter": {"contentType": {eq: "list"}}
-          }
+          items
         },
       })
     })
@@ -150,10 +129,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           title,
           description,
-          collection,
-          filter: {
-            "frontmatter": {"series": {eq: title}}
-          }
+          collection
         },
       })
     })
@@ -236,5 +212,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       modifiedTime: Date @dateformat
       slug: String
     }
+
+    type Equal {
+      eq: String
+    }
+
+    type ContentTypeEqual {
+      contentType: Equal
+    }
+
+    type FrontmatterContentTypeEqual {
+      frontmatter: ContentTypeEqual
+    }
+
   `)
 }

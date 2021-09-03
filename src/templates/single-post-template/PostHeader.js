@@ -14,8 +14,8 @@ function PostHeader({post, pathSeries}) {
 
   return (
     <header className="flex flex-col text-gray-500 dark:text-gray-200">
-      <div className="flex items-center gap-3 lg:-translate-x-11">
-        <Link to={pathSeries}>
+      <div className="flex items-start gap-3 lg:-translate-x-11">
+        <Link to={pathSeries} className="pt-1">
           {arrowLeft}
         </Link>
         <h1 className="text-3xl font-bold text-gray-700 dark:text-white mb-1" itemProp="headline">

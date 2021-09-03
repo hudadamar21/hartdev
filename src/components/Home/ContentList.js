@@ -9,17 +9,17 @@ function ContentList() {
       <div className="flex flex-wrap justify-center">
         <div className="w-full md:w-1/2 lg:w-1/3 p-3">
           <Link 
-            to="/blog"
+            to="/tutorial"
             className="hover:opacity-90 w-full h-full block overflow-hidden group rounded-md transition hover:-translate-y-1 hover:shadow-lg"
           >
             <StaticImage
               className="transition-transform duration-300"
               formats={["AUTO", "WEBP", "AVIF"]}
-              src='../images/blog.png'
+              src='../../images/tutorial.png'
               width={500}
               height={300}
               quality={60}
-              alt="Artikel Blog"
+              alt="Tutorial Ngoding"
             />
           </Link>
         </div>
@@ -31,7 +31,7 @@ function ContentList() {
             <StaticImage
               className="transition-transform duration-300"
               formats={["AUTO", "WEBP", "AVIF"]}
-              src='../images/source-code.png'
+              src='../../images/source-code.png'
               width={500}
               height={300}
               quality={60}
@@ -41,17 +41,17 @@ function ContentList() {
         </div>
         <div className="w-full md:w-1/2 lg:w-1/3 p-3">
           <Link 
-            to="/tutorial"
+            to="/blog"
             className="hover:opacity-90 w-full h-full block overflow-hidden group rounded-md transition hover:-translate-y-1 hover:shadow-lg"
           >
             <StaticImage
               className="transition-transform duration-300"
               formats={["AUTO", "WEBP", "AVIF"]}
-              src='../images/tutorial.png'
+              src='../../images/blog.png'
               width={500}
               height={300}
               quality={60}
-              alt="Tutorial Ngoding"
+              alt="Artikel Blog"
             />
           </Link>
         </div>

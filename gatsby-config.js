@@ -91,7 +91,7 @@ module.exports = {
             },
           },
           `gatsby-remark-smartypants`,
-          // `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
