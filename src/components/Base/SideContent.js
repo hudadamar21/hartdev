@@ -97,9 +97,9 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
       <div className={`
         ${!collection ? 'sticky top-20' : ''}
         flex flex-col
-        shadow-lg border 
+        shadow-none lg:shadow-lg border 
         bg-white dark:bg-gray-800 dark:border-black
-        rounded-lg p-6 mt-2
+        rounded-none lg:rounded-lg p-6 mt-2
       `}>
         <h1 className="text-xl font-semibold mb-5 capitalize">
           Categories
@@ -127,9 +127,9 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           <div className="
             sticky top-20 left-0 
             flex flex-col 
-            shadow-lg border 
+            shadow-none lg:shadow-lg border 
             bg-white dark:bg-gray-800 dark:border-black
-            rounded-lg p-6
+            rounded-none lg:rounded-lg p-6
           ">
             <h1 className="text-xl font-semibold mb-5 capitalize">
               {title} {collection.replace(/-/g, ' ')}

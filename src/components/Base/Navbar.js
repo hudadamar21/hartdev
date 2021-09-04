@@ -25,7 +25,7 @@ function Navbar({title, darknav = false, pageActive}) {
 
   return (
     <nav className={`
-      fixed top-0 inset-x-0 z-50 
+      fixed top-0 inset-x-0 z-30 
       flex items-center justify-between 
       h-16 px-5 md:px-12 lg:px-20 
       backdrop-blur-md transition duration-400 

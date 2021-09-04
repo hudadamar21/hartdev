@@ -11,7 +11,6 @@ import LazyLoad from "@/components/Partials/LazyLoad";
 
 const Layout = lazy(() => import("@/components/Base/Layout"))
 const SideContent = lazy(() => import("@/components/Base/SideContent"))
-
 const TableOfContent = lazy(() => import("@/components/Partials/TableOfContent"))
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
@@ -20,8 +19,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
   const siteTitle = site.siteMetadata?.title || `Title` 
 
   const listOnSeries = posts.nodes.filter(item => 
-    item.frontmatter?.series === series
-    && item.frontmatter.title !== title
+    item.frontmatter?.series === series && item.frontmatter.title !== title
   )
   const { collection } = post.fields
 
@@ -30,13 +28,13 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
       <Layout 
         location={location} 
         title={siteTitle}
-        mainClass="pt-20 w-full p-5 lg:p-20"
+        mainClass="pt-20 w-full p-3 lg:p-20"
       >
         <Seo
           title={title}
           description={description || post.excerpt}
         />
-        <div className="grid grid-cols-12 lg:pl-36">
+        <div className="grid grid-cols-12 lg:pl-36 -mt-5 md:mt-0">
           <main className="col-span-12 lg:col-span-8">
             <article className="relative" itemScope itemType="http://schema.org/Article">
 

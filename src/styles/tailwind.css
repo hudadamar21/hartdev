@@ -26,30 +26,25 @@ html {
   @apply text-2xl mb-3 font-bold;
 }
 #content h2 {
-  @apply text-xl mb-3 font-medium;
+  @apply text-xl mb-3 font-semibold;
 }
 
 #content h3 {
   @apply text-lg mb-3;
 }
 
-#content h1::before, #content h2::before, #content h3::before {
-  content: '#';
-  @apply mr-1;
-} 
-
 #content p {
   margin-bottom: 5px;
   letter-spacing: 1px;
-  @apply tracking-wide mb-1.5;
+  @apply tracking-wide mb-1.5 font-medium;
 }
 
 #content a {
-  @apply text-black dark:text-blue-400 underline;
+  @apply text-blue-400 underline;
 }
 
 #content blockquote {
-  @apply bg-gray-100 font-semibold border-l-4 border-gray-600 text-gray-800 shadow pb-1 pt-2 px-3 my-3;
+  @apply font-semibold border-l-4 border-gray-600 shadow pb-1 pt-2 px-3 my-3;
 }
 
 #content code {
@@ -62,6 +57,7 @@ html {
 
 #content :is(ul, li, ol) {
   all: revert;
+  @apply -ml-2
 }
 
 /* Content END */

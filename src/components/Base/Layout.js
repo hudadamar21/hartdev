@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react"
 import Navbar from "./Navbar";
 
-
 const Layout = ({ location, children, mainClass, navbarDark, pageActive }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
@@ -21,7 +20,7 @@ const Layout = ({ location, children, mainClass, navbarDark, pageActive }) => {
 
   return (
     <div 
-      className="text-gray-700 dark:text-white min-h-screen flex flex-col bg-white dark:bg-gray-900 transition"
+      className="text-gray-700 dark:text-gray-100 min-h-screen flex flex-col bg-white dark:bg-gray-900 transition"
       data-is-root-path={isRootPath}
     >
       <Navbar title={title} darknav={navbarDark} pageActive={pageActive} />

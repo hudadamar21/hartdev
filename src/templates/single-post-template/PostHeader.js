@@ -14,15 +14,15 @@ function PostHeader({post, pathSeries}) {
 
   return (
     <header className="flex flex-col text-gray-500 dark:text-gray-200">
-      <div className="flex items-start gap-3 lg:-translate-x-11">
+      <div className="flex flex-col lg:flex-row items-start gap-3 lg:-translate-x-11">
         <Link to={pathSeries} className="pt-1">
           {arrowLeft}
         </Link>
-        <h1 className="text-3xl font-bold text-gray-700 dark:text-white mb-1" itemProp="headline">
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-700 dark:text-white mb-1" itemProp="headline">
           {title}
         </h1>
       </div>
-      <Link to={pathSeries} className="text-base">
+      <Link to={pathSeries} className="text-sm lg:text-base">
         series of <span className="underline hover:text-gray-700 dark:hover:text-white">{series}</span>
       </Link>
       <div className="flex items-center justify-between text-sm mt-5 mb-2">

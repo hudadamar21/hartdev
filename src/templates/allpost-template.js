@@ -2,22 +2,22 @@ import React from "react"
 import { graphql } from "gatsby"
 import PostList from "./layouts/post-list";
 
-const PostListTemplate = (props) => {
+const AllPost = (props) => {
 
   return <PostList {...props}/>
 }
 
-export default PostListTemplate
+export default AllPost
 
 export const pageQuery = graphql`
-  query PostList($skip: Int!, $limit: Int!, $title: String!) {
+  query AllPost($skip: Int!, $limit: Int!) {
     posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
       filter: {
         frontmatter: {
-          series: {eq: $title}
+          contentType: {eq: "single"}
         }
       }
     ) {

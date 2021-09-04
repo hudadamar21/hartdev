@@ -13,7 +13,7 @@ function PaginationSimple({previous, next}) {
 
   return (
     <nav className="mt-10">
-      <ul className="flex flex-wrap justify-between">
+      <ul className="flex flex-wrap  justify-between">
         <li>
           {previous && (
             <Link 

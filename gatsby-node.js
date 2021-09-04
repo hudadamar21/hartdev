@@ -7,28 +7,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Get all markdown blog posts sorted by date
-  const postsQuery = await graphql(
-    `
-      {
-        allMdx {
-          edges {
-            node {
-              fields {
-                slug
-                collection
-              }
-              frontmatter {
-                title
-                contentType
-                series
-              }
-              id
+  const postsQuery = await graphql(`
+    {
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
+              collection
             }
+            frontmatter {
+              title
+              contentType
+              series
+            }
+            id
+          }
+          next {
+            id
+          }
+          previous {
+            id
           }
         }
       }
-    `
-  )
+    }
+  `)
 
   if (postsQuery.errors) {
     reporter.panicOnBuild(
@@ -43,15 +47,38 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
 
+    const singlePostsQuery = await graphql(`
+      {
+        allMdx(filter: {frontmatter: {contentType: {eq: "single"}}}) {
+          edges {
+            previous {
+              id
+            }
+            node {
+              id
+              fields {
+                slug
+                collection
+              }
+            }
+            next {
+              id
+            }      
+          }
+        }
+      }
+    `)
+
+    const singlePosts = singlePostsQuery.data.allMdx.edges
+
     // Single Post
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].node.id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].node.id
+    singlePosts.forEach((post) => {
+      const previousPostId = post.previous?.id
+      const nextPostId = post.next?.id
 
-      const { id, fields, frontmatter } = post.node
+      const { id, fields } = post.node
 
-      if(frontmatter.contentType === 'single') {
-        const seriesSlug = fields.slug.split('/')[1]
+      const seriesSlug = fields.slug.split('/')[1]
         createPage({
           path: '/' + fields.collection + fields.slug,
           component: path.resolve("./src/templates/single-post-template/index.js"),
@@ -62,8 +89,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             nextPostId
           },
         })
-      }
+    })
 
+    // All Posts
+    paginate({
+      createPage,
+      items: posts.filter(post => post.node.frontmatter.contentType === 'single'),
+      itemsPerPage: 10,
+      pathPrefix: `/posts`,
+      component: path.resolve("./src/templates/allpost-template.js"),
+      context: {
+        title: "All Posts",
+      },
     })
 
     // Collection of Post
