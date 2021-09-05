@@ -14,11 +14,15 @@ html {
 
 /* Content */
 
-#content h1, #content h2, #content h3 {
+#content :is(h1,h2,h3) {
   padding-top: 80px;
-  margin-top: -80px;
+  margin-top: -80px;  
   z-index: -1;
-  @apply text-gray-700 dark:text-white;
+  @apply !static flex items-center gap-1 text-gray-700 dark:text-white;
+}
+
+#content :is(h1,h2,h3) a {
+  @apply text-current opacity-60 hover:opacity-100
 }
 
 
@@ -57,7 +61,7 @@ html {
 
 #content :is(ul, li, ol) {
   all: revert;
-  @apply -ml-2
+  @apply -ml-2;
 }
 
 /* Content END */

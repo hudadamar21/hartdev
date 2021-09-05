@@ -88,14 +88,14 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
   const emptyList = <p className="text-gray-600 dark:text-gray-300">Tidak ada {pageMessage}</p>
 
   return (
-    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pl-10 mt-10 lg:mt-0">
+    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pl-0 xl:pl-10 mt-10 lg:mt-0">
       {isSourceCode &&  (
         <Suspense fallback={<SkeletonLoading/>}>
           <YoutubeSubscribe/>
         </Suspense>
       )}
       <div className={`
-        ${!collection ? 'sticky top-20' : ''}
+        ${lists.length > 0 ? '' : 'sticky top-20'}
         flex flex-col
         shadow-none lg:shadow-lg border 
         bg-white dark:bg-gray-800 dark:border-black
@@ -123,7 +123,7 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
         </ul>
       </div>
       {
-        collection && (
+        lists.length > 0 && (
           <div className="
             sticky top-20 left-0 
             flex flex-col 

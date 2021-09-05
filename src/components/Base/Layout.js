@@ -1,7 +1,7 @@
-import FloatingMenu from "@/components/Partials/FloatingMenu";
-import { useStaticQuery, graphql } from "gatsby";
+import FloatingMenu from "@/components/Partials/FloatingMenu"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import Navbar from "./Navbar";
+import Navbar from "./Navbar"
 
 const Layout = ({ location, children, mainClass, navbarDark, pageActive }) => {
   const rootPath = `${__PATH_PREFIX__}/`

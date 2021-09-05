@@ -258,8 +258,7 @@ value yang dapat diberikan pada atribut translate adalah **"yes"** atau **"no"**
 tapi sepertinya atribut ini tidak lagi di support pada banyak browser.
 
 dapat dilihat disini:
-
-https://www.w3schools.com/tags/att_global_translate.asp
+[HTML translate Attribute](https://www.w3schools.com/tags/att_global_translate.asp)
 
 <br/>
 

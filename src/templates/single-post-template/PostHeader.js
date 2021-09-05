@@ -23,7 +23,7 @@ function PostHeader({post, pathSeries}) {
         </h1>
       </div>
       <Link to={pathSeries} className="text-sm lg:text-base">
-        series of <span className="underline hover:text-gray-700 dark:hover:text-white">{series}</span>
+        from: <span className="underline hover:text-gray-700 dark:hover:text-white">{series}</span>
       </Link>
       <div className="flex items-center justify-between text-sm mt-5 mb-2">
         <span>{birthTime}</span>

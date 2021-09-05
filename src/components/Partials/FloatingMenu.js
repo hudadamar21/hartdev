@@ -44,27 +44,14 @@ function FloatingMenu({ pageActive }) {
     </li>
   ))
 
-  const hamburgerMenuIcon = (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  )
-
-  const buttonClasses = `
-    fixed md:hidden bottom-5 right-5 
-    bg-gray-700 text-white 
-    rounded-full p-3 z-40
-    shadow-md
-  `
-
   const menuClasses = `
     fixed bottom-0 left-0 right-0
     pb-12 px-5 z-50 
-    bg-white dark:bg-gray-700 rounded-t-2xl 
+    bg-white dark:bg-gray-700
     block md:hidden
     text-gray-700 dark:text-gray-100
-    transition duration-500
-    ${menu ? 'translate-y-0' : 'translate-y-[89%]'}
+    transition-all duration-500
+    ${menu ? 'translate-y-0 rounded-t-2xl ' : 'translate-y-[89%] rounded-t-none'}
   `
   const shadowStyle = {
     boxShadow: '0 -2px 15px rgba(0,0,0,0.15)'
@@ -75,8 +62,15 @@ function FloatingMenu({ pageActive }) {
       <div ref={menuOverlay} onClick={closeMenu} className="fixed inset-0 bg-black/50 z-40 opacity-0 transition duration-500 hidden">
       </div>
       <div className={menuClasses} style={shadowStyle}>
-        <button onClick={toggleMenu} className="pt-5 pb-8 w-full grid justify-center cursor-pointer hover:opacity-80 transition">
-          <div className="bg-gray-400 dark:bg-gray-500 w-20 rounded-full h-1.5"></div>
+        <button onClick={toggleMenu} className="w-full grid justify-center cursor-pointer hover:opacity-80 transition">
+          {
+            menu
+            ? <div className="bg-gray-400 dark:bg-gray-500 w-10 rounded-full h-1 my-4"></div>
+            : <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+          }
+          
         </button>
         <ul className="flex flex-col items-center justify-center divide-y divide-gray-300 dark:divide-gray-600">
           {list}
