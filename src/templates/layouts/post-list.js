@@ -9,6 +9,9 @@ const SideContent = lazy(() => import("@/components/Base/SideContent"))
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes
+
+  const thumb = data?.mdx?.frontmatter?.thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet
+
   const listOfCollection = data?.listOfCollection?.nodes
 
   const seriesName = posts.map(post => post?.frontmatter?.series)[0]
@@ -34,7 +37,7 @@ const PostList = ({ data, pageContext, location }) => {
         location={location}
         mainClass="pt-20 w-full p-0 lg:p-20"
       >
-        <Seo title={"HartDev - " + seriesName} />
+        <Seo title={"HartDev - " + seriesName} image={thumb} />
         
         <div className="grid grid-cols-12 gap-10 w-full ">
           <main className="col-span-12 lg:col-span-8 p-3 lg:p-0">

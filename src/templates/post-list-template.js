@@ -12,7 +12,6 @@ export default PostListTemplate
 export const pageQuery = graphql`
   query PostList($skip: Int!, $limit: Int!, $title: String!) {
     posts: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
       filter: {
@@ -20,11 +19,14 @@ export const pageQuery = graphql`
           series: {eq: $title}
         }
       }
+      sort: {fields: fields___birthTime, order: DESC}
     ) {
       nodes {
         fields {
           slug
           collection
+          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
@@ -48,16 +50,37 @@ export const pageQuery = graphql`
       }
     }
 
+    mdx(
+      frontmatter: {
+        title: {eq: $title}
+      }
+    ) {
+      frontmatter {
+        thumb {
+          childImageSharp {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    }
+
     listOfCollection: allMdx(
       filter: {
         fields: {slug: {ne: "/"}}, 
         frontmatter: {contentType: {eq: "list"}}
       }
+      sort: {fields: fields___birthTime, order: DESC}
     ) {
       nodes {
         fields {
-          collection
           slug
+          collection
+          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
           title
@@ -73,6 +96,8 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    
     
   }
 `

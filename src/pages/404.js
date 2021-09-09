@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Seo from "../components/Partials/Seo"
 
 const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data?.site?.siteMetadata?.title
 
   return (
     <div className="grid place-items-center h-screen">

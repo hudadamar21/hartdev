@@ -11,7 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Navigation Toggling No Javascript
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Navigation Toggling Without Javascript
+Hei stuffer kali ini saya ingin share tailwind component Navigation Toggling Without Javascript
 
 pada navigation saat mode mobile biasa nya kalian memberikan humburger menu untuk toggle buka dan tutup menu.
 

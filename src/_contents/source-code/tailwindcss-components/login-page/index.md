@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Login Page
 
-Hei stuffer, kali ini saya ingin share code snippets login page
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Modal
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

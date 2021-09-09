@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Toast Notification
 
-Hei stuffer, kali ini saya ingin share code snippet toast notification.
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Toast Notification
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

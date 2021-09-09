@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Awesome Login Page
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Awesome Login Page
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Awesome Login Page
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

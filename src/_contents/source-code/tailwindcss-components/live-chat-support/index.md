@@ -11,7 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Tailwind Live Chat
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Live Chat Support
+Hei stuffer kali ini saya ingin share tailwind component Live Chat Support
 
 Apa kalian tahu apa itu Live Chat Support pada sebuah website?
 
@@ -23,7 +23,7 @@ live chat sangat banyak digunakan di berbagai website modern salah satunya adala
 
 Oh iya live chat disini hanya tampilan saja, yang berarti secara fungsional tidak berjalan.
 
-Ok langsung saja kita buat live chat support menggunakan tailwindcss
+
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

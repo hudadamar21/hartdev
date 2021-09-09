@@ -10,7 +10,8 @@ contentType: single
 ---
 
 # Tailwindcss Components - Skeleton Loading
-Hei stuffer, kali ini saya ingin share code snippet Skeleton Loading.
+
+Hei stuffer kali ini saya ingin share tailwind component Skeleton Loading
 
 Apa kalian tahu apa itu skeleton loading?
 
@@ -21,6 +22,7 @@ Sekarang ini skeleton loading adalah efek loading yang sedang populer dan banyak
 <br/>
 
 Ok langsung saja kita buat skeleton loadingnya menggunakan tailwindcss
+
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

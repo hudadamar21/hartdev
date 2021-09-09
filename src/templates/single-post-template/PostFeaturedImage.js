@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 function PostFeaturedImage({image, title}) {
   const thumbImage = getImage(image)
-  return thumbImage && <GatsbyImage image={thumbImage} alt={title} />
+  return thumbImage ? <GatsbyImage image={thumbImage} alt={title} /> : <div></div>
 }
 
 export default PostFeaturedImage

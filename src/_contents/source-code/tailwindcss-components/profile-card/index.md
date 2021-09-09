@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Profile Card
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Profile Card
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Profile Card
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

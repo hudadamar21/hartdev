@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Custom Dropdown
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Custom Dropdown
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Custom Dropdown
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

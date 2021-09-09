@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Modal With Animation
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Modal With Animation
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Modal With Animation
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

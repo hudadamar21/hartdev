@@ -5,14 +5,13 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
+const Seo = ({ description, lang, meta, title, image }) => {
+  const { site } = useStaticQuery(graphql`
       query {
         site {
           siteMetadata {
@@ -26,6 +25,12 @@ const Seo = ({ description, lang, meta, title }) => {
       }
     `
   )
+
+  let imagePath = ''
+
+  if(typeof image === 'string') {
+    imagePath = image?.split(' ')[0]
+  }
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
@@ -55,6 +60,10 @@ const Seo = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: imagePath,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -74,6 +83,7 @@ const Seo = ({ description, lang, meta, title }) => {
       
     >
       <script async src="https://arc.io/widget.min.js#uUD29b4D" />
+      <script type='text/javascript' src='//hungrylongingtile.com/ed/52/f0/ed52f0aa3cc0de5a2c1077b75a19c44c.js'></script>
     </Helmet>
   )
 }

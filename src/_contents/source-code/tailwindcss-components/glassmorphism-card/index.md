@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Glassmorphism Card
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Glassmorphism Card
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Glassmorphism Card
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

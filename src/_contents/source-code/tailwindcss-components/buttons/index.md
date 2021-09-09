@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Buttons
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Buttons
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Buttons
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

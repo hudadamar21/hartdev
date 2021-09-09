@@ -11,7 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Switch to Darkmode
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Switch to Darkmode
+Hei stuffer kali ini saya ingin share tailwind component Switch To Darkmode
 
 Dark mode adalah tema yang sedang paling digemari sekarang ini.
 
@@ -23,7 +23,7 @@ https://tailwindcss.com
 
 lalu bagaimana kita menggunakan darkmode pada tailwindcss?
 
-kalian hanya perlu mengaktifkan darkmode pada file {{< filename name="tailwind.config.js" >}}
+kalian hanya perlu mengaktifkan darkmode pada file **'tailwind.config.js'**
 
 dan ubah option darkmode menjadi 'media' atau 'class'
 

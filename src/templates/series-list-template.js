@@ -8,16 +8,16 @@ const SimpleCard = lazy(() => import("@/components/Posts/SimpleCard"))
 const Pagination = lazy(() => import("@/components/Partials/Pagination"))
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data.allMdx.edges
+  const posts = data?.allMdx?.edges
 
-  const titleSlug = pageContext.title.split("-").join(" ")
+  const titleSlug = pageContext?.title?.split("-").join(" ")
 
-  const postList = posts.map(post => {
-    const title = post.node.frontmatter.title
+  const postList = posts?.map(post => {
+    const title = post?.node?.frontmatter?.title
     return (
-      <div className="w-full" key={post.node.fields.slug}>
+      <div className="w-full" key={post?.node?.fields?.slug}>
         <LazyLoad skeletonTemplate="post-card">
-          <SimpleCard post={post.node} title={title} />
+          <SimpleCard post={post?.node} title={title} />
         </LazyLoad>
       </div>
     )
@@ -26,7 +26,7 @@ const PostList = ({ data, pageContext, location }) => {
   return (
     <LazyLoad skeletonTemplate="page">
       <Layout
-        pageActive={pageContext.collection}
+        pageActive={pageContext?.collection}
         location={location}
         mainClass="w-full flex items-center flex-col"
       >
@@ -57,7 +57,6 @@ export default PostList
 export const pageQuery = graphql`
   query SeriesList($skip: Int!, $limit: Int!, $collection: String!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
       filter: {
@@ -67,12 +66,15 @@ export const pageQuery = graphql`
         }, 
         frontmatter: {contentType: {eq: "list"}}
       }
+      sort: {fields: fields___birthTime, order: ASC}
     ) {
       edges {
         node {
           fields {
             slug
             collection
+            birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+            birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")

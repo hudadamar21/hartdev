@@ -12,7 +12,6 @@ export default AllPost
 export const pageQuery = graphql`
   query AllPost($skip: Int!, $limit: Int!) {
     posts: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip 
       limit: $limit
       filter: {
@@ -20,11 +19,14 @@ export const pageQuery = graphql`
           contentType: {eq: "single"}
         }
       }
+      sort: {fields: fields___birthTime, order: ASC}
     ) {
       nodes {
         fields {
           slug
           collection
+          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
@@ -56,8 +58,10 @@ export const pageQuery = graphql`
     ) {
       nodes {
         fields {
-          collection
           slug
+          collection
+          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
+          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
           title

@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Contact Page
 
-Hei stuffer kali ini saya ingin share code snippet Tailwind Contact Page
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Contact Page
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 

@@ -1,4 +1,4 @@
-import React, { lazy } from "react"
+import React, { lazy, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -6,7 +6,6 @@ import Seo from "@/components/Partials/Seo"
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 import PostFeaturedImage from "./PostFeaturedImage";
-import PostAds from "./PostAds";
 import LazyLoad from "@/components/Partials/LazyLoad";
 
 const Layout = lazy(() => import("@/components/Base/Layout"))
@@ -15,13 +14,13 @@ const TableOfContent = lazy(() => import("@/components/Partials/TableOfContent")
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
-  const {title, description, thumb, series} = post.frontmatter
-  const siteTitle = site.siteMetadata?.title || `Title` 
+  const {title, description, thumb, series} = post?.frontmatter
+  const siteTitle = site?.siteMetadata?.title || `Title` 
 
-  const listOnSeries = posts.nodes.filter(item => 
-    item.frontmatter?.series === series && item.frontmatter.title !== title
+  const listOnSeries = posts?.nodes?.filter(item => 
+    item.frontmatter?.series === series && item?.frontmatter?.title !== title
   )
-  const { collection } = post.fields
+  const { collection } = post?.fields
 
   return (
     <LazyLoad skeletonTemplate="box">
@@ -32,27 +31,29 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
       >
         <Seo
           title={title}
-          description={description || post.excerpt}
+          image={thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet}
+          description={description || post?.excerpt}
         />
         <div className="grid grid-cols-12 lg:pl-36 -mt-5 md:mt-0">
           <main className="col-span-12 lg:col-span-8">
             <article className="relative" itemScope itemType="http://schema.org/Article">
 
               <LazyLoad skeletonTemplate="box">
-                <PostHeader post={post} pathSeries={pageContext.pathSeries} />
+                <PostHeader post={post} pathSeries={pageContext?.pathSeries} />
               </LazyLoad>
 
               <PostFeaturedImage image={thumb} title={title} />
 
-              <PostAds/>
-
               <LazyLoad skeletonTemplate="box">
-                <TableOfContent title="Daftar Isi" headings={post.headings} />
+                <TableOfContent title="Daftar Isi" headings={post?.headings} />
               </LazyLoad>
               
               <section id="content" itemProp="articleBody" >
-                <MDXRenderer>{post.body}</MDXRenderer>
+                <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
+
+              <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
+              <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
 
                 <PostFooter post={post} paginate={{previous, next}}/>
 
@@ -64,7 +65,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               title="Related"
               collection={collection} 
               lists={listOnSeries}
-              seriesSlug={pageContext.seriesSlug}
+              seriesSlug={pageContext.pathSeries}
               contentType="single"
             />
           </LazyLoad>
@@ -97,7 +98,7 @@ export const pageQuery = graphql`
         slug
         collection
         birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
-        birthTimeFormNow: birthTime(fromNow: true, locale: "id-ID")
+        birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
       }
       headings {
         depth
@@ -124,6 +125,7 @@ export const pageQuery = graphql`
       fields {
         slug
         collection
+        
       }
       frontmatter {
         title
@@ -140,12 +142,14 @@ export const pageQuery = graphql`
     }
     posts: allMdx(
       filter: {frontmatter: {contentType: {eq: "single"}}}
-      sort: {fields: frontmatter___date, order: ASC}
+      sort: {fields: fields___birthTime, order: DESC}
     ) {
       nodes {
         fields {
-          collection
           slug
+          collection
+          birthTime
+          modifiedTime
         }
         frontmatter {
           title

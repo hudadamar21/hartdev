@@ -91,7 +91,13 @@ module.exports = {
             },
           },
           `gatsby-remark-smartypants`,
-          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: f => `files/${f.hash}/${f.name}`
+            },
+          },
+
         ],
       },
     },

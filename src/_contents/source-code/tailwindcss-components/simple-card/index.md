@@ -11,9 +11,7 @@ contentType: single
 
 # Tailwindcss Components - Simple Card
 
-Hei stuffer, kali ini saya ingin share code snippet simple card
-
-Ok langsung saja kita buat menggunakan tailwindcss
+Hei stuffer kali ini saya ingin share tailwind component Simple Card
 
 Jika kalian tidak tahu atau belum menggunakan tailwindcss, kalian dapat akses link dibawah ini:
 
