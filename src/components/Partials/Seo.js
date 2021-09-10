@@ -5,18 +5,24 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, title, image }) => {
+const SEO = ({ description, lang, meta, title, image }) => {
   const { site } = useStaticQuery(graphql`
       query {
         site {
           siteMetadata {
             title
+            author {
+              name
+              summary
+            }
             description
+            keywords
+            siteUrl
             social {
               facebook
             }
@@ -29,8 +35,9 @@ const Seo = ({ description, lang, meta, title, image }) => {
   let imagePath = ''
 
   if(typeof image === 'string') {
-    imagePath = image?.split(' ')[0]
+    imagePath = site.siteMetadata.siteUrl + image?.split(' ')[0]
   }
+
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
@@ -79,7 +86,35 @@ const Seo = ({ description, lang, meta, title, image }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+      .concat(
+        image
+        ? [
+            {
+              property: "og:image",
+              content: imagePath,
+            },
+            {
+              property: "og:image:width",
+              content: 500,
+            },
+            {
+              property: "og:image:height",
+              content: 300,
+            },
+            {
+              name: "twitter:card",
+              content: "summary_large_image",
+            }
+          ]
+        : [
+            {
+              name: "twitter:card",
+              content: "summary",
+            }
+      ])
+      .concat(meta)
+    }
       
     >
       <script async src="https://arc.io/widget.min.js#uUD29b4D" />
@@ -88,17 +123,17 @@ const Seo = ({ description, lang, meta, title, image }) => {
   )
 }
 
-Seo.defaultProps = {
+SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 }
 
-Seo.propTypes = {
+SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
 
-export default Seo
+export default SEO

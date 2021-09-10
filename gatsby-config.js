@@ -12,6 +12,7 @@ module.exports = {
       summary: `Search A New Somethings`,
     },
     description: `All Stuff for Web Developers`,
+    keywords: ['tutorial', 'source code'],
     siteUrl: `https://hartdev.site`,
     social: {
       facebook: `https://facebook.com/hudadamar21`,
