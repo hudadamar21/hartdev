@@ -50,68 +50,27 @@ const SEO = ({ description, lang, meta, title, image }) => {
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: imagePath,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
+        { name: `description`, content: metaDescription },
+        { property: `og:title`, content: title },
+        { property: `og:description`, content: metaDescription },
+        { property: `og:type`, content: `website` },
+        { name: `twitter:url`, content: site.siteMetadata.siteUrl },
+        { name: `twitter:title`, content: title },
+        { name: `twitter:description`, content: metaDescription },
       ]
       .concat(
         image
         ? [
-            {
-              property: "og:image",
-              content: imagePath,
-            },
-            {
-              property: "og:image:width",
-              content: 500,
-            },
-            {
-              property: "og:image:height",
-              content: 300,
-            },
-            {
-              name: "twitter:card",
-              content: "summary_large_image",
-            }
+            { property: "og:image", content: imagePath },
+            { property: "og:image:width", content: 500 },
+            { property: "og:image:height", content: 300 },
+            { property: "twitter:image", content: imagePath },
+            { property: "twitter:image:width", content: 500 },
+            { property: "twitter:image:height", content: 300 },
+            { name: "twitter:card", content: "summary_large_image" }
           ]
         : [
-            {
-              name: "twitter:card",
-              content: "summary",
-            }
+            { name: "twitter:card", content: "summary" }
       ])
       .concat(meta)
     }
