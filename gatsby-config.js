@@ -1,8 +1,8 @@
-require('dotenv').config({
-  path: `.env`,
-});
+// require('dotenv').config({
+//   path: `.env`,
+// });
 
-const config = require('gatsby-plugin-config').default;
+// const config = require('gatsby-plugin-config').default;
 
 module.exports = {
   siteMetadata: {
@@ -19,6 +19,7 @@ module.exports = {
     },
   },
   plugins: [
+    
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,12 +47,6 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `hartdev-site`
-      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -138,15 +133,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-react-helmet`
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: config.GOOGLE_ANALYTIC_TRACKING_ID,
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -198,19 +184,18 @@ module.exports = {
         ],
       },
     },
-    
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `HartDev`,
-    //     short_name: `Hartdev`,
-    //     start_url: `/`,
-    //     background_color: `#ffffff`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/logo.png`, // This path is relative to the root of the site.
-    //   },
-    // },
-    // `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `HartDev`,
+        short_name: `Hartdev`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-react-helmet`,
   ],
 }
