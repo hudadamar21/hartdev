@@ -1,7 +1,5 @@
-import React, { lazy } from 'react'
-
-import LazyLoad from './LazyLoad';
-const LogoType = lazy(() => import('./LogoType'))
+import React from 'react'
+import LogoType from './LogoType'
 
 function YoutubeSubscribe() {
   return (
@@ -12,9 +10,7 @@ function YoutubeSubscribe() {
       dark:border-black rounded-lg 
       p-5 py-8
     ">
-      <LazyLoad skeletonTemplate="circle">
-        <LogoType width={180}/>
-      </LazyLoad>
+       <LogoType width={180}/>
       <p className="text-center my-5 text-gray-600 dark:text-gray-300">
         Silahkan berkunjung juga ke channel Youtube HartDev
         </p>

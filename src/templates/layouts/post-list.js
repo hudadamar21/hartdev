@@ -1,16 +1,15 @@
-import React, { lazy } from "react"
+import React from "react"
 import Seo from "@/components/Partials/Seo"
-import LazyLoad from "@/components/Partials/LazyLoad"
-
-const Layout = lazy(() => import("@/components/Base/Layout"))
-const PostCard = lazy(() => import("@/components/Posts/PostCard"))
-const Pagination = lazy(() => import("@/components/Partials/Pagination"))
-const SideContent = lazy(() => import("@/components/Base/SideContent"))
+import Layout  from "@/components/Base/Layout"
+import PostCard  from "@/components/Posts/PostCard"
+import Pagination  from "@/components/Partials/Pagination"
+import SideContent  from "@/components/Base/SideContent"
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes
 
-  const thumb = data?.mdx?.frontmatter?.thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet
+  const gatsbyImage = data?.mdx?.frontmatter?.thumb?.childImageSharp?.gatsbyImageData
+  const thumb = gatsbyImage?.images?.sources[1]?.srcSet
 
   const listOfCollection = data?.listOfCollection?.nodes
 
@@ -22,23 +21,19 @@ const PostList = ({ data, pageContext, location }) => {
   )
   
   const postList = posts?.map(post => (
-    <LazyLoad skeletonTemplate="card" key={post?.frontmatter?.title}>
-      <PostCard 
-        post={post} 
-        title={post?.frontmatter?.title} 
-      />
-    </LazyLoad>
+    <PostCard 
+      post={post} 
+      title={post?.frontmatter?.title} 
+    />
   ))
 
   return (
-    <LazyLoad skeletonTemplate="page">
-      <Layout
+    <Layout
         pageActive={pageContext?.collection}
         location={location}
         mainClass="pt-20 w-full p-0 lg:p-20"
       >
         <Seo title={"HartDev - " + seriesName} image={thumb} />
-        
         <div className="grid grid-cols-12 gap-10 w-full ">
           <main className="col-span-12 lg:col-span-8 p-3 lg:p-0">
             <div className="mt-5 mb-7 py-3 border-l-8 pl-4 border-gray-600">
@@ -56,22 +51,17 @@ const PostList = ({ data, pageContext, location }) => {
                   </ul>
                 : <div>Tidak Ada Posts</div>
             }
-            <LazyLoad skeletonTemplate="box">
-              <Pagination pageContext={pageContext}/>
-            </LazyLoad>
+            <Pagination pageContext={pageContext}/>
           </main>
-          <LazyLoad skeletonTemplate="big-box">
-            <SideContent
-              title="Another"
-              collection={pageContext?.collection} 
-              lists={seriesByCollection}
-              seriesSlug={"/"+ pageContext?.collection}
-              contentType="list"
-            />
-          </LazyLoad>
+          <SideContent
+            title="Another"
+            collection={pageContext?.collection} 
+            lists={seriesByCollection}
+            seriesSlug={"/"+ pageContext?.collection}
+            contentType="list"
+          />
         </div>
       </Layout>
-    </LazyLoad>
   )
 }
 

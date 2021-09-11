@@ -1,11 +1,9 @@
-import React, { lazy } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Seo from "@/components/Partials/Seo"
-import LazyLoad from "@/components/Partials/LazyLoad";
-
-const Layout = lazy(() => import("@/components/Base/Layout"))
-const SimpleCard = lazy(() => import("@/components/Posts/SimpleCard"))
-const Pagination = lazy(() => import("@/components/Partials/Pagination"))
+import Layout  from "@/components/Base/Layout"
+import SimpleCard  from "@/components/Posts/SimpleCard"
+import Pagination  from "@/components/Partials/Pagination"
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.allMdx?.edges
@@ -16,16 +14,13 @@ const PostList = ({ data, pageContext, location }) => {
     const title = post?.node?.frontmatter?.title
     return (
       <div className="w-full" key={post?.node?.fields?.slug}>
-        <LazyLoad skeletonTemplate="post-card">
-          <SimpleCard post={post?.node} title={title} />
-        </LazyLoad>
+        <SimpleCard post={post?.node} title={title} />
       </div>
     )
   })
 
   return (
-    <LazyLoad skeletonTemplate="page">
-      <Layout
+    <Layout
         pageActive={pageContext?.collection}
         location={location}
         mainClass="w-full flex items-center flex-col"
@@ -42,13 +37,10 @@ const PostList = ({ data, pageContext, location }) => {
             {postList}
           </ul>
         </div>
-        <main className="flex items-center justify-center flex-col w-full">
-          <LazyLoad skeletonTemplate="box">
-            <Pagination pageContext={pageContext}/>
-          </LazyLoad>
-        </main>
+        <nav className="flex items-center justify-center flex-col w-full">
+          <Pagination pageContext={pageContext}/>
+        </nav>
       </Layout>
-    </LazyLoad>
   )
 }
 

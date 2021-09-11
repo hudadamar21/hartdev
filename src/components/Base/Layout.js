@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import Navbar from "./Navbar"
 
-const Layout = ({ location, children, mainClass, navbarDark, pageActive }) => {
+function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const data = useStaticQuery(graphql`

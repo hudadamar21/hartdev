@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
-import SkeletonLoading from '@/components/Partials/SkeletonLoading';
+import HartButton from "@/components/Partials/HartButton"
+import YoutubeSubscribe from "@/components/Partials/YoutubeSubscribe"
 
 function Thumbnail({image, title}) {
   const thumbImage = getImage(image)
@@ -58,8 +58,6 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
     }
   })
 
-  const HartButton = lazy(() => import("@/components/Partials/HartButton"))
-  const YoutubeSubscribe = lazy(() => import("@/components/Partials/YoutubeSubscribe"))
   const isSourceCode = collection === 'source-code'
 
   const contentList = lists.slice(0, 5).map(list => {
@@ -90,9 +88,7 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
   return (
     <aside className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pl-0 xl:pl-10 mt-10 lg:mt-0">
       {isSourceCode &&  (
-        <Suspense fallback={<SkeletonLoading/>}>
-          <YoutubeSubscribe/>
-        </Suspense>
+        <YoutubeSubscribe/>
       )}
       <div className={`
         ${lists.length > 0 ? '' : 'sticky top-20'}

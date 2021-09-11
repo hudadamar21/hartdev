@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import PostCard from "@/components/Posts/PostCard";
 import HartButton from "@/components/Partials/HartButton";
-import LazyLoad from '@/components/Partials/LazyLoad';
 
 function AllPost() {
 
@@ -55,13 +54,11 @@ function AllPost() {
       {
         posts.slice(0, 2).map(post => {
           return (
-            <LazyLoad skeletonTemplate="big-post-card" key={post.node.fields.slug} >  
-              <PostCard 
-                post={post.node} 
-                withDescription={false} 
-                title={post.node.frontmatter.title || 'No Title'} 
-              />
-            </LazyLoad>
+            <PostCard 
+              post={post.node} 
+              withDescription={false} 
+              title={post.node.frontmatter.title || 'No Title'} 
+            />
           )
         })
       } 
@@ -69,13 +66,11 @@ function AllPost() {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mb-10">
         {posts.slice(2).map(post => {
           return (
-            <LazyLoad skeletonTemplate="post-card"  key={post.node.fields.slug} >
-              <PostCard 
-                post={post.node} 
-                withDescription={false} 
-                title={post.node.frontmatter.title || 'No Title'}
-              />
-            </LazyLoad>
+            <PostCard 
+              post={post.node} 
+              withDescription={false} 
+              title={post.node.frontmatter.title || 'No Title'}
+            />
           )
         })}
       </ul>

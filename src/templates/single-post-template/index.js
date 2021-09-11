@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -6,11 +6,10 @@ import Seo from "@/components/Partials/Seo"
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 import PostFeaturedImage from "./PostFeaturedImage";
-import LazyLoad from "@/components/Partials/LazyLoad";
 
-const Layout = lazy(() => import("@/components/Base/Layout"))
-const SideContent = lazy(() => import("@/components/Base/SideContent"))
-const TableOfContent = lazy(() => import("@/components/Partials/TableOfContent"))
+import Layout from "@/components/Base/Layout"
+import SideContent from "@/components/Base/SideContent"
+import TableOfContent from "@/components/Partials/TableOfContent"
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
@@ -23,8 +22,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { collection } = post?.fields
 
   return (
-    <LazyLoad skeletonTemplate="box">
-      <Layout 
+    <Layout 
         location={location} 
         title={siteTitle}
         mainClass="pt-20 w-full p-3 lg:p-20"
@@ -38,15 +36,9 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
           <main className="col-span-12 lg:col-span-8">
             <article className="relative" itemScope itemType="http://schema.org/Article">
 
-              <LazyLoad skeletonTemplate="box">
-                <PostHeader post={post} pathSeries={pageContext?.pathSeries} />
-              </LazyLoad>
-
+              <PostHeader post={post} pathSeries={pageContext?.pathSeries} />
               <PostFeaturedImage image={thumb} title={title} />
-
-              <LazyLoad skeletonTemplate="box">
-                <TableOfContent title="Daftar Isi" headings={post?.headings} />
-              </LazyLoad>
+              <TableOfContent title="Daftar Isi" headings={post?.headings} />
               
               <section id="content" itemProp="articleBody" >
                 <MDXRenderer>{post?.body}</MDXRenderer>
@@ -55,23 +47,20 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
               <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
 
-                <PostFooter post={post} paginate={{previous, next}}/>
+              <PostFooter post={post} paginate={{previous, next}}/>
 
             </article>
 
           </main>
-          <LazyLoad skeletonTemplate="box">
-            <SideContent
-              title="Related"
-              collection={collection} 
-              lists={listOnSeries}
-              seriesSlug={pageContext.pathSeries}
-              contentType="single"
-            />
-          </LazyLoad>
+          <SideContent
+            title="Related"
+            collection={collection} 
+            lists={listOnSeries}
+            seriesSlug={pageContext.pathSeries}
+            contentType="single"
+          />
         </div>
       </Layout>
-    </LazyLoad>
   )
 }
 

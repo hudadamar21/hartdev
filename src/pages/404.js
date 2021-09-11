@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Seo from "../components/Partials/Seo"
 
-const NotFoundPage = ({ data, location }) => {
+const NotFoundPage = ({ data }) => {
   const siteTitle = data?.site?.siteMetadata?.title
 
   return (

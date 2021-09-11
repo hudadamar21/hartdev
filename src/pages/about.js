@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby";
 import Seo from "../components/Partials/Seo"
 
-function name() {
+function AboutPage() {
   return (
     <>
     <Seo title="HartDev - Home" />
@@ -22,4 +22,4 @@ function name() {
   )
 }
 
-export default name
+export default AboutPage
