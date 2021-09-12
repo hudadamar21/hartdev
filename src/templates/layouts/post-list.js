@@ -24,6 +24,7 @@ const PostList = ({ data, pageContext, location }) => {
     <PostCard 
       post={post} 
       title={post?.frontmatter?.title} 
+      key={post?.fields?.slug}
     />
   ))
 
@@ -40,7 +41,7 @@ const PostList = ({ data, pageContext, location }) => {
               <h1 className="font-display text-3xl tracking-widest mb-1">
                 {pageContext?.title} 
               </h1>
-              <p className="w-[95%] text-sm lg:text-base">
+              <p className="w-[95%] text-sm lg:text-base opacity-80">
                 {pageContext?.description}
               </p>
             </div>
@@ -52,6 +53,8 @@ const PostList = ({ data, pageContext, location }) => {
                 : <div>Tidak Ada Posts</div>
             }
             <Pagination pageContext={pageContext}/>
+            <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
+            <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
           </main>
           <SideContent
             title="Another"

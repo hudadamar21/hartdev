@@ -10,6 +10,7 @@ import PostFeaturedImage from "./PostFeaturedImage";
 import Layout from "@/components/Base/Layout"
 import SideContent from "@/components/Base/SideContent"
 import TableOfContent from "@/components/Partials/TableOfContent"
+import Banner from "@/components/Ads/BannerAds";
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
@@ -44,11 +45,16 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
                 <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
 
-              <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
-              <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
+              <Banner
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                slot="1182638127"
+                format="auto"
+                responsive="true"
+              />
 
               <PostFooter post={post} paginate={{previous, next}}/>
-
+              
             </article>
 
           </main>

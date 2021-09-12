@@ -33,7 +33,14 @@ const Comment = () => {
 
   return (
     <>
-      <p className="mt-10 text-sm pl-5 opacity-80">* reload halaman jika kamu mengubah tema ke dark/light mode, agar tema komen berubah</p>
+      <div className="mt-5 pt-5 pl-5 border-t">
+        <h3 className="text-2xl font-bold mb-2">
+          Comment Section
+        </h3>
+        <p className="text-sm opacity-80">
+          * reload halaman jika kamu mengubah tema ke dark/light mode, agar tema komen berubah
+        </p>
+      </div>
       <div ref={commentBox} className="comments"></div>
     </>
   )

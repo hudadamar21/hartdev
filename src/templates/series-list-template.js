@@ -6,15 +6,17 @@ import SimpleCard  from "@/components/Posts/SimpleCard"
 import Pagination  from "@/components/Partials/Pagination"
 
 const PostList = ({ data, pageContext, location }) => {
-  const posts = data?.allMdx?.edges
+  const posts = data?.allMdx?.nodes
 
   const titleSlug = pageContext?.title?.split("-").join(" ")
 
+  console.log(posts)
+
   const postList = posts?.map(post => {
-    const title = post?.node?.frontmatter?.title
+    const title = post?.frontmatter?.title
     return (
-      <div className="w-full" key={post?.node?.fields?.slug}>
-        <SimpleCard post={post?.node} title={title} />
+      <div className="w-full" key={post?.fields?.slug}>
+        <SimpleCard post={post} title={title} />
       </div>
     )
   })
@@ -60,31 +62,21 @@ export const pageQuery = graphql`
       }
       sort: {fields: fields___birthTime, order: ASC}
     ) {
-      edges {
-        node {
-          fields {
-            slug
-            collection
-            birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
-            birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            dateFromNow: date(fromNow: true)
-            title
-            description
-            category
-            tags
-            series
-            contentType
-            thumb {
-              childImageSharp {
-                gatsbyImageData(
-                  layout: FULL_WIDTH
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
+      nodes {
+        fields {
+          slug
+          collection
+        }
+        frontmatter {
+          title
+          description
+          thumb {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }

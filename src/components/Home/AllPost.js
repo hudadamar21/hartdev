@@ -43,7 +43,7 @@ function AllPost() {
     }
   `)
 
-  const posts = data.allMdx.edges
+  const posts = data?.allMdx?.edges
 
   return (
     <section id="allpost" className="pb-40 px-5 md:px-20 pt-20">
@@ -55,9 +55,10 @@ function AllPost() {
         posts.slice(0, 2).map(post => {
           return (
             <PostCard 
-              post={post.node} 
+              post={post?.node} 
               withDescription={false} 
-              title={post.node.frontmatter.title || 'No Title'} 
+              title={post?.node?.frontmatter?.title || 'No Title'} 
+              key={post?.node?.fields?.slug}
             />
           )
         })
@@ -67,9 +68,10 @@ function AllPost() {
         {posts.slice(2).map(post => {
           return (
             <PostCard 
-              post={post.node} 
+              post={post?.node} 
               withDescription={false} 
-              title={post.node.frontmatter.title || 'No Title'}
+              title={post?.node?.frontmatter?.title || 'No Title'}
+              key={post?.node?.fields?.slug}
             />
           )
         })}

@@ -70,7 +70,7 @@ function Seo ({ description, lang, meta, title, image }){
       
     >
       <script async src="https://arc.io/widget.min.js#uUD29b4D" />
-      <script type='text/javascript' src='//hungrylongingtile.com/ed/52/f0/ed52f0aa3cc0de5a2c1077b75a19c44c.js'></script>
+
     </Helmet>
   )
 }

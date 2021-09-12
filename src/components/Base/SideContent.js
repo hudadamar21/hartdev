@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import HartButton from "@/components/Partials/HartButton"
@@ -60,7 +60,12 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
 
   const isSourceCode = collection === 'source-code'
 
-  const contentList = lists.slice(0, 5).map(list => {
+  const [ shuffledList, setShuffledList ] = useState([]) 
+  useEffect(() => {
+    setShuffledList(lists.sort(() => Math.random() - 0.5))
+  }, [])
+
+  const contentList = shuffledList?.slice(0, 3).map(list => {
     const {collection, slug} = list.fields
     return (
       <li key={slug}>
@@ -137,6 +142,18 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           </div>
         )
       }
+      
+      <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
+         atOptions = {
+           'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
+           'format' : 'iframe',
+           'height' : 250,
+           'width' : 300,
+           'params' : {}
+         };
+         document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://hungrylongingtile.com/6b7d23175f0cd1a81c30ac40aa4d21c6/invoke.js"></scr' + 'ipt>');
+       `
+      }}></script>
       
     </aside>
   )
