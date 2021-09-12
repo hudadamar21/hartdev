@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby";
 import PropTypes from "prop-types"
 
-function Pagination({ pageContext, collection }) {
+function Pagination({ pageContext }) {
 
   const paginationClass = `
     flex items-center gap-2 

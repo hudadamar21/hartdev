@@ -8,7 +8,7 @@ function PostFooter({post, paginate}) {
     <footer>
       <PaginationSimple previous={paginate.previous} next={paginate.next} />
       {
-        window !== 'undefined' && <>
+        typeof window !== 'undefined' && <>
           <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
           <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
         </>

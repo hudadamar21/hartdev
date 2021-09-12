@@ -8,8 +8,6 @@ import Pagination  from "@/components/Partials/Pagination"
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.allMdx?.nodes
 
-  const titleSlug = pageContext?.title?.split("-").join(" ")
-
   console.log(posts)
 
   const postList = posts?.map(post => {
@@ -31,9 +29,9 @@ const PostList = ({ data, pageContext, location }) => {
         <div className="w-full px-5 md:px-20 pt-20 pb-12">
           <div className="my-5 mb-10 py-4 border-l-8 pl-5 border-gray-600">
             <h1 className="font-display tracking-wide text-5xl font-bold mb-1 uppercase">
-              {titleSlug}
+              {pageContext?.title}
             </h1>
-            <p>List tutorial pemrograman studi kasus bahasa indonesia </p>
+            <p>{pageContext?.description}</p>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {postList}

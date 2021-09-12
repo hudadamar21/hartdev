@@ -103,27 +103,44 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
 
+    
     // Collection of Post
-    const mapCollections = posts.map(item => item.node.fields.collection)
-    const collections = new Set([...mapCollections])
+    const collectionPostsQuery = await graphql(`
+      {
+        allMdx(
+          filter: {frontmatter: {contentType: {eq: "list"}}, fields: {slug: {eq: "/"}}}
+        ) {
+          nodes {
+            frontmatter {
+              title
+              collection
+              description
+            }
+          }
+        }
+      }
+    `)
+    
+    const collectionPosts = collectionPostsQuery.data.allMdx.nodes
 
-    collections.forEach(collection => {
-      const items = posts.filter(({node}) => {
+    collectionPosts.forEach(collection => {
+      const { title, collection: collectionName, description } = collection.frontmatter
 
-        return node.fields.collection === collection 
-          && node.fields.slug !== '/' 
-          && node.frontmatter.contentType === 'list'
-      })
+      const items = posts.filter(({node}) => (
+        node.fields.collection === collectionName
+        && node.fields.slug !== '/' 
+        && node.frontmatter.contentType === 'list'
+      ))
       paginate({
         createPage,
         items,
         itemsPerPage: 9,
-        pathPrefix: `/${collection}`,
+        pathPrefix: `/${collectionName}`,
         component: path.resolve("./src/templates/series-list-template.js"),
         context: {
-          title: collection,
-          collection,
-          items
+          title,
+          collection: collectionName,
+          description
         },
       })
     })
