@@ -40,6 +40,19 @@ const PostList = ({ data, pageContext, location }) => {
         <nav className="flex items-center justify-center flex-col w-full">
           <Pagination pageContext={pageContext}/>
         </nav>
+        <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
+        <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
+        <amp-ad 
+          width="100vw" 
+          height="320"
+          type="adsense"
+          data-ad-client="ca-pub-1247746409733600"
+          data-ad-slot="1182638127"
+          data-auto-format="rspv"
+          data-full-width=""
+        >
+          <div overflow=""></div>
+        </amp-ad>
       </Layout>
   )
 }

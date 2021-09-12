@@ -10,7 +10,6 @@ import PostFeaturedImage from "./PostFeaturedImage";
 import Layout from "@/components/Base/Layout"
 import SideContent from "@/components/Base/SideContent"
 import TableOfContent from "@/components/Partials/TableOfContent"
-import Banner from "@/components/Ads/BannerAds";
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
@@ -18,7 +17,8 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
   const siteTitle = site?.siteMetadata?.title || `Title` 
 
   const listOnSeries = posts?.nodes?.filter(item => 
-    item.frontmatter?.series === series && item?.frontmatter?.title !== title
+    item.frontmatter?.series === series 
+    && item?.frontmatter?.title !== title
   )
   const { collection } = post?.fields
 
@@ -40,19 +40,37 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               <PostHeader post={post} pathSeries={pageContext?.pathSeries} />
               <PostFeaturedImage image={thumb} title={title} />
               <TableOfContent title="Daftar Isi" headings={post?.headings} />
-              
+
+              {
+                typeof window !== 'undefined' &&<>
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1247746409733600" crossOrigin="anonymous"></script>
+                  <ins class="adsbygoogle"
+                    style="display:block; text-align:center;"
+                    data-ad-layout="in-article"
+                    data-ad-format="fluid"
+                    data-ad-client="ca-pub-1247746409733600"
+                    data-ad-slot="1915127680"></ins>
+                  <script dangerouslySetInnerHTML={{ __html : `
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                  `}}></script>
+                </>
+              }
+
               <section id="content" itemProp="articleBody" >
                 <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
 
-              <Banner
-                className="adsbygoogle"
-                style={{ display: 'block' }}
-                slot="1182638127"
-                format="auto"
-                responsive="true"
-              />
-
+              <amp-ad 
+                width="100vw" 
+                height="320"
+                type="adsense"
+                data-ad-client="ca-pub-1247746409733600"
+                data-ad-slot="1182638127"
+                data-auto-format="rspv"
+                data-full-width=""
+              >
+                <div overflow=""></div>
+              </amp-ad>
               <PostFooter post={post} paginate={{previous, next}}/>
               
             </article>

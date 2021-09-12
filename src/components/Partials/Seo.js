@@ -51,27 +51,23 @@ function Seo ({ description, lang, meta, title, image }){
         { name: `twitter:title`, content: title },
         { name: `twitter:description`, content: metaDescription },
       ]
-      .concat(
-        image
-        ? [
-            { property: "og:image", content: imagePath },
-            { property: "og:image:width", content: 500 },
-            { property: "og:image:height", content: 300 },
-            { property: "twitter:image", content: imagePath },
-            { property: "twitter:image:width", content: 500 },
-            { property: "twitter:image:height", content: 300 },
-            { name: "twitter:card", content: "summary_large_image" }
-          ]
-        : [
-            { name: "twitter:card", content: "summary" }
-      ])
-      .concat(meta)
-    }
-      
-    >
-      <script async src="https://arc.io/widget.min.js#uUD29b4D" />
-
-    </Helmet>
+        .concat(
+          image
+          ? [
+              { property: "og:image", content: imagePath },
+              { property: "og:image:width", content: 500 },
+              { property: "og:image:height", content: 300 },
+              { property: "twitter:image", content: imagePath },
+              { property: "twitter:image:width", content: 500 },
+              { property: "twitter:image:height", content: 300 },
+              { name: "twitter:card", content: "summary_large_image" }
+            ]
+          : [
+              { name: "twitter:card", content: "summary" }
+        ])
+        .concat(meta)
+      }
+    />
   )
 }
 

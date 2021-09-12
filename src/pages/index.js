@@ -65,6 +65,17 @@ function HomePage ({ location }) {
         </div>
       </section>
       <AllPost/>
+      <amp-ad 
+        width="100vw" 
+        height="320"
+        type="adsense"
+        data-ad-client="ca-pub-1247746409733600"
+        data-ad-slot="1182638127"
+        data-auto-format="rspv"
+        data-full-width=""
+      >
+        <div overflow=""></div>
+      </amp-ad>
     </Layout>
   )
 }
