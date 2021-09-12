@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import HartButton from "@/components/Partials/HartButton"
@@ -60,10 +60,18 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
 
   const isSourceCode = collection === 'source-code'
 
-  const [ shuffledList, setShuffledList ] = useState([]) 
-  useEffect(() => {
-    setShuffledList(lists.sort(() => Math.random() - 0.5))
-  }, [])
+  function shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+  
+  const shuffledList = shuffleArray(lists)
 
   const contentList = shuffledList?.slice(0, 3).map(list => {
     const {collection, slug} = list.fields
@@ -142,19 +150,19 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           </div>
         )
       }
-      
-      <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
-         atOptions = {
-           'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
-           'format' : 'iframe',
-           'height' : 250,
-           'width' : 300,
-           'params' : {}
-         };
-         document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://hungrylongingtile.com/6b7d23175f0cd1a81c30ac40aa4d21c6/invoke.js"></scr' + 'ipt>');
-       `
-      }}></script>
-      
+      <div className="sticky top-20 left-0">
+        <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
+          atOptions = {
+            'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://hungrylongingtile.com/6b7d23175f0cd1a81c30ac40aa4d21c6/invoke.js"></scr' + 'ipt>');
+        `
+        }}></script>
+      </div>
     </aside>
   )
 }

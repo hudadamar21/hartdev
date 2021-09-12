@@ -41,21 +41,6 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               <PostFeaturedImage image={thumb} title={title} />
               <TableOfContent title="Daftar Isi" headings={post?.headings} />
 
-              {
-                typeof window !== 'undefined' &&<>
-                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1247746409733600" crossOrigin="anonymous"></script>
-                  <ins class="adsbygoogle"
-                    style="display:block; text-align:center;"
-                    data-ad-layout="in-article"
-                    data-ad-format="fluid"
-                    data-ad-client="ca-pub-1247746409733600"
-                    data-ad-slot="1915127680"></ins>
-                  <script dangerouslySetInnerHTML={{ __html : `
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                  `}}></script>
-                </>
-              }
-
               <section id="content" itemProp="articleBody" >
                 <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
@@ -71,6 +56,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               >
                 <div overflow=""></div>
               </amp-ad>
+              
               <PostFooter post={post} paginate={{previous, next}}/>
               
             </article>
