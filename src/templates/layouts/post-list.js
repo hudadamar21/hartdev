@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Seo from "@/components/Partials/Seo"
 import Layout  from "@/components/Base/Layout"
 import PostCard  from "@/components/Posts/PostCard"
@@ -28,6 +28,12 @@ const PostList = ({ data, pageContext, location }) => {
     />
   ))
 
+  useEffect(() => {
+    if(typeof window !== 'undefined') {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  }, [])
+
   return (
     <Layout
         pageActive={pageContext?.collection}
@@ -53,19 +59,16 @@ const PostList = ({ data, pageContext, location }) => {
                 : <div>Tidak Ada Posts</div>
             }
             <Pagination pageContext={pageContext}/>
-            <script async="async" data-cfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
+            
             <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
-            <amp-ad 
-              width="100vw" 
-              height="320"
-              type="adsense"
+            <ins 
+              class="adsbygoogle"
+              style={{display: "block"}}
               data-ad-client="ca-pub-1247746409733600"
               data-ad-slot="1182638127"
-              data-auto-format="rspv"
-              data-full-width=""
-            >
-              <div overflow=""></div>
-            </amp-ad>
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
           </main>
           <SideContent
             title="Another"
