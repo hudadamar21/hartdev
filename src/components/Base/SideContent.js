@@ -104,7 +104,6 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
         <YoutubeSubscribe/>
       )}
       <div className={`
-        ${lists.length > 0 ? '' : 'sticky top-20'}
         flex flex-col
         shadow-none lg:shadow-lg border 
         bg-white dark:bg-gray-800 dark:border-black
@@ -131,26 +130,23 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           ))}
         </ul>
       </div>
-      {
-        lists.length > 0 && (
-          <div className="
-            sticky top-20 left-0 
-            flex flex-col 
-            shadow-none lg:shadow-lg border 
-            bg-white dark:bg-gray-800 dark:border-black
-            rounded-none lg:rounded-lg p-6
-          ">
-            <h1 className="text-xl font-semibold mb-5 capitalize">
-              {title} {collection.replace(/-/g, ' ')}
-            </h1>
-            <ul className="flex flex-col gap-5">
-              {lists.length > 0 ? contentList : emptyList}
-            </ul>
-            {listLimit} 
-          </div>
-        )
-      }
-      <div className="sticky top-20 left-0">
+      <div className="sticky top-20">
+      {lists.length > 0 && (
+        <div className="
+          flex flex-col 
+          shadow-none lg:shadow-lg border 
+          bg-white dark:bg-gray-800 dark:border-black
+          rounded-none lg:rounded-lg p-6
+        ">
+          <h1 className="text-xl font-semibold mb-5 capitalize">
+            {title} {collection.replace(/-/g, ' ')}
+          </h1>
+          <ul className="flex flex-col gap-5">
+            {lists.length > 0 ? contentList : emptyList}
+          </ul>
+          {listLimit} 
+        </div>
+      )}
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
           atOptions = {
             'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
@@ -163,6 +159,7 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
         `
         }}></script>
       </div>
+      
     </aside>
   )
 }
