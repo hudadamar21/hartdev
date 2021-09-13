@@ -19,18 +19,16 @@ export const pageQuery = graphql`
           contentType: {eq: "single"}
         }
       }
-      sort: {fields: fields___birthTime, order: ASC}
+      sort: {fields: frontmatter___date, order: ASC}
     ) {
       nodes {
         fields {
           slug
           collection
-          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
-          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          dateFromNow: date(fromNow: true)
+          date(formatString: "DD MMMM YYYY")
+          dateFromNow: date(fromNow: true, locale: "id-ID")
           title
           description
           category
@@ -60,11 +58,11 @@ export const pageQuery = graphql`
         fields {
           slug
           collection
-          birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
-          birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
         }
         frontmatter {
           title
+          date(formatString: "DD MMMM YYYY")
+          dateFromNow: date(fromNow: true, locale: "id-ID")
           thumb {
             childImageSharp {
               gatsbyImageData(

@@ -211,16 +211,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'collection',
       value: collection,
     });
-    createNodeField({
-      node,
-      name: 'birthTime',
-      value: parent.birthTime
-    })
-    createNodeField({
-      node,
-      name: 'modifiedTime',
-      value: parent.modifiedTime
-    })
   }
 }
 

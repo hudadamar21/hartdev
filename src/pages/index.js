@@ -4,6 +4,9 @@ import Layout from "@/components/Base/Layout"
 
 import LogoType from "@/components/Partials/LogoType"
 import AllPost  from "@/components/Home/AllPost"
+import TutorialList from "@/components/Home/TutorialList"
+import SourceCodeList from "@/components/Home/SourceCodeList"
+import BlogList from "@/components/Home/BlogList"
 
 function HomePage ({ location }) {
 
@@ -65,6 +68,10 @@ function HomePage ({ location }) {
         </div>
       </section>
       <AllPost/>
+      <TutorialList/>
+      <SourceCodeList/>
+      <BlogList/>
+      
       <amp-ad 
         width="100vw" 
         height="320"

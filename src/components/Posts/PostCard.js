@@ -36,8 +36,8 @@ function Postlist({ post, title, withDescription = true, classes }) {
           </div>
           <section className="relative p-5 pt-2">
             <div className="divide-x dark:divide-gray-500 flex items-center mt-1 gap-1 text-xs text-gray-600 dark:text-gray-300">
-              <span>{post.fields?.birthTime}</span>
-              <span className="pl-1">{post.fields?.birthTimeFromNow}</span>
+              <span>{post?.frontmatter?.date}</span>
+              <span className="pl-1">{post?.frontmatter?.dateFromNow}</span>
             </div>
             
             <h1 className="text-lg line-clamp-2 font-semibold mt-2" itemProp="headline">

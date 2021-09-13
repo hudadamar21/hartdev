@@ -3,8 +3,7 @@ import { Link } from "gatsby"
 
 function PostHeader({post, pathSeries}) {
   
-  const { title, series } = post?.frontmatter
-  const { birthTime, birthTimeFromNow } = post?.fields
+  const { title, series, date, dateFromNow } = post?.frontmatter
 
   const arrowLeft = (
     <svg className="hover:-translate-x-2 transition duration-200 h-8 w-8 text-gray-700 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -26,8 +25,8 @@ function PostHeader({post, pathSeries}) {
         from: <span className="underline hover:text-gray-700 dark:hover:text-white">{series}</span>
       </Link>
       <div className="flex items-center justify-between text-sm mt-5 mb-2">
-        <span>{birthTime}</span>
-        <span>{birthTimeFromNow}</span>
+        <span>{date}</span>
+        <span>{dateFromNow}</span>
       </div>
     </header>
   )

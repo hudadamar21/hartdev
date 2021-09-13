@@ -9,7 +9,7 @@ const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes
 
   const gatsbyImage = data?.mdx?.frontmatter?.thumb?.childImageSharp?.gatsbyImageData
-  const thumb = gatsbyImage?.images?.sources[1]?.srcSet
+  const metaImage = gatsbyImage?.images?.sources[1]?.srcSet
 
   const listOfCollection = data?.listOfCollection?.nodes
 
@@ -40,8 +40,8 @@ const PostList = ({ data, pageContext, location }) => {
         location={location}
         mainClass="pt-20 w-full p-0 lg:p-20"
       >
-        <Seo title={"HartDev - " + seriesName} image={thumb} />
-        <div className="grid grid-cols-12 gap-10 w-full ">
+        <Seo title={"HartDev - " + seriesName} image={metaImage} />
+        <div className="grid grid-cols-12 gap-5 w-full ">
           <main className="col-span-12 lg:col-span-8 p-3 lg:p-0">
             <div className="mt-5 mb-7 py-3 border-l-8 pl-4 border-gray-600">
               <h1 className="font-display text-3xl tracking-widest mb-1">

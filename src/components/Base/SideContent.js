@@ -99,11 +99,12 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
   const emptyList = <p className="text-gray-600 dark:text-gray-300">Tidak ada {pageMessage}</p>
 
   return (
-    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pl-0 xl:pl-10 mt-10 lg:mt-0">
+    <aside className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pl-0 xl:pl-5 mt-10 lg:mt-0">
       {isSourceCode &&  (
         <YoutubeSubscribe/>
       )}
       <div className={`
+        ${lists.length > 0 ? '' : 'sticky top-16'}
         flex flex-col
         shadow-none lg:shadow-lg border 
         bg-white dark:bg-gray-800 dark:border-black
@@ -130,35 +131,36 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           ))}
         </ul>
       </div>
-      <div className="sticky top-20">
       {lists.length > 0 && (
-        <div className="
-          flex flex-col 
-          shadow-none lg:shadow-lg border 
-          bg-white dark:bg-gray-800 dark:border-black
-          rounded-none lg:rounded-lg p-6
-        ">
-          <h1 className="text-xl font-semibold mb-5 capitalize">
-            {title} {collection.replace(/-/g, ' ')}
-          </h1>
-          <ul className="flex flex-col gap-5">
-            {lists.length > 0 ? contentList : emptyList}
-          </ul>
-          {listLimit} 
+        <div className="sticky top-16">
+          <div className="
+            flex flex-col 
+            shadow-none lg:shadow-lg border 
+            bg-white dark:bg-gray-800 dark:border-black
+            rounded-none lg:rounded-lg p-6
+          ">
+            <h1 className="text-xl font-semibold mb-5 capitalize">
+              {title} {collection.replace(/-/g, ' ')}
+            </h1>
+            <ul className="flex flex-col gap-5">
+              {lists.length > 0 ? contentList : emptyList}
+            </ul>
+            {listLimit} 
+          </div>
+          <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
+            atOptions = {
+              'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://hungrylongingtile.com/6b7d23175f0cd1a81c30ac40aa4d21c6/invoke.js"></scr' + 'ipt>');
+          `
+          }}></script>
         </div>
       )}
-        <script type="text/javascript" dangerouslySetInnerHTML={{ __html : `
-          atOptions = {
-            'key' : '6b7d23175f0cd1a81c30ac40aa4d21c6',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://hungrylongingtile.com/6b7d23175f0cd1a81c30ac40aa4d21c6/invoke.js"></scr' + 'ipt>');
-        `
-        }}></script>
-      </div>
+      
       
     </aside>
   )

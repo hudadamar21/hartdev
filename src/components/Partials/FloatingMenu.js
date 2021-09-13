@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
-import menulist from '@/data/menulist'
 import { Link } from 'gatsby';
+import useMenu from '@/hooks/useMenu';
 
 function FloatingMenu({ pageActive }) {
+
+  const menuList = useMenu(pageActive)
 
   const [menu, setMenu] = useState(false);
 
@@ -27,19 +29,13 @@ function FloatingMenu({ pageActive }) {
 
   const listClass = `block text-lg font-bold w-full text-center py-3 hover:bg-gray-100 dark:hover:bg-gray-600`
 
-  const list = menulist.map(link => (
-    <li key={link.name} className="w-full">
+  const list = menuList.map(menu => (
+    <li key={menu.slug} className="w-full">
       <Link 
-        to={link.to} 
-        className={`
-          ${pageActive === link.slug && link.slug === 'home' ? 'border-white' 
-            : pageActive === link.slug ? 'border-gray-700' 
-            : ''
-          }    
-          ${listClass}
-        `}
+        to={menu.to} 
+        className={listClass}
       >
-        {link.name}
+        {menu.name}
       </Link>
     </li>
   ))

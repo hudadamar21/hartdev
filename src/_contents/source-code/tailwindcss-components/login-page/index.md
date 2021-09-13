@@ -1,6 +1,6 @@
 ---
 title: "Login Page"
-date: 2021-07-19T18:46:55+07:00
+date: 2021-08-20
 keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components

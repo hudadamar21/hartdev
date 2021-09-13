@@ -45,7 +45,6 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
                 <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
 
-              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1247746409733600" crossOrigin="anonymous"></script>
               <ins class="adsbygoogle"
                   style={{display:"block"}}
                   data-ad-client="ca-pub-1247746409733600"
@@ -95,8 +94,6 @@ export const pageQuery = graphql`
       fields {
         slug
         collection
-        birthTime(formatString: "DD MMMM YYYY", locale: "id-ID")
-        birthTimeFromNow: birthTime(fromNow: true, locale: "id-ID")
       }
       headings {
         depth
@@ -104,6 +101,8 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        date(formatString: "DD MMMM YYYY")
+        dateFromNow: date(fromNow: true, locale: "id-ID")
         description
         tags
         series
@@ -140,18 +139,18 @@ export const pageQuery = graphql`
     }
     posts: allMdx(
       filter: {frontmatter: {contentType: {eq: "single"}}}
-      sort: {fields: fields___birthTime, order: DESC}
+      sort: {fields: frontmatter___date, order: DESC}
     ) {
       nodes {
         fields {
           slug
           collection
-          birthTime
-          modifiedTime
         }
         frontmatter {
           title
           series
+          date(formatString: "DD MMMM YYYY")
+          dateFromNow: date(fromNow: true, locale: "id-ID")
           thumb {
             childImageSharp {
               gatsbyImageData(

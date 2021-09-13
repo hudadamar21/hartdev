@@ -1,27 +1,18 @@
 import React from 'react'
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
-import menulist from '@/data/menulist'
 
 import useDarkmode from '@/hooks/useDarkmode'
+import useMenu from '@/hooks/useMenu'
 
 function Navbar({title, darknav = false, pageActive}) {
 
   const { darkmode, toggleDarkmode, icons } = useDarkmode(false)
+  const menuList = useMenu(pageActive)
 
-  const listClass = `border-b-4 border-transparent font-semibold ${darknav ? 'hover:border-white' : 'hover:border-gray-700 dark:hover:border-white'}`
-
-  const list = menulist.map(link => (
-    <li className={`
-      ${
-        (pageActive === link.slug && darknav) || (pageActive === link.slug && darkmode) ? 'border-white' 
-        : pageActive === link.slug ? 'border-gray-800' : ''
-      }    
-      ${listClass}
-    `} key={link.name}>
-      <Link to={link.to}>{link.name}</Link>
-    </li>
-  ))
+  const listClass = `  
+    ${`border-b-4 border-transparent font-semibold ${darknav ? 'hover:border-white' : 'hover:border-gray-700 dark:hover:border-white'}`}
+  `
 
   return (
     <nav className={`
@@ -45,7 +36,11 @@ function Navbar({title, darknav = false, pageActive}) {
       </Link>
       <div className="flex items-start gap-10">
         <ul className="hidden md:flex items-center gap-10 font-medium">
-          {list}
+          {menuList.map(menu => (
+            <li className={listClass} key={menu.slug} >
+              <Link to={menu.to}>{menu.name}</Link>
+            </li>
+          ))}
         </ul>
         <button onClick={toggleDarkmode} name="change-theme">
           {darkmode ? icons.light : icons.dark}

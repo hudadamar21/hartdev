@@ -46,7 +46,7 @@ function AllPost() {
   const posts = data?.allMdx?.edges
 
   return (
-    <section id="allpost" className="pb-40 px-5 md:px-20 pt-20">
+    <section id="allpost" className="px-5 md:px-20 py-20">
       <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold mb-3 md:mb-5 uppercase">
         All Post
       </h1>

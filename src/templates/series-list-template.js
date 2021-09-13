@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         }, 
         frontmatter: {contentType: {eq: "list"}}
       }
-      sort: {fields: fields___birthTime, order: ASC}
+      sort: {fields: frontmatter___date order: ASC}
     ) {
       nodes {
         fields {
@@ -81,6 +81,8 @@ export const pageQuery = graphql`
         frontmatter {
           title
           description
+          date(formatString: "DD MMMM YYYY")
+          dateFromNow: date(fromNow: true, locale: "id-ID")
           thumb {
             childImageSharp {
               gatsbyImageData(
