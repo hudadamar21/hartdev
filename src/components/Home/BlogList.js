@@ -41,7 +41,7 @@ const BlogList = () => {
 
   const posts = data?.allMdx?.nodes
 
-  return <ContentList posts={posts} title="Blog" id="blog" />
+  return <ContentList posts={posts} title="Blog" href="/blog" />
 }
 
 export default BlogList

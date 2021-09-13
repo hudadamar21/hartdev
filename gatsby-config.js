@@ -53,7 +53,7 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
-          default: require.resolve("./src/components/Layouts/default.js"),
+          default: require.resolve("./src/layouts/MdxDefault.js"),
         },  
         gatsbyRemarkPlugins: [
           {

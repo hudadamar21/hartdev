@@ -146,7 +146,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="mXzrQtOtI1A"/>

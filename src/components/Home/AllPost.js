@@ -9,7 +9,7 @@ function AllPost() {
   const data =  useStaticQuery(graphql`
     {
       allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: frontmatter___date, order: DESC }
         limit: 8
         filter: {frontmatter: {contentType: {eq: "single"}}}
       ) {
@@ -46,7 +46,7 @@ function AllPost() {
   const posts = data?.allMdx?.edges
 
   return (
-    <section id="allpost" className="px-5 md:px-20 py-20">
+    <section id="allpost" className="mx-5 md:mx-20 py-20 border-b">
       <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold mb-3 md:mb-5 uppercase">
         All Post
       </h1>

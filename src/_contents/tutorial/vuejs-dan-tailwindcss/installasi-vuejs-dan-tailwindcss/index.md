@@ -1,7 +1,7 @@
 ---
 title: "Install Vuejs Dan Tailwindcss #2"
 description: "Pada tahap ini kita akan menginstall vuejs dan tailwindcss dengan melakukan setup sampai website dapat ditampilkan."
-date: 2021-07-19T20:19:50+07:00
+date: 2021-09-15
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]
 series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss

@@ -41,7 +41,7 @@ const TutorialList = () => {
 
   const posts = data?.allMdx?.nodes
 
-  return <ContentList posts={posts} title="Tutorial" id="tutorial" />
+  return <ContentList posts={posts} title="Tutorial" href="/tutorial" />
 }
 
 export default TutorialList

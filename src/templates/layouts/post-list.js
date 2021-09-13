@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"
-import Seo from "@/components/Partials/Seo"
-import Layout  from "@/components/Base/Layout"
+import React from "react"
+import Seo from "@/components/Layout/Seo"
+import Layout  from "@/layouts/Main"
 import PostCard  from "@/components/Posts/PostCard"
-import Pagination  from "@/components/Partials/Pagination"
-import SideContent  from "@/components/Base/SideContent"
+import Pagination  from "@/components/Posts/Pagination"
+import SideContent  from "@/components/Layout/Sidebar/SideContent"
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes
@@ -27,12 +27,6 @@ const PostList = ({ data, pageContext, location }) => {
       key={post?.fields?.slug}
     />
   ))
-
-  useEffect(() => {
-    if(typeof window !== 'undefined') {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-  }, [])
 
   return (
     <Layout
@@ -59,16 +53,6 @@ const PostList = ({ data, pageContext, location }) => {
                 : <div>Tidak Ada Posts</div>
             }
             <Pagination pageContext={pageContext}/>
-            
-            <div id="container-c6cb249243f68f49699f7911e0405f8d"></div>
-            <ins 
-              class="adsbygoogle"
-              style={{display: "block"}}
-              data-ad-client="ca-pub-1247746409733600"
-              data-ad-slot="1182638127"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
           </main>
           <SideContent
             title="Another"

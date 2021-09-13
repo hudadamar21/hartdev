@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PostList from "./layouts/post-list";
+import PostList from "@/templates/layouts/post-list";
 
 const PostListTemplate = (props) => {
 

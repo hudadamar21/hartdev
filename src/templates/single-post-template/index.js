@@ -2,14 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Seo from "@/components/Partials/Seo"
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 import PostFeaturedImage from "./PostFeaturedImage";
 
-import Layout from "@/components/Base/Layout"
-import SideContent from "@/components/Base/SideContent"
-import TableOfContent from "@/components/Partials/TableOfContent"
+import Layout from "@/layouts/Main"
+import Seo from "@/components/Layout/Seo"
+import SideContent from "@/components/Layout/Sidebar/SideContent"
+import TableOfContent from "@/components/Posts/TableOfContent"
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
@@ -33,7 +33,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
           image={thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet}
           description={description || post?.excerpt}
         />
-        <div className="grid grid-cols-12 lg:pl-36 -mt-5 md:mt-0">
+        <div className="grid grid-cols-12 xl:pl-36 -mt-5 md:mt-0">
           <main className="col-span-12 lg:col-span-8">
             <article className="relative" itemScope itemType="http://schema.org/Article">
 
@@ -44,16 +44,6 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
               <section id="content" itemProp="articleBody" >
                 <MDXRenderer>{post?.body}</MDXRenderer>
               </section>
-
-              <ins class="adsbygoogle"
-                  style={{display:"block"}}
-                  data-ad-client="ca-pub-1247746409733600"
-                  data-ad-slot="1182638127"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-              <script dangerouslySetInnerHTML={{ __html: `
-                (adsbygoogle = window.adsbygoogle || []).push({});
-              `}}></script>
 
               <PostFooter post={post} paginate={{previous, next}}/>
               

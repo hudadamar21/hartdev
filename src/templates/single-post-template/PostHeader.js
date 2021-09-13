@@ -13,7 +13,7 @@ function PostHeader({post, pathSeries}) {
 
   return (
     <header className="flex flex-col text-gray-500 dark:text-gray-200">
-      <div className="flex flex-col lg:flex-row items-start gap-3 lg:-translate-x-11">
+      <div className="flex flex-col xl:flex-row items-start gap-3 xl:-translate-x-11">
         <Link to={pathSeries} className="pt-1">
           {arrowLeft}
         </Link>

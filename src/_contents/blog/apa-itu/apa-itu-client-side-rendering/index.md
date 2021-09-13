@@ -1,7 +1,7 @@
 ---
 title: "Apa Itu Client Side Rendering?"
 description: "Menjelaskan mengenai apa itu client side rendering, dan apa kelebihan dan kekurangannya dari client side rendering?"
-date: 2021-08-20
+date: 2021-09-13
 keyword: [client side rendering, website]
 tags: [apa itu?]
 thumb: ./apa-itu-client-side-rendering.png

@@ -121,7 +121,7 @@ switchTheme()
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="d3KBGmXrx2M"/>

@@ -4,7 +4,7 @@ date: 2021-09-13
 keyword: [tailwindcss components, web design]
 tags: [tailwindcss]
 category: Tailwindcss Components
-thumb: ./tailwind-custom-dropdown.png
+thumb: ./tailwind-collapse-menu.png
 series: Tailwindcss Components
 contentType: single
 ---
@@ -84,7 +84,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="mXzrQtOtI1A"/>

@@ -9,7 +9,7 @@ function Postlist({ post, title, withDescription = true, classes }) {
 
   return (
     <li className={`w-full ${classes}`} >
-      <Link to={"/"+collection+slug} itemProp="url">
+      <a href={"/"+collection+slug} itemProp="url">
         <article
           className="
             flex flex-col
@@ -61,7 +61,7 @@ function Postlist({ post, title, withDescription = true, classes }) {
             </ul>
           </section>
         </article>
-      </Link>
+      </a>
     </li>
     
   )

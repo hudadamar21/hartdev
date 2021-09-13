@@ -1,5 +1,3 @@
-
-
 function useMenu(pageActive) {
   const menuList = [
     {
@@ -10,17 +8,17 @@ function useMenu(pageActive) {
     {
       name: 'Tutorial',
       slug: 'tutorial',
-      to: pageActive === 'home' ? '#tutorial' : '/tutorial'
+      to: '/tutorial'
     },
     {
       name: 'Source Code',
       slug: 'source-code',
-      to: pageActive === 'home' ? '#source-code' : '/source-code'
+      to: '/source-code'
     },
     {
       name: 'Blog',
       slug: 'blog',
-      to: pageActive === 'home' ? '#blog' : '/blog'
+      to: '/blog'
     },
     {
       name: 'About',

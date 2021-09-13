@@ -1,6 +1,6 @@
 ---
 title: "Persiapan Sebelum Memulai #1"
-date: 2021-07-18T18:46:55+07:00
+date: 2021-09-14
 description: "sebelum memulai membuat aplikasi todolist, alangkah baiknya kita mempersiapkan terlebih dahulu semua yang diperlukan untuk membuat aplikasi todolist menggunakan vuejs dan tailwindcss"
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]

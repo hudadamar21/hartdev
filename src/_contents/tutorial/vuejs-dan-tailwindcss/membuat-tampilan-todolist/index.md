@@ -1,6 +1,6 @@
 ---
 title: "Membuat Tampilan Todolist #3"
-date: 2021-07-20T20:45:55+07:00
+date: 2021-09-16
 description: "Disini kita akan membuat tampilan todolist menggunakan tailwindcss sebagai styling-nya, dan refactor code-nya menggunakan component vuejs agar lebih modular dan mudah di maintenance."
 keyword: [vuejs, tailwindcss, tutorial]
 tags: [vuejs, tailwindcss]

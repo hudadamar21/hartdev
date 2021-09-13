@@ -54,7 +54,7 @@ https://tailwindcss.com
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="ehuMq4JiYgQ"/>

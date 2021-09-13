@@ -123,7 +123,7 @@ Pada style css ini berguna untuk memberikan animasi splash yang bergerak dari ki
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="MwlGNXU1JPU"/>

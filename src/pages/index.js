@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import Seo from "@/components/Partials/Seo"
-import Layout from "@/components/Base/Layout"
-
+import Layout from "@/layouts/Main"
+import Seo from "@/components/Layout/Seo"
 import LogoType from "@/components/Partials/LogoType"
 import AllPost  from "@/components/Home/AllPost"
 import TutorialList from "@/components/Home/TutorialList"

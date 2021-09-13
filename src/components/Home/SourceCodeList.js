@@ -41,7 +41,7 @@ const SourceCodeList = () => {
 
   const posts = data?.allMdx?.nodes
 
-  return <ContentList posts={posts} title="Source Code" id="source-code" />
+  return <ContentList posts={posts} title="Source Code" href="/source-code" />
 }
 
 export default SourceCodeList

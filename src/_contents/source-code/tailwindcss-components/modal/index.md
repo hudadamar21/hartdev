@@ -69,7 +69,7 @@ closeModal.forEach(close => {
 
 <br/>
 
-import YoutubePlay from "@/components/Partials/YoutubePlay"
+import YoutubePlay from "@/components/Posts/YoutubePlay"
 
 # Video Tutorial
 <YoutubePlay id="Vlllw3vnP5Q"/>
