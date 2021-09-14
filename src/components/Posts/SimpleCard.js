@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function SimpleCard({ post, title, }) {
@@ -8,7 +8,7 @@ function SimpleCard({ post, title, }) {
 
   return (  
     <li className='w-full relative hover:opacity-80 transition-opacity'>
-      <Link to={"/"+collection+slug} itemProp="url">
+      <a href={"/"+collection+slug} itemProp="url">
         <figure className="block rounded-md overflow-hidden">
           {
             postThumb &&
@@ -18,7 +18,7 @@ function SimpleCard({ post, title, }) {
           }
         </figure>
         <h1 className="text-center font-semibold mt-1">{title}</h1>
-      </Link>
+      </a>
     </li>
   )
 }

@@ -4,6 +4,7 @@ import Layout  from "@/layouts/Main"
 import PostCard  from "@/components/Posts/PostCard"
 import Pagination  from "@/components/Posts/Pagination"
 import SideContent  from "@/components/Layout/Sidebar/SideContent"
+import GoogleAdsDisplay from "@/components/Partials/Ads/GoogleAdsDisplay"
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes
@@ -53,6 +54,10 @@ const PostList = ({ data, pageContext, location }) => {
                 : <div>Tidak Ada Posts</div>
             }
             <Pagination pageContext={pageContext}/>
+
+            <div className="mt-20">
+              <GoogleAdsDisplay/>
+            </div>
           </main>
           <SideContent
             title="Another"

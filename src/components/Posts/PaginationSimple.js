@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 
 function PaginationSimple({previous, next}) {
 
@@ -16,9 +16,9 @@ function PaginationSimple({previous, next}) {
       <ul className="flex flex-wrap  justify-between">
         <li>
           {previous && (
-            <Link 
+            <a 
+              href={"/"+previous.fields.collection+previous.fields.slug} 
               className={paginationStyle}
-              to={"/"+previous.fields.collection+previous.fields.slug} 
               rel="prev"
             >
               <svg 
@@ -33,14 +33,14 @@ function PaginationSimple({previous, next}) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
               </svg> 
               {previous.frontmatter.title}
-            </Link>
+            </a>
           )}
         </li>
         <li>
           {next && (
-            <Link 
+            <a 
+              href={"/"+next.fields.collection+next.fields.slug} 
               className={paginationStyle}
-              to={"/"+next.fields.collection+next.fields.slug} 
               rel="next"
             >
               {next.frontmatter.title} 
@@ -53,7 +53,7 @@ function PaginationSimple({previous, next}) {
               xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
           )}
         </li>
       </ul>

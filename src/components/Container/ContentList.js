@@ -1,6 +1,6 @@
 import React from 'react'
 import SimpleCard  from "@/components/Posts/SimpleCard"
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 function ContentList({ posts, title, href }) {
   const blogList = posts?.map(post => {
@@ -18,13 +18,13 @@ function ContentList({ posts, title, href }) {
         <h1 className="font-display tracking-widest text-xl md:text-3xl font-bold  uppercase">
           {title}
         </h1>
-        <Link to={href} className="block text-gray-500 px-2 py-1 rounded hover:bg-gray-100">
+        <a href={href} className="block text-gray-500 px-2 py-1 rounded hover:bg-gray-100">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </Link>
+        </a>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogList}
       </ul>
     </section>

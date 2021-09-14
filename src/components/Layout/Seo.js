@@ -66,23 +66,8 @@ function Seo ({ description, lang, meta, title, image }){
         ])
         .concat(meta)
       }
-      script={[
-        // {
-        //   async: "async",
-        //   crossOrigin: "anonymous",
-        //   src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1247746409733600"
-        // },
-        {
-          async: "async",
-          src: "https://arc.io/widget.min.js#FUTDtA9z"
-        },
-        {
-          async: "async",
-          dataCfasync: "false",
-          src: "//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"
-        }
-      ]}
-    />
+    >
+    </Helmet>
   )
 }
 

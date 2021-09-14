@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
 
 import useDarkmode from '@/hooks/useDarkmode'
@@ -36,25 +36,25 @@ function Navbar({title, darknav = false, pageActive}) {
         : 'bg-white/80 text-gray-700 dark:bg-transparent dark:text-white'
       }
     `}>
-      <Link to="/" className="flex items-center gap-3">
-      <StaticImage
-        formats={["AUTO", "WEBP", "AVIF"]}
-        placeholder="tracedSVG"
-        src="../../images/logo.png"
-        width={30}
-        height={30}
-        quality={60}
-        alt="Logo"
-      />
+      <a href="/" className="flex items-center gap-3">
+        <StaticImage
+          formats={["AUTO", "WEBP", "AVIF"]}
+          placeholder="tracedSVG"
+          src="../../images/logo.png"
+          width={30}
+          height={30}
+          quality={60}
+          alt="Logo"
+        />
         <h1 className="text-xl font-bold">{title}</h1>
-      </Link>
+      </a>
       <div className="flex items-start gap-10">
         <nav className="relative hidden md:flex items-center gap-5 font-medium">
           {menuList.map(menu => (
-            <Link 
+            <a 
+              href={menu.to}
               onMouseOver={IndicatorMove}
               onMouseLeave={indicatorHide}
-              to={menu.to}
               className={`
                 ${listClass} 
                 ${pageActive === menu.slug && darknav 
@@ -68,7 +68,7 @@ function Navbar({title, darknav = false, pageActive}) {
               key={menu.slug}
             >
               {menu.name}
-            </Link>
+            </a>
           ))}
           <div 
             ref={menuIndicator} 

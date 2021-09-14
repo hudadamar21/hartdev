@@ -30,9 +30,7 @@ function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
       <footer className="text-center py-5 mt-20">
         Copyright © {new Date().getFullYear()} {title}
       </footer>
-
       <FloatingMenu pageActive={pageActive}/>
-      
     </div>
   )
 }

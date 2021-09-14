@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Postlist({ post, title, withDescription = true, classes }) {

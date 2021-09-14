@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Seo from "@/components/Layout/Seo"
 import Layout  from "@/layouts/Main"
@@ -37,8 +37,8 @@ const PostList = ({ data, pageContext, location }) => {
           </ul>
         </div>
         <div className="col-span-4 lg:col-span-1 my-5">
-            <div id="container-c6cb249243f68f49699f7911e0405f8d"></div> 
-          </div>
+          <div id="container-c6cb249243f68f49699f7911e0405f8d"></div> 
+        </div>
       </div>
     </Layout>
   )

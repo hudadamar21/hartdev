@@ -77,12 +77,12 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
     const {collection, slug} = list.fields
     return (
       <li key={slug}>
-        <Link to={'/'+collection+slug} className="flex items-center gap-3 hover:opacity-80 overflow-hidden">
+        <a href={'/'+collection+slug} className="flex items-center gap-3 hover:opacity-80 overflow-hidden">
           <div className="w-1/3 rounded overflow-hidden">
             <Thumbnail image={list.frontmatter.thumb} title={list.frontmatter.title} />
           </div>
           <h1 className="w-2/3 line-clamp-2">{list.frontmatter.title}</h1>
-        </Link>
+        </a>
       </li>
     )
   })
@@ -147,6 +147,7 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
             {listLimit} 
           </div>
         )}
+        <script async="async" dataCfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
         <div className="px-3" id="container-c6cb249243f68f49699f7911e0405f8d"></div>
       </div>
       

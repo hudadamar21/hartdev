@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import useMenu from '@/hooks/useMenu';
 
 function FloatingMenu({ pageActive }) {
@@ -31,12 +31,12 @@ function FloatingMenu({ pageActive }) {
 
   const list = menuList.map(menu => (
     <li key={menu.slug} className="w-full">
-      <Link 
-        to={menu.to} 
+      <a 
+        href={menu.to} 
         className={listClass}
       >
         {menu.name}
-      </Link>
+      </a>
     </li>
   ))
 

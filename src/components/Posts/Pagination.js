@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import PropTypes from "prop-types"
 
 function Pagination({ pageContext }) {
@@ -28,18 +28,18 @@ function Pagination({ pageContext }) {
 
   return (
     <div className="flex gap-3 mt-10">
-      <Link
+      <a
+        href={pageContext.previousPagePath}
         className={paginate(pageContext.previousPagePath)}
-        to={pageContext.previousPagePath}
       >
         {ArrowLeft} Prev
-      </Link>
-      <Link
+      </a>
+      <a
+        href={pageContext.nextPagePath}
         className={paginate(pageContext.nextPagePath)}
-        to={pageContext.nextPagePath}
       >
         Next {ArrowRight}
-      </Link>
+      </a>
     </div>
   )
 }

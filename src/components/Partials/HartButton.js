@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 
 function HartButton({ to, children, small }) {
 
   const isSmall = small ? 'px-2.5 py-1.5 text-base' : 'px-3 py-2 text-base md:text-lg'
   return (
-    <Link 
-      to={to}
+    <a 
+      href={to}
       className={
         `${isSmall} font-medium
         flex items-center gap-2 w-max rounded-md text-white
@@ -14,7 +14,7 @@ function HartButton({ to, children, small }) {
       }
     >
       {children}
-    </Link>
+    </a>
   )
 }
 

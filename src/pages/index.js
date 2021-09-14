@@ -67,21 +67,16 @@ function HomePage ({ location }) {
         </div>
       </section>
       <AllPost/>
-      <TutorialList/>
-      <SourceCodeList/>
-      <BlogList/>
-      
-      <amp-ad 
-        width="100vw" 
-        height="320"
-        type="adsense"
-        data-ad-client="ca-pub-1247746409733600"
-        data-ad-slot="1182638127"
-        data-auto-format="rspv"
-        data-full-width=""
-      >
-        <div overflow=""></div>
-      </amp-ad>
+      <div className="grid grid-cols-4 gap-10">
+        <div className="col-span-4 lg:col-span-3">
+          <TutorialList/>
+          <SourceCodeList/>
+          <BlogList/>
+        </div>
+        <div className="col-span-4 lg:col-span-1 pr-20 pt-20">
+          <div id="container-c6cb249243f68f49699f7911e0405f8d"></div> 
+        </div>
+      </div>
     </Layout>
   )
 }
