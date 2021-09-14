@@ -31,9 +31,9 @@ const Comment = () => {
   return (
     <>
       <div className="mt-5 pt-5 pl-5 border-t">
-        <h3 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-bold mb-2">
           Comment Section
-        </h3>
+        </h2>
         <p className="text-sm opacity-80">
           * reload halaman jika kamu mengubah tema ke dark/light mode, agar tema komen berubah
         </p>

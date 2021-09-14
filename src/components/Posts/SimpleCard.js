@@ -8,7 +8,7 @@ function SimpleCard({ post, title, }) {
 
   return (  
     <li className='w-full relative hover:opacity-80 transition-opacity'>
-      <a href={"/"+collection+slug} itemProp="url">
+      <a href={"/"+collection+slug} itemProp="url" aria-label="post-series">
         <figure className="block rounded-md overflow-hidden">
           {
             postThumb &&

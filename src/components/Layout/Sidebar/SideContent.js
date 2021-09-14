@@ -147,7 +147,6 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
             {listLimit} 
           </div>
         )}
-        <script async="async" dataCfasync="false" src="//hungrylongingtile.com/c6cb249243f68f49699f7911e0405f8d/invoke.js"></script>
         <div className="px-3" id="container-c6cb249243f68f49699f7911e0405f8d"></div>
       </div>
       

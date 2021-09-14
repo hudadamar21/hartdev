@@ -27,7 +27,7 @@ function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
       <main className={`flex-grow ${mainClass}`}>
         {children}
       </main>
-      <footer className="text-center py-5 mt-20">
+      <footer className="text-center py-5 ">
         Copyright © {new Date().getFullYear()} {title}
       </footer>
       <FloatingMenu pageActive={pageActive}/>

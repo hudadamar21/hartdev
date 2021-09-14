@@ -9,12 +9,12 @@ const PostList = ({ data, pageContext, location }) => {
   const posts = data?.allMdx?.nodes
 
   const postList = posts?.map(post => (
-    <div className="w-full" key={post?.fields?.slug}>
-      <SimpleCard 
-        post={post} 
-        title={post?.frontmatter?.title} 
-      />
-    </div>
+    <SimpleCard 
+      post={post} 
+      title={post?.frontmatter?.title} 
+      className="w-full" 
+      key={post?.fields?.slug}
+    />
   ))
 
   return (

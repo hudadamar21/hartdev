@@ -81,7 +81,7 @@ function Navbar({title, darknav = false, pageActive}) {
             `}
           ></div>
         </nav>
-        <button onClick={toggleDarkmode} name="change-theme">
+        <button onClick={toggleDarkmode} name="change-theme" aria-label="change-theme">
           {darkmode ? icons.light : icons.dark}
         </button>
       </div>

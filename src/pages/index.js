@@ -73,7 +73,7 @@ function HomePage ({ location }) {
           <SourceCodeList/>
           <BlogList/>
         </div>
-        <div className="col-span-4 lg:col-span-1 pr-20 pt-20">
+        <div className="col-span-4 lg:col-span-1 pr-5 lg:pr-20 pt-20">
           <div id="container-c6cb249243f68f49699f7911e0405f8d"></div> 
         </div>
       </div>

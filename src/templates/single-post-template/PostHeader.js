@@ -14,7 +14,7 @@ function PostHeader({post, pathSeries}) {
   return (
     <header className="flex flex-col text-gray-500 dark:text-gray-200">
       <div className="flex flex-col xl:flex-row items-start gap-3 xl:-translate-x-11">
-        <a href={pathSeries} className="pt-1">
+        <a href={pathSeries} className="pt-1" aria-label="back">
           {arrowLeft}
         </a>
         <h1 className="text-2xl lg:text-3xl font-bold text-gray-700 dark:text-white mb-1" itemProp="headline">
