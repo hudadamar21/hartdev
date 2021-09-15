@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import loadable from "@loadable/component"
@@ -121,10 +121,10 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
               <ul className="pl-2 space-y-1">
                 {category.list.map(series => (
                   <li className="flex items-center justify-between w-full" key={series.title}>
-                    <Link to={series.link} className="line-clamp-1 hover:underline">
+                    <a href={series.link} className="line-clamp-1 hover:underline">
                       {series.title}
-                    </Link>
-                    <span className="">({series.count})</span>
+                    </a>
+                    <span>({series.count})</span>
                   </li>
                 ))}
               </ul>
@@ -151,8 +151,6 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
         )}
         <div className="px-3" id="container-c6cb249243f68f49699f7911e0405f8d"></div>
       </div>
-      
-      
     </aside>
   )
 }
