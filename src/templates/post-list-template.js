@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PostList from "@/templates/layouts/post-list";
+import loadable from "@loadable/component"
+
+const PostList = loadable(() => import("@/templates/layouts/post-list"))
 
 const PostListTemplate = (props) => {
-
   return <PostList {...props}/>
 }
 
@@ -94,8 +95,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
-    
-    
   }
 `

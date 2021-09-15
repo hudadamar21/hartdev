@@ -14,7 +14,7 @@ const SourceCodeList = () => {
           }, 
           frontmatter: {contentType: {eq: "list"}}
         }
-        sort: {fields: fields___birthTime, order: ASC}
+        sort: {fields: frontmatter___date order: DESC}
       ) {
         nodes {
           fields {

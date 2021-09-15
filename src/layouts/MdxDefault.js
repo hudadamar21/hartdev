@@ -1,6 +1,8 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import CodeBlock from "@/components/Posts/CodeBlock"
+import loadable from "@loadable/component"
+
+const CodeBlock = loadable(() => import("@/components/Posts/CodeBlock")) 
 
 const shortcodes = {
   code: CodeBlock

@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from "gatsby";
-
 import PostCard from "@/components/Posts/PostCard";
 import HartButton from "@/components/Partials/HartButton";
 

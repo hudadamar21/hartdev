@@ -1,7 +1,8 @@
 import React from "react"
+import loadable from "@loadable/component"
 
-import Comments from "@/components/Posts/Comments"
-import PaginationSimple from "@/components/Posts/PaginationSimple"
+const Comments = loadable(() => import("@/components/Posts/Comments"))
+const PaginationSimple = loadable(() => import("@/components/Posts/PaginationSimple"))
 
 function PostFooter({ paginate }) {
   return (

@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-// import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
 
 import useDarkmode from '@/hooks/useDarkmode'

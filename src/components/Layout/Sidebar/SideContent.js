@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import HartButton from "@/components/Partials/HartButton"
-import YoutubeSubscribe from "./YoutubeSubscribe"
+
+import loadable from "@loadable/component"
+const HartButton = loadable(() => import("@/components/Partials/HartButton")) 
+const YoutubeSubscribe = loadable(() => import("./YoutubeSubscribe")) 
 
 function Thumbnail({image, title}) {
   const thumbImage = getImage(image)

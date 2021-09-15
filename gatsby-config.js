@@ -11,8 +11,8 @@ module.exports = {
       name: `Huda Damar`,
       summary: `Search A New Somethings`,
     },
-    description: `All Stuff for Web Developers`,
-    keywords: ['tutorial', 'source code'],
+    description: `All Stuff Of Programming`,
+    keywords: ['tutorial', 'source code', 'blog', 'artikel'],
     siteUrl: `https://hartdev.site`,
     social: {
       facebook: `https://facebook.com/hudadamar21`,
@@ -197,6 +197,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-preact`
+    `gatsby-plugin-preact`,
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+        defaultSizes: "gzip"
+      },
+    },
+    'gatsby-plugin-loadable-components-ssr',
   ],
 }

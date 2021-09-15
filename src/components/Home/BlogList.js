@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby";
-import ContentList from "@/components/Container/ContentList"
+import loadable from "@loadable/component"
+
+const ContentList = loadable(() => import("@/components/Container/ContentList")) 
 
 const BlogList = () => {
 
@@ -14,7 +16,7 @@ const BlogList = () => {
           }, 
           frontmatter: {contentType: {eq: "list"}}
         }
-        sort: {fields: fields___birthTime, order: ASC}
+        sort: {fields: frontmatter___date order: DESC}
       ) {
         nodes {
           fields {

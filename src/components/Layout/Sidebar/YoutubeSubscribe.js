@@ -1,5 +1,7 @@
 import React from 'react'
-import LogoType from '@/components/Partials/LogoType'
+
+import loadable from '@loadable/component'
+const LogoType = loadable(() => import('@/components/Partials/LogoType'))
 
 function YoutubeSubscribe() {
   return (

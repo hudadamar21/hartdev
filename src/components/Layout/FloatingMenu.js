@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-// import { Link } from 'gatsby';
 import useMenu from '@/hooks/useMenu';
 
 function FloatingMenu({ pageActive }) {

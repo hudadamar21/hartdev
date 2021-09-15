@@ -1,21 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
-
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import PostFooter from "./PostFooter";
-import PostHeader from "./PostHeader";
-import PostFeaturedImage from "./PostFeaturedImage";
+import loadable from "@loadable/component"
 
-import Layout from "@/layouts/Main"
-import Seo from "@/components/Layout/Seo"
-import SideContent from "@/components/Layout/Sidebar/SideContent"
-import TableOfContent from "@/components/Posts/TableOfContent"
+const PostFooter = loadable(() => import("./PostFooter"))
+const PostHeader = loadable(() => import("./PostHeader"))
+const PostFeaturedImage = loadable(() => import("./PostFeaturedImage"))
+const Layout = loadable(() => import("@/layouts/Main"))
+const SideContent = loadable(() => import("@/components/Layout/Sidebar/SideContent"))
+const TableOfContent = loadable(() => import("@/components/Posts/TableOfContent"))
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
   const {title, description, thumb, series} = post?.frontmatter
   const siteTitle = site?.siteMetadata?.title || `Title` 
-
+  const metaImage = thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet
+  
   const listOnSeries = posts?.nodes?.filter(item => 
     item.frontmatter?.series === series 
     && item?.frontmatter?.title !== title
@@ -23,16 +23,16 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { collection } = post?.fields
 
   return (
-    <Layout 
+    <Layout
+        seo={{
+          title,
+          image: metaImage,
+          description: description || post?.excerpt
+        }}
         location={location} 
         title={siteTitle}
         mainClass="pt-20 w-full p-3 lg:p-20"
       >
-        <Seo
-          title={title}
-          image={thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet}
-          description={description || post?.excerpt}
-        />
         <div className="grid grid-cols-12 xl:pl-36 -mt-5 md:mt-0">
           <main className="col-span-12 lg:col-span-8">
             <article className="relative" itemScope itemType="http://schema.org/Article">

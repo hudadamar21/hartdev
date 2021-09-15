@@ -1,16 +1,15 @@
 import React, { useState } from "react"
-import Layout from "@/layouts/Main"
-import Seo from "@/components/Layout/Seo"
-import LogoType from "@/components/Partials/LogoType"
-import AllPost  from "@/components/Home/AllPost"
-import TutorialList from "@/components/Home/TutorialList"
-import SourceCodeList from "@/components/Home/SourceCodeList"
-import BlogList from "@/components/Home/BlogList"
+import loadable from "@loadable/component"
+
+const Layout = loadable(() => import("@/layouts/Main"))
+const LogoType = loadable(() => import("@/components/Partials/LogoType"))
+const AllPost = loadable(() => import( "@/components/Home/AllPost"))
+const TutorialList = loadable(() => import("@/components/Home/TutorialList"))
+const SourceCodeList = loadable(() => import("@/components/Home/SourceCodeList"))
+const BlogList = loadable(() => import("@/components/Home/BlogList"))
 
 function HomePage ({ location }) {
-
   const [isTop, setIsTop] = useState(true)
-
   const isSSR = typeof window === 'undefined'
 
   if(!isSSR) {
@@ -26,12 +25,12 @@ function HomePage ({ location }) {
   }
 
   return (
-    <Layout 
+    <Layout
+      seo={{ title: 'HartDev - Home' }}
       pageActive='home'
       location={location}
       navbarDark={isTop}
     >
-      <Seo title="HartDev - Home" />
       <section className="
         relative
         h-[95vh] overflow-hidden 
@@ -44,7 +43,7 @@ function HomePage ({ location }) {
           className="absolute bottom-0 w-full h-full left-0 z-0" 
           alt=""
         />
-        <div className="text-white relative z-10">
+        <article className="text-white relative z-10">
           <h1 className="font-display font-semibold text-5xl leading-tight mb-3 tracking-widest uppercase">All Stuff Of Programmers</h1>
           <p className="mb-8 text-xl tracking-wider">Tutorial website dari yang basic sampai advance, kumpulan-kumpulan kode yang bisa digunakan untuk mempermudah pembuatan website-mu, dan artikel blog tentang dunia programming.</p>
           <a 
@@ -60,7 +59,7 @@ function HomePage ({ location }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-        </div>
+        </article>
         
         <div className="hidden lg:block justify-self-end relative z-10">
         <LogoType/>

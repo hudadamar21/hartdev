@@ -42,6 +42,7 @@ function Seo ({ description, lang, meta, title, image }){
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
+        { httpEquiv: `Content-Security-Policy`, content: `script-src 'none'`},
         { name: `description`, content: metaDescription },
         { property: `og:title`, content: title },
         { property: `og:description`, content: metaDescription },

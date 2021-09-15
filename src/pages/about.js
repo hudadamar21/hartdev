@@ -1,11 +1,8 @@
 import React from 'react'
-import { Link } from "gatsby";
-import Seo from "@/components/Layout/Seo"
 
 function AboutPage() {
   return (
     <>
-    <Seo title="HartDev - Home" />
     <div className="w-full h-screen grid place-items-center bg-gradient-to-tl from-white to-gray-200">
       <div className="-mt-10 flex flex-col items-center">
         <img src="/void.svg" className="h-96 mb-8" alt="void"/>
@@ -14,7 +11,7 @@ function AboutPage() {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
           </svg>
-          <Link to="/" className="text-2xl hover:underline">Back to Homepage</Link>
+          <a href="/" className="text-2xl hover:underline">Back to Homepage</a>
         </div>
       </div>
     </div>

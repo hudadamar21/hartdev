@@ -1,9 +1,12 @@
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import Navbar from "@/components/Layout/Navbar"
-import FloatingMenu from "@/components/Layout/FloatingMenu"
+import Seo from "@/components/Layout/Seo"
+import loadable from "@loadable/component"
 
-function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
+const Navbar = loadable(() => import("@/components/Layout/Navbar")) 
+const FloatingMenu = loadable(() => import("@/components/Layout/FloatingMenu")) 
+
+function Layout ({ seo, location, children, mainClass, navbarDark, pageActive }) {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const data = useStaticQuery(graphql`
@@ -11,14 +14,20 @@ function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
   `)
 
-  const title = data.site.siteMetadata.title
+  const { title, description } = data.site.siteMetadata
 
-  return (
+  return <>
+    <Seo 
+      title={seo.title || title} 
+      image={seo.image || ''} 
+      description={seo.description || description}
+    />
     <div 
       className="text-gray-700 dark:text-gray-100 min-h-screen flex flex-col bg-white dark:bg-gray-900 transition"
       data-is-root-path={isRootPath}
@@ -32,7 +41,7 @@ function Layout ({ location, children, mainClass, navbarDark, pageActive }) {
       </footer>
       <FloatingMenu pageActive={pageActive}/>
     </div>
-  )
+  </>
 }
 
 export default Layout

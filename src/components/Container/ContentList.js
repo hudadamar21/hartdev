@@ -1,6 +1,7 @@
 import React from 'react'
-import SimpleCard  from "@/components/Posts/SimpleCard"
-// import { Link } from 'gatsby'
+import loadable from '@loadable/component'
+
+const SimpleCard = loadable(() => import("@/components/Posts/SimpleCard")) 
 
 function ContentList({ posts, title, href }) {
   const blogList = posts?.map(post => {
