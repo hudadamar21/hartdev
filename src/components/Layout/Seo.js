@@ -51,6 +51,10 @@ function Seo ({
         { rel: `canonical`, href: siteUrl+pathname}
       ]}
       meta={[
+        { 
+          name: `google-site-verification`, 
+          content: `uC76vB4ekY-5RuWB635bw7OWIxjjHSGnZuR-23EP_Bc`
+        },
         { name: 'title', content: metaTitle},
         { name: `description`, content: metaDescription },
         { name: `keywords`, content: keywords },
