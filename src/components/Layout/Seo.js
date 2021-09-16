@@ -47,7 +47,6 @@ function Seo ({
         lang,
       }}
       title={metaTitle}
-      titleTemplate={title ? `%s | ${title}` : null}
       link={[
         { rel: `canonical`, href: siteUrl+pathname}
       ]}
