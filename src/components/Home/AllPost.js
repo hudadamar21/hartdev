@@ -45,7 +45,7 @@ function AllPost() {
   const posts = data?.allMdx?.edges
 
   return (
-    <section id="allpost" className="mx-5 md:mx-20 py-20 border-b">
+    <section id="allpost" className="mx-5 md:mx-20 py-20">
       <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold mb-3 md:mb-5 uppercase">
         All Post
       </h1>

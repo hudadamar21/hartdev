@@ -3,12 +3,21 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo ({ description, lang, meta, title, image }){
+function Seo ({ 
+  title: propTitle, 
+  description: propDescription, 
+  lang, 
+  image, 
+  pathname,
+  meta,
+  isArticle
+}){
   const { site } = useStaticQuery(graphql`
       query {
         site {
           siteMetadata {
             title
+            siteName
             author {
               name
               summary
@@ -21,34 +30,40 @@ function Seo ({ description, lang, meta, title, image }){
             }
           }
         }
+        
       }
     `
   )
 
-  let imagePath = ''
+  const { title, siteUrl, description, keywords, siteName } = site.siteMetadata
 
-  if(typeof image === 'string') {
-    imagePath = site.siteMetadata.siteUrl + image?.split(' ')[0]
-  }
-
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const imagePath = typeof image === 'string' ? siteUrl + image?.split(' ')[0] : ''
+  const metaDescription = propDescription || description
+  const metaTitle = propTitle || title
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      title={metaTitle}
+      titleTemplate={title ? `%s | ${title}` : null}
+      link={[
+        { rel: `canonical`, href: siteUrl+pathname}
+      ]}
       meta={[
-        { httpEquiv: `Content-Security-Policy`, content: `script-src 'none'`},
+        { name: 'title', content: metaTitle},
         { name: `description`, content: metaDescription },
-        { property: `og:title`, content: title },
+        { name: `keywords`, content: keywords },
+
+        { property: `og:title`, content: metaTitle },
+        { property: `og:site_name`, content: siteName },
+        { property: `og:url`, content: siteUrl+pathname },
         { property: `og:description`, content: metaDescription },
-        { property: `og:type`, content: `website` },
-        { name: `twitter:url`, content: site.siteMetadata.siteUrl },
-        { name: `twitter:title`, content: title },
+        { property: `og:type`, content: isArticle ? `article` : `website` },
+
+        { name: `twitter:title`, content: metaTitle },
+        { name: `twitter:url`, content: siteUrl+pathname },
         { name: `twitter:description`, content: metaDescription },
       ]
         .concat(
@@ -57,10 +72,11 @@ function Seo ({ description, lang, meta, title, image }){
               { property: "og:image", content: imagePath },
               { property: "og:image:width", content: 500 },
               { property: "og:image:height", content: 300 },
+
+              { property: "twitter:card", content: "summary_large_image" },
               { property: "twitter:image", content: imagePath },
               { property: "twitter:image:width", content: 500 },
               { property: "twitter:image:height", content: 300 },
-              { name: "twitter:card", content: "summary_large_image" }
             ]
           : [
               { name: "twitter:card", content: "summary" }

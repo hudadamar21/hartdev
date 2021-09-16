@@ -12,12 +12,12 @@ function ContentList({ posts, title, href }) {
   })
 
   return (
-    <section className="pt-20 px-5 md:px-20">
+    <section>
       <div className="flex items-center gap-2 mb-3 md:mb-5">
         <h1 className="font-display tracking-widest text-xl md:text-3xl font-bold  uppercase">
           {title}
         </h1>
-        <a href={href} aria-label="show-more" className="block text-gray-500 px-2 py-1 rounded hover:bg-gray-100">
+        <a href={href} aria-label="show-more" className="block opacity-60 px-2 py-1 rounded hover:bg-black/10 dark:hover:bg-white/10">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>

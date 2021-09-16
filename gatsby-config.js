@@ -6,13 +6,14 @@
 
 module.exports = {
   siteMetadata: {
-    title: `HartDev`,
+    title: `HartDev | All Stuff Of Programmers`,
+    siteName: `HartDev`,
     author: {
       name: `Huda Damar`,
       summary: `Search A New Somethings`,
     },
-    description: `All Stuff Of Programming`,
-    keywords: ['tutorial', 'source code', 'blog', 'artikel'],
+    description: `Menyediakan Tutorial web programming dari yang basic sampai advance, kumpulan-kumpulan kode yang bisa digunakan untuk mempermudah pembuatan websitemu, dan artikel blog mengenai dunia pemrogramman.`,
+    keywords: 'tutorial,source code,blog,artikel',
     siteUrl: `https://hartdev.site`,
     social: {
       facebook: `https://facebook.com/hudadamar21`,

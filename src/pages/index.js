@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import loadable from "@loadable/component"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Layout = loadable(() => import("@/layouts/Main"))
 const LogoType = loadable(() => import("@/components/Partials/LogoType"))
@@ -9,6 +10,17 @@ const SourceCodeList = loadable(() => import("@/components/Home/SourceCodeList")
 const BlogList = loadable(() => import("@/components/Home/BlogList"))
 
 function HomePage ({ location }) {
+
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          description
+        }
+      }
+    }
+  `)
+
   const [isTop, setIsTop] = useState(true)
   const isSSR = typeof window === 'undefined'
 
@@ -45,7 +57,9 @@ function HomePage ({ location }) {
         />
         <article className="text-white relative z-10">
           <h1 className="font-display font-semibold text-5xl leading-tight mb-3 tracking-widest uppercase">All Stuff Of Programmers</h1>
-          <p className="mb-8 text-xl tracking-wider">Tutorial website dari yang basic sampai advance, kumpulan-kumpulan kode yang bisa digunakan untuk mempermudah pembuatan website-mu, dan artikel blog tentang dunia programming.</p>
+          <p className="mb-8 text-xl tracking-wider">
+            {site.siteMetadata.description}
+          </p>
           <a 
             href="#allpost"
             className="
@@ -66,8 +80,8 @@ function HomePage ({ location }) {
         </div>
       </section>
       <AllPost/>
-      <div className="grid grid-cols-4 gap-10">
-        <div className="col-span-4 lg:col-span-3">
+      <div className="grid grid-cols-4 gap-10 pt-20 mx-5 md:mx-20 border-t dark:border-gray-600">
+        <div className="col-span-4 lg:col-span-3 space-y-24">
           <TutorialList/>
           <SourceCodeList/>
           <BlogList/>

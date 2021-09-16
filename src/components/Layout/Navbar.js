@@ -53,7 +53,9 @@ function Navbar({title, darknav = false, pageActive}) {
             <a 
               href={menu.to}
               onMouseOver={IndicatorMove}
-              onMouseLeave={indicatorHide}
+              onMouseOut={indicatorHide}
+              onFocus={IndicatorMove}
+              onBlur={indicatorHide}
               className={`
                 ${listClass} 
                 ${pageActive === menu.slug && darknav 

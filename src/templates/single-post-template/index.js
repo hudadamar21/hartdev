@@ -27,7 +27,8 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
         seo={{
           title,
           image: metaImage,
-          description: description || post?.excerpt
+          description: description || post?.excerpt,
+          isArticle: true
         }}
         location={location} 
         title={siteTitle}

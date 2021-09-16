@@ -13,31 +13,32 @@ function Layout ({ seo, location, children, mainClass, navbarDark, pageActive })
     query HeaderQuery {
       site {
         siteMetadata {
-          title
+          siteName
           description
         }
       }
     }
   `)
 
-  const { title, description } = data.site.siteMetadata
+  const { siteName, description } = data.site.siteMetadata
 
   return <>
     <Seo 
-      title={seo.title || title} 
+      title={seo.title || siteName} 
       image={seo.image || ''} 
       description={seo.description || description}
+      pathname={location.pathname}
     />
     <div 
       className="text-gray-700 dark:text-gray-100 min-h-screen flex flex-col bg-white dark:bg-gray-900 transition"
       data-is-root-path={isRootPath}
     >
-      <Navbar title={title} darknav={navbarDark} pageActive={pageActive} />
+      <Navbar title={siteName} darknav={navbarDark} pageActive={pageActive} />
       <main className={`flex-grow ${mainClass}`}>
         {children}
       </main>
       <footer className="text-center py-5 ">
-        Copyright © {new Date().getFullYear()} {title}
+        Copyright © {new Date().getFullYear()} {siteName}
       </footer>
       <FloatingMenu pageActive={pageActive}/>
     </div>
