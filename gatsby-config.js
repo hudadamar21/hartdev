@@ -207,5 +207,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-loadable-components-ssr',
+    `gatsby-plugin-sitemap`
   ],
 }
