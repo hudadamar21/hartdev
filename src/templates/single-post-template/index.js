@@ -103,7 +103,7 @@ export const pageQuery = graphql`
               layout: FULL_WIDTH
               quality: 100
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [WEBP, AVIF]
             )
           }
         }
@@ -148,7 +148,7 @@ export const pageQuery = graphql`
                 layout: FULL_WIDTH
                 quality: 100
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
+                formats: [WEBP, AVIF]
               )
             }
           }

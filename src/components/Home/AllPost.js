@@ -31,7 +31,7 @@ function AllPost() {
                     layout: FULL_WIDTH
                     transformOptions: {fit: COVER}
                     placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
+                    formats: [WEBP, AVIF]
                   )
                 }
               }
