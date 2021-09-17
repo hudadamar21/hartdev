@@ -1,7 +1,5 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
+user-agent: *
+Allow: /$
+Disallow: /
 
-User-agent: *
-Allow: /
-
-Sitemap: https://www.hartdev.com/sitemap/sitemap-index.xml
+sitemap: https://www.hartdev.com/sitemap/sitemap-index.xml
