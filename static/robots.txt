@@ -1,5 +1,3 @@
-user-agent: *
-Allow: /$
-Disallow: /
-
-sitemap: https://www.hartdev.com/sitemap/sitemap-index.xml
+User-agent: *
+Sitemap: https://www.hartdev.com/sitemap/sitemap-index.xml
+Sitemap: https://www.hartdev.com/rss.xml
