@@ -1,3 +1,4 @@
 User-agent: *
-Sitemap: https://www.hartdev.com/sitemap/sitemap-index.xml
-Sitemap: https://www.hartdev.com/rss.xml
+Disallow: /tutorial
+Disallow: /source-code
+Disallow: /blog
