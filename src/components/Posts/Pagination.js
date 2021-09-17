@@ -6,13 +6,12 @@ function Pagination({ pageContext }) {
   const paginationClass = `
     flex items-center gap-2 
     text-lg font-semibold
-    hover:bg-gray-100 dark:hover:bg-gray-700 
-    px-4 py-1.5 rounded-md
+    px-4 py-1.5 rounded-md 
   `
-  
-  const paginate = (toPage) => 
-    `${paginationClass} ${!toPage ? 'opacity-50 pointer-events-none' : ''}`
 
+  const active = `hover:bg-gray-100 dark:hover:bg-gray-700 `
+  const disable = `opacity-50 pointer-events-none`
+  
   const ArrowLeft = <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
   </svg>
@@ -25,20 +24,29 @@ function Pagination({ pageContext }) {
     return false
   }
 
+  const prev = pageContext.previousPagePath
+  const next = pageContext.nextPagePath
+
   return (
     <div className="flex gap-3 mt-10">
-      <a
-        href={pageContext.previousPagePath}
-        className={paginate(pageContext.previousPagePath)}
-      >
-        {ArrowLeft} Prev
-      </a>
-      <a
-        href={pageContext.nextPagePath}
-        className={paginate(pageContext.nextPagePath)}
-      >
-        Next {ArrowRight}
-      </a>
+      {
+        prev 
+          ? <a href={prev} className={paginationClass+active}>
+              {ArrowLeft} Prev
+            </a>
+          : <div className={paginationClass+disable}>
+              {ArrowLeft} Prev
+            </div>
+      }
+      {
+        next 
+          ? <a href={next} className={paginationClass+active}>
+              Next {ArrowRight}
+            </a>
+          : <div className={paginationClass+disable}>
+              Next {ArrowRight}
+            </div>
+      }
     </div>
   )
 }
