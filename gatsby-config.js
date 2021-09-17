@@ -57,12 +57,12 @@ module.exports = {
           default: require.resolve("./src/layouts/MdxDefault.js"),
         },  
         gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-code-titles',
-            options: {
-              className: 'gatsby-code-title',
-            },
-          }, 
+          // {
+          //   resolve: 'gatsby-remark-code-titles',
+          //   options: {
+          //     className: 'gatsby-code-title',
+          //   },
+          // }, 
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -87,13 +87,13 @@ module.exports = {
               elements: [`h1`, `h2`, `h3`],
             },
           },
-          `gatsby-remark-smartypants`,
-          {
-            resolve: "gatsby-remark-copy-linked-files",
-            options: {
-              destinationDir: f => `files/${f.hash}/${f.name}`
-            },
-          },
+          // `gatsby-remark-smartypants`,
+          // {
+          //   resolve: "gatsby-remark-copy-linked-files",
+          //   options: {
+          //     destinationDir: f => `files/${f.hash}/${f.name}`
+          //   },
+          // },
 
         ],
       },
@@ -114,12 +114,12 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        color: `#2b83d6`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-nprogress`,
+    //   options: {
+    //     color: `#2b83d6`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -202,11 +202,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
       options: {
-        devMode: true,
         defaultSizes: "gzip"
       },
     },
     'gatsby-plugin-loadable-components-ssr',
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-advanced-sitemap`
   ],
 }
