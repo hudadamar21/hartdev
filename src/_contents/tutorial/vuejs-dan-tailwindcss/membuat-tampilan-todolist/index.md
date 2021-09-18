@@ -24,7 +24,7 @@ Layout Utama ini adalah tampilan paling depan yang menampilkan aplikasi kita, di
 
 Buka file pada directory **src/App.vue**, dan ubah isinya menjadi seperti ini.
 
-```html:title=src/App.vue {10,16,28}
+```html{10,16,28}
 <template>
   <div class="bg-gray-200 min-h-screen flex flex-col items-center py-10">
   	<h1 class="text-6xl font-bold text-primary-100 mb-10">
@@ -98,7 +98,7 @@ Buat file dengan nama **FormInput.vue** pada folder **components**
 
 Isi file **FormInput.vue** menjadi seperti ini
 
-```html:title=components/FormInput.vue {18}
+```html{18}
 <template>
   <form class="
   	flex items-center justify-between gap-2

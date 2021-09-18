@@ -53,9 +53,9 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        defaultLayouts: {
-          default: require.resolve("./src/layouts/MdxDefault.js"),
-        },  
+        // defaultLayouts: {
+        //   default: require.resolve("./src/layouts/MdxDefault.js"),
+        // },  
         gatsbyRemarkPlugins: [
           // {
           //   resolve: 'gatsby-remark-code-titles',
@@ -75,7 +75,13 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          // `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: 'Monokai' // Or install your favorite theme from GitHub
+            }
+          },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
@@ -87,13 +93,13 @@ module.exports = {
               elements: [`h1`, `h2`, `h3`],
             },
           },
-          // `gatsby-remark-smartypants`,
-          // {
-          //   resolve: "gatsby-remark-copy-linked-files",
-          //   options: {
-          //     destinationDir: f => `files/${f.hash}/${f.name}`
-          //   },
-          // },
+          `gatsby-remark-smartypants`,
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: f => `files/${f.hash}/${f.name}`
+            },
+          },
 
         ],
       },
@@ -114,12 +120,6 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
-    // {
-    //   resolve: `gatsby-plugin-nprogress`,
-    //   options: {
-    //     color: `#2b83d6`,
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
