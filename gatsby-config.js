@@ -52,17 +52,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
-        // defaultLayouts: {
-        //   default: require.resolve("./src/layouts/MdxDefault.js"),
-        // },  
+        extensions: [`.mdx`, `.md`], 
         gatsbyRemarkPlugins: [
-          // {
-          //   resolve: 'gatsby-remark-code-titles',
-          //   options: {
-          //     className: 'gatsby-code-title',
-          //   },
-          // }, 
+          'gatsby-remark-pre-content',
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -75,11 +67,13 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          // `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: 'Monokai' // Or install your favorite theme from GitHub
+              theme: `Monokai`,
+              languageAliases: {
+                vue: 'html'
+              }
             }
           },
           {

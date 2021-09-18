@@ -22,7 +22,7 @@ https://tailwindcss.com
 <br/>
 
 ## Modal
-```html
+```html:expose=true
 <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
     <!-- modal -->
     <div class="bg-white rounded shadow-lg w-1/3">
@@ -50,7 +50,7 @@ Pertama-tama buat button untuk memunculkan modal
 ```
 
 Setelah itu masukan script javascript ini
-```js
+```js:expose=true
 const modal = document.querySelector('.modal');
 
 const showModal = document.querySelector('.show-modal');

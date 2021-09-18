@@ -20,7 +20,7 @@ https://tailwindcss.com
 <br/>
 
 ## Navigation
-```html
+```html:expose=true
   <div class="bg-white md:w-12/12 h-16 shadow-md flex justify-between items-center flex-col md:flex-row md:rounded md:m-3">
     <div class="flex justify-center items-center ml-3">
       <img 

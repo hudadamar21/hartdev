@@ -99,12 +99,13 @@ module.exports = {
 pada file <b>'tailwind.config.js'</b>, ubah option purge menjadi seperti ini.
 
 
-```js{3-6}
+```js {diff}
   module.exports = {
-    purge: [
-      './index.html', 
-      './src/**/*.{vue,js,ts,jsx,tsx}'
-    ],
+-   purge: [],
++   purge: [
++     './index.html', 
++     './src/**/*.{vue,js,ts,jsx,tsx}'
++   ],
     darkMode: false, // or 'media' or 'class'
     theme: {
       extend: {},
@@ -134,7 +135,7 @@ Baca Selengkapnya di https://tailwindcss.com/docs/just-in-time-mode
 
 pada file <b>'tailwind.config.js'</b>, tambahkan option mode dan isi dengan 'jit', seperti ini.
 
-```js{7}
+```js{6}
   module.exports = {
     purge: [
       './index.html', 
@@ -164,7 +165,7 @@ buat dulu file pada <b>'/src/tailwind.css'</b> dan masukan kode ini.
 ```
 
 pada file <b>'/src/main.js'</b> masukan file <b>'tailwind.css'</b> dengan import
-```javascript{4}
+```javascript{3}
 import { createApp } from 'vue'
 import App from './App.vue'
 import './tailwind.css'
@@ -180,7 +181,7 @@ Ok, Sekarang tailwindcss sudah siap digunakan.
 
 mari kita coba masukan class tailwindcss dengan mengubah file **'/src/App.vue'**
 
-```html
+```vue:expose=true
 <template>
   <div class="bg-blue-600 h-screen grid place-items-center">
     <h1 class="text-6xl font-bold text-white">First Vuejs + Tailwind App</h1>

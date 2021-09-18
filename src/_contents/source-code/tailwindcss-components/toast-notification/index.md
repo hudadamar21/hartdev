@@ -34,7 +34,7 @@ wrapper ini akan menempatkan toast notification pada pojok atas kanan layar.
 ## Versi 1 (Success)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v1.png)
 versi 1 ini digunakan ketika ada notification success
-```html
+```html:expose=true
   <div class="flex items-center bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md mb-2">
     <!-- icons -->
     <div class="text-green-500 rounded-full bg-white mr-3">
@@ -54,7 +54,7 @@ versi 1 ini digunakan ketika ada notification success
 ## Versi 2 (Info)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v2.png)
 versi 1 ini digunakan ketika ada notification info
-```html
+```html:expose=true
   <div class="flex items-center bg-blue-400 border-l-4 border-blue-700 py-2 px-3 shadow-md mb-2 ">
     <!-- icons -->
     <div class="text-blue-500 rounded-full bg-white mr-3">
@@ -75,7 +75,7 @@ versi 1 ini digunakan ketika ada notification info
 ## Versi 3 (Warning)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v3.png)
 versi 1 ini digunakan ketika ada notification warning
-```html
+```html:expose=true
   <div class="flex items-center bg-orange-400 border-l-4 border-orange-700 py-2 px-3 shadow-md mb-2  ">
       <!-- icons -->
     <div class="text-orange-500 rounded-full bg-white mr-3">
@@ -95,7 +95,7 @@ versi 1 ini digunakan ketika ada notification warning
 ## Versi 4 (Error)
 ![tailwind-toast-notification-v1](tailwind-toast-notification-v4.png)
 versi 1 ini digunakan ketika ada notification error
-```html
+```html:expose=true
   <div class="flex items-center bg-red-500 border-l-4 border-red-700 py-2 px-3 shadow-md mb-2  " >
     <!-- icons -->
     <div class="text-red-500 rounded-full bg-white mr-3">

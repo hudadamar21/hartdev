@@ -20,7 +20,7 @@ https://tailwindcss.com
 <br/>
 
 ## Profile Card
-```html
+```html:expose=true
 <!-- Profile card -->
 <div class="w-[400px] group cursor-pointer active:opacity-70 transition-opacity duration-300">
 

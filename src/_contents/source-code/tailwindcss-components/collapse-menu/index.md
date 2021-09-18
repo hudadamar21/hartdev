@@ -21,7 +21,7 @@ https://tailwindcss.com
 
 ## Wrapper
 wrapper hanya untuk menengahkan dropdown (optional digunakan)
-```html
+```html:expose=true
   <div class="relative w-[400px] overflow-hidden">
     <input 
       type="checkbox"

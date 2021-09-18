@@ -4,7 +4,7 @@ import loadable from "@loadable/component"
 const Layout = loadable(() => import("@/layouts/Main"))
 const PostCard = loadable(() => import("@/components/Posts/PostCard"))
 const Pagination = loadable(() => import("@/components/Posts/Pagination"))
-const SideContent = loadable(() => import("@/components/Layout/Sidebar/SideContent"))
+const SideContent = loadable(() => import("@/components/Layout/SideContent"))
 
 const PostList = ({ data, pageContext, location }) => {
   const posts = data?.posts?.nodes

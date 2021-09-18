@@ -20,7 +20,7 @@ https://tailwindcss.com
 <br/>
 
 ## Awesome Login Page
-```html
+```html:expose=true
 <div class="
   h-screen w-full 
   flex justify-center items-center 

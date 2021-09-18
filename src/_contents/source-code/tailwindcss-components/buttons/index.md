@@ -22,7 +22,7 @@ https://tailwindcss.com
 
 
 ## Basic Button
-```html
+```html:expose=true
 
   <button class="
     bg-gray-500 hover:bg-gray-600 
@@ -89,7 +89,7 @@ https://tailwindcss.com
 <br/>
 
 ## Outline Button
-```html
+```html:expose=true
 
   <button class="
     bg-white hover:bg-gray-500 
@@ -161,7 +161,7 @@ https://tailwindcss.com
 <br/>
 
 ## Gradient Button
-```html
+```html:expose=true
 
   <button class="
     bg-gradient-to-r from-gray-500 to-gray-700

@@ -48,7 +48,7 @@ Wrapper ini untuk membungkus skeleton loading (optional untuk digunakan)
 ![tailwind-skeleton-loading-v1](tailwind-skeleton-loading-v1.jpg)
 
 Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, dan deskripsi
-```html
+```html:expose=true
 <div class="flex flex-col w-full px-3 animate-pulse">
   <div class="relative flex flex-col rounded w-full p-4 overflow-hidden shadow bg-white">
 
@@ -82,7 +82,7 @@ Pada versi 1 ini cocok untuk content yang memiliki banner image, profile image, 
 ![tailwind-skeleton-loading-v2](tailwind-skeleton-loading-v2.jpg)
 
 Pada versi 2 ini cocok untuk list article yang memiliki thumbnail, title, dan dekripsi
-```html
+```html:expose=true
 <div class="flex flex-col w-full px-3 animate-pulse">
   <div class="relative flex items-center rounded p-4 overflow-hidden shadow bg-white">
     <div class="absolute bg-white w-20 h-full pulse"></div>

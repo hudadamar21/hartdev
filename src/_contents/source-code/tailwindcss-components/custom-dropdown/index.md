@@ -35,7 +35,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 ```
 
 ## Light Mode Version
-```html
+```html:expose=true
 <!-- Light mode -->
 <button class="
   relative 
@@ -90,7 +90,7 @@ wrapper hanya untuk menengahkan dropdown (optional digunakan)
 ```
 
 ## Dark Mode Version
-```html
+```html:expose=true
 <!-- Dark mode -->
 <button class="
   relative 

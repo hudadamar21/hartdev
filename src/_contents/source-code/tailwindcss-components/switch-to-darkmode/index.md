@@ -52,7 +52,7 @@ secara default class 'dark' tidak ada
 ```
 
 ## Switch Theme to Darkmode
-```html
+```html:expose=true
 <button
   class="absolute top-5 right-5 w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
   onclick="toggleTheme()">
@@ -68,7 +68,7 @@ secara default class 'dark' tidak ada
 
 ## Script javascript
 Pada script javascript ini berfungsi untuk mengubah theme ke darkmode maupun lightmode
-```javascript
+```javascript:expose=true
 const switchToggle = document.querySelector('#switch-toggle');
 const html = document.querySelector('html');
 let isDarkmode = false

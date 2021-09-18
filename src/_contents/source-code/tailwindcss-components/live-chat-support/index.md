@@ -32,7 +32,7 @@ https://tailwindcss.com
 <br/>
 
 ## Live Chat Support
-```html
+```html:expose=true
 <div class="fixed bottom-0 right-0 flex flex-col items-end ml-6 w-full">
   <!-- chat modal -->
   <div class="chat-modal flex flex-col mb-5 shadow-lg sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white mx-2 md:mx-0 md:mr-5">
@@ -104,7 +104,7 @@ https://tailwindcss.com
 ```
 
 ## Style CSS
-```css
+```css:expose=true
 .chat-support::-webkit-scrollbar{
   background: white;
   padding: 10px;
@@ -137,7 +137,7 @@ https://tailwindcss.com
 ```
 
 ## Javascript (untuk membuka dan menutup live chat)
-```javascript
+```javascript:expose=true
 const chatModal = document.querySelector('.chat-modal');
 const chatSupport = document.querySelector('.chat-support');
 

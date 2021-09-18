@@ -7,7 +7,7 @@ const PostFooter = loadable(() => import("./PostFooter"))
 const PostHeader = loadable(() => import("./PostHeader"))
 const PostFeaturedImage = loadable(() => import("./PostFeaturedImage"))
 const Layout = loadable(() => import("@/layouts/Main"))
-const SideContent = loadable(() => import("@/components/Layout/Sidebar/SideContent"))
+const SideContent = loadable(() => import("@/components/Layout/SideContent"))
 const TableOfContent = loadable(() => import("@/components/Posts/TableOfContent"))
 
 const SinglePostTemplate = ({ data, location, pageContext }) => {

@@ -20,7 +20,7 @@ https://tailwindcss.com
 <br/>
 
 ## Modal With Animation
-```html
+```html:expose=true
 <!-- overlay -->
 <div id="modal_overlay" class="hidden absolute inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
 
@@ -67,7 +67,7 @@ https://tailwindcss.com
 ```
 
 ## Script javascript untuk menampikan modal dan menjalankan animasi
-```javascript
+```javascript:expose=true
 const modal_overlay = document.querySelector('#modal_overlay');
 const modal = document.querySelector('#modal');
 

@@ -21,7 +21,7 @@ https://tailwindcss.com
 
 ## Login Page
 
-```html
+```html:expose=true
   <div class="w-full h-screen flex">
     <img
       class="object-cover object-center h-screen w-7/12"

@@ -1,67 +1,74 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
+import React, { useState } from 'react';
+import normalize from '@/utils/normalize';
 
-function copyToClipboard(content) {
-  const el = document.createElement(`textarea`)
-  el.value = content
-  el.setAttribute(`readonly`, ``)
-  el.style.position = `absolute`
-  el.style.left = `-9999px`
-  document.body.appendChild(el)
-  el.select()
-  document.execCommand(`copy`)
-  document.body.removeChild(el)
-}
+const delay = (duration) => {
+  return new Promise((resolve) => {
+    return setTimeout(resolve, duration);
+  });
+};
 
-function delay (duration){
-  new Promise(resolve => setTimeout(resolve, duration))
-}
+const copyToClipboard = (str) => {
+  const { clipboard } = window.navigator;
+  /*
+   * fallback to older browsers (including Safari)
+   * if clipboard API not supported
+   */
+  if (!clipboard || typeof clipboard.writeText !== `function`) {
+    const textarea = document.createElement(`textarea`);
+    textarea.value = str;
+    textarea.setAttribute(`readonly`, true);
+    textarea.setAttribute(`contenteditable`, true);
+    textarea.style.position = `absolute`;
+    textarea.style.left = `-9999px`;
+    document.body.appendChild(textarea);
+    textarea.select();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    textarea.setSelectionRange(0, textarea.value.length);
+    document.execCommand(`copy`);
+    document.body.removeChild(textarea);
+    return Promise.resolve(true);
+  }
+  return clipboard.writeText(str);
+};
 
-function Copy({ content, duration = 2500, trim = false }) {
-  const [text, setText] = useState(`Copy`)
+const CopyCodeButton = ({
+  className,
+  content, // raw content passed by gatsby-remark-pre-content
+  duration = 5000,
+  trim = false,
+}) => {
+  const [copied, setCopied] = useState(false);
+
+  if(!content) return
+  const [stripped] = normalize(content); // strip unwanted comments
+
+  const label = copied ? `copied to clipboard` : `copy code to clipboard`;
 
   return (
-    <button 
-      style={{
-        position: "absolute",
-        top: 0,
-        right: 0,
-        border: "none",
-        boxShadow: "none",
-        textDecoration: "none",
-        margin: "8px",
-        padding: "8px 12px",
-        background: "#E2E8F022",
-        borderRadius: "8px",
-        cursor: "pointer",
-        color: "#E2E8F0",
-        fontSize: "14px",
-        fontFamily: "sans-serif",
-        lineHeight: "1",
-      }}
-      onClick={async () => {
-        copyToClipboard(trim ? content.trim() : content)
+    <div className="relative w-full text-right translate-y-full z-20 -mt-8">
+      <button
+        type="button"
+        title={label}
+        name={label}
+        className="copy-button"
+        disabled={copied}
+        onClick={async () => {
+          await copyToClipboard(trim ? stripped.trim() : stripped);
+          setCopied(true);
+          await delay(duration);
+          setCopied(false);
+        }}
+      >
+        {copied ? `Copied` : `Copy`}
+        <span className="sr-only" aria-roledescription="status">
+          {label}
+        </span>
+      </button>
+    </div>
+  );
+};
 
-        setText(`Copied`)
-
-        await delay(duration)
-
-        setText(`Copy`)
-      }}
-    >
-      {text}
-    </button>
-  )
-}
-
-Copy.propTypes = {
-  content: PropTypes.string.isRequired,
-  duration: PropTypes.number,
-  trim: PropTypes.bool,
-}
-
-Copy.defaultProps = {
-  duration: 2500,
-}
-
-export default Copy
+export default CopyCodeButton;

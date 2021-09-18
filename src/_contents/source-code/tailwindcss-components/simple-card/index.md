@@ -32,7 +32,7 @@ wrapper untuk membungkus card agar card berada di tengah (optional digunakan)
 <br/>
 
 ## Simple Card
-```html
+```html:expose=true
   <div class="bg-white w-64 shadow rounded hover:shadow-lg transition duration-200 transform hover:-translate-y-2 overflow-hidden">
     <img 
       class="h-48 w-full object-cover object-center"

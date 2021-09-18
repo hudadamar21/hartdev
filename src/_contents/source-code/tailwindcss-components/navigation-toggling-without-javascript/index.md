@@ -34,7 +34,7 @@ https://tailwindcss.com
 <br/>
 
 ## Navigation Toggling Without Javascript
-```html
+```html:expose=true
 <nav class="fixed top-0 left-0 bg-white w-full shadow">
   <div class="container m-auto flex justify-between items-center text-gray-700">
     <h1 class="pl-8 py-4 text-xl font-bold">HARTDEV</h1>

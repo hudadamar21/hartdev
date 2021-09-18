@@ -51,10 +51,6 @@ html {
   @apply font-semibold border-l-4 border-gray-600 shadow pb-1 pt-2 px-3 my-3;
 }
 
-#content code {
-  @apply text-base;
-}
-
 #content img {
   @apply block my-3;
 }
@@ -91,7 +87,24 @@ html {
 }
 
 .grvsc-container {
-  @apply mb-5 shadow-lg relative z-10;
+  @apply relative mb-5 w-full shadow-lg dark:bg-black text-[1.05rem];
+}
+
+.grvsc-container code {
+  @apply w-full;
+}
+
+
+/* pre {
+  white-space: pre-wrap;      
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap;     
+  white-space: -o-pre-wrap;   
+  word-wrap: break-word;
+} */
+
+.copy-button {
+  @apply bg-white/10 hover:bg-white/20 text-white text-sm font-semibold rounded-sm rounded-tr-md rounded-bl-md px-2 py-1 m-1 select-none;
 }
 
 /* .grvsc-line-highlighted {
@@ -103,19 +116,3 @@ html {
   padding-right: 0.4rem;
   border-left: 0.25em solid rgb(43, 131, 231);
 } */
-
-.gatsby-code-title {
-  margin-bottom: -2rem;
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 5px;
-  padding-right: 10px;
-  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
-    monospace;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.836);
-  z-index: 11;
-}

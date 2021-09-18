@@ -20,7 +20,7 @@ https://tailwindcss.com
 <br/>
 
 ## Contact Page
-```html
+```html:expose=true
 <section 
   id="contact" 
   class="
