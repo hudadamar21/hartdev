@@ -1,13 +1,12 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import CopyButton from "@/components/Partials/CopyButton"
-import Pre from "@/components/Mdx/Pre"
-import ExternalLink from "@/components/Mdx/ExternalLink"
+import { Pre, A } from "@/components/Mdx"
 
 const shortcodes = {
   precontent: CopyButton,
   pre: Pre,
-  a: ExternalLink,
+  a: A,
   wrapper: ({children}) => <>{children}</>
 }
 
