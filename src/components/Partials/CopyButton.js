@@ -37,7 +37,7 @@ const copyToClipboard = (str) => {
 const CopyCodeButton = ({
   className,
   content, // raw content passed by gatsby-remark-pre-content
-  duration = 5000,
+  duration = 3000,
   trim = false,
 }) => {
   const [copied, setCopied] = useState(false);

@@ -11,7 +11,7 @@ function TableOfContent ({ title, headings }) {
   })
   return (
     <nav id="table-of-contents">
-      <h1 className="text-xl font-medium">
+      <h1 className="text-2xl font-bold">
         {title}
       </h1>
       <ul>

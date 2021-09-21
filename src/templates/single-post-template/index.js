@@ -35,7 +35,7 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
         mainClass="pt-20 w-full p-3 lg:p-20"
       >
         <div className="grid grid-cols-12 xl:pl-36 -mt-5 md:mt-0">
-          <main className="col-span-12 lg:col-span-8">
+          <main className="col-span-12 lg:col-span-8 pr-5">
             <article className="relative" itemScope itemType="http://schema.org/Article">
 
               <PostHeader post={post} pathSeries={pageContext?.pathSeries} />

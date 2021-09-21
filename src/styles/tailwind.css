@@ -22,13 +22,18 @@ html {
 }
 
 #content :is(h1,h2,h3) a {
-  @apply text-current opacity-60 hover:opacity-100;
+  @apply text-current opacity-0 transition duration-100 hover:opacity-90;
+}
+
+#content :is(h1,h2,h3):hover a {
+  @apply opacity-60;
 }
 
 
 #content h1 {
   @apply text-2xl mb-3 font-bold;
 }
+
 #content h2 {
   @apply text-xl mb-3 font-semibold;
 }
@@ -69,7 +74,11 @@ html {
 }
 
 #table-of-contents ul {
-  @apply list-disc pl-5 pt-2;
+  @apply list-disc pl-5 pt-2 font-bold;
+}
+
+#table-of-contents .list-inside {
+	@apply font-medium list-none text-gray-600 before:content-['-'] before:pr-2;
 }
 
 #table-of-contents ul > li {
