@@ -38,7 +38,10 @@ function HomePage ({ location }) {
 
   return (
     <Layout
-      seo={{ title: 'HartDev - Home' }}
+      seo={{ 
+        title: 'HartDev - Home', 
+        image: '/banner.webp' 
+      }}
       pageActive='home'
       location={location}
       navbarDark={isTop}

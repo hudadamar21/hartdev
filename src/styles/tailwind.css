@@ -53,7 +53,7 @@ html {
 }
 
 #content blockquote {
-  @apply font-semibold border-l-4 border-gray-600 shadow pb-1 pt-2 px-3 my-3;
+  @apply font-semibold border-l-4 border border-gray-600 pb-1 pt-2 px-3 my-3;
 }
 
 #content img {

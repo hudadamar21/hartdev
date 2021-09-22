@@ -35,10 +35,10 @@ const PostList = ({ data, pageContext, location }) => {
         }}
         pageActive={pageContext?.collection}
         location={location}
-        mainClass="pt-20 w-full p-0 lg:p-20"
+        mainClass="pt-20 w-full p-3 lg:p-20"
       >
-        <div className="grid grid-cols-12 gap-5 w-full">
-          <main className="col-span-12 lg:col-span-8 p-3 lg:p-0">
+        <div className="grid grid-cols-12 w-full">
+          <main className="col-span-12 lg:col-span-8 pr-0 lg:p-5">
             <article className="mt-5 mb-12 py-3 border-l-8 pl-4 border-gray-600">
               <h1 className="font-display text-3xl tracking-widest mb-1">
                 {pageContext?.title} 

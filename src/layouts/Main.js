@@ -2,6 +2,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import Seo from "@/components/Layout/Seo"
 import loadable from "@loadable/component"
+import MainFooter from "@/components/Layout/MainFooter"
 
 const Navbar = loadable(() => import("@/components/Layout/Navbar")) 
 const FloatingMenu = loadable(() => import("@/components/Layout/FloatingMenu")) 
@@ -37,9 +38,7 @@ function Layout ({ seo, location, children, mainClass, navbarDark, pageActive })
       <main className={`flex-grow ${mainClass}`}>
         {children}
       </main>
-      <footer className="text-center py-5 ">
-        Copyright © {new Date().getFullYear()} {siteName}
-      </footer>
+      <MainFooter siteName={siteName} />
       <FloatingMenu pageActive={pageActive}/>
     </div>
   </>
