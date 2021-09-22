@@ -1,6 +1,6 @@
 ---
 title: "Mengenal Global Atribut Pada HTML"
-description: "Penjelasan mengenai global atribut pada tag-tag di html"
+description: Penjelasan mengenai semua global atribut pada html.
 date: 2021-09-13
 keyword: [html]
 tags: [html]

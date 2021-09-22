@@ -46,9 +46,16 @@ function AllPost() {
 
   return (
     <section id="allpost" className="mx-5 md:mx-20 py-20">
-      <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold mb-3 md:mb-5 uppercase">
-        All Post
-      </h1>
+      <div className="flex items-center gap-2 mb-3 md:mb-5">
+        <h1 id="latest-posts" className="font-display tracking-widest justify-self-start text-xl md:text-3xl font-bold uppercase">
+          All Post
+        </h1>
+        <a href="/posts" aria-label="show-more" className="block opacity-60 px-2 py-1 rounded hover:bg-black/10 dark:hover:bg-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full mb-10">
       {
         posts.slice(0, 2).map(post => {

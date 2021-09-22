@@ -1,6 +1,6 @@
 ---
 title: "Tag A Dan Semua Atributnya #1"
-description: "Penjelasan tag html dan semua Atributnya"
+description: Penjelasan atribut-atribut yang dapat digunakan pada tag a pada html.
 date: 2021-09-13
 keyword: [html]
 tags: [html]

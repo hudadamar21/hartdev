@@ -115,9 +115,19 @@ function SideContent({title, collection, lists, seriesSlug, contentType }) {
           Categories
         </h1>
         <ul className="flex flex-col gap-5">
+          <li>
+            <a href="/posts" className="font-semibold text-lg capitalize mb-2 hover:opacity-70">
+              All Post
+            </a>
+          </li>
           {categoryList.map(category => (
             <li key={category.category}>
-              <h1 className="font-semibold text-lg capitalize mb-2">{category.category}</h1>
+              <a 
+                href={"/" + category.category.replace(/ /g, '-')} 
+                className="font-semibold text-lg capitalize mb-2 hover:opacity-70"
+              >
+                {category.category}
+              </a>
               <ul className="pl-2 space-y-1">
                 {category.list.map(series => (
                   <li className="flex items-center justify-between w-full" key={series.title}>
