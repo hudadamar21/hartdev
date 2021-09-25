@@ -1,0 +1,118 @@
+---
+title: "Membuat Layout Utama Todolist #3"
+date: 2021-09-16
+description: "Disini kita akan membuat layout utama todolist menggunakan tailwindcss sebagai styling-nya, dan refactor code-nya menggunakan component vuejs agar lebih modular dan mudah di maintenance."
+keyword: [vuejs, tailwindcss, tutorial]
+tags: [vuejs, tailwindcss]
+category: tutorial
+series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss
+thumb: ./membuat-layout-utama.png
+contentType: single
+---
+
+Hei coder, pada tahap ini kita akan membuat tampilan aplikasi todolist menggunakan tailwindcss.
+
+kita juga akan me-refactor code kita agar lebih modular menggunakan component vuejs.
+
+kita mulai dari membuat layout utama dengan mengubah file **App.vue** pada folder **src**.
+
+<br/>
+
+# Layout Utama Todolist
+
+Layout Utama ini adalah tampilan paling depan yang menampilkan aplikasi kita, didalamnya berisi component-component terpisah agar lebih mudah untuk di maintenance nantinya.
+
+Buka file pada directory **`src/App.vue`**, dan ubah templatenya menjadi seperti ini.
+
+```html:expose=true {10,16,28}
+<template>
+  <div class="bg-gray-200 min-h-screen flex flex-col items-center py-10">
+    <h1 class="text-6xl font-bold text-primary-100 mb-10">
+      Todolist
+    </h1>
+    <div class="w-[95%] md:w-[80%] grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="col-span-1">
+
+        <!-- form input add new task -->
+        <FormInput /> 
+
+        <div class="h-0.5 w-full bg-gray-100 mt-3"></div>
+
+        <!-- todo list -->
+        <ul class="flex flex-col gap-3 my-3">
+          <TodoInProgress />
+        </ul>
+        
+      </div>
+
+      <!-- completed task -->
+      <div class="col-span-1">
+        <div class="bg-white rounded overflow-hidden shadow-lg">
+          <h1 class="bg-primary-100 text-white py-1 font-semibold text-lg text-center">
+            Completed Task
+          </h1>
+          <ul class="flex flex-col divide-y p-3">
+            <TodoCompleted />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+```
+
+Code yang di highlight adalah sebuah component yang nanti kita buat pada file terpisah.
+
+<br/>
+
+## Component FormInput
+Pada component ini akan berisi form yang digunakan untuk membuat todo baru
+
+<br/>
+
+## Component TodoInProgress
+Component ini akan berisi list todo yang sedang dikerjakan/belum diselesaikan.
+
+Pada list todo in progress ini akan memiliki title, date dan button untuk edit, delete, dan complete todo
+
+<br/>
+
+## Component TodoCompleted
+Component ini akan berisi list todo yang sedang dikerjakan/belum diselesaikan.
+
+Pada list todo completed ini akan memiliki title, date dan button untuk meng-cancel complete todo. 
+
+<br/>
+
+Kita juga perlu untuk mengimportnya dan mendaftarkan component-component di atas pada tag script.
+
+```html:expose=true
+<script>
+import TodoInProgress from "./components/TodoInProgress.vue";
+import TodoCompleted from "./components/TodoCompleted.vue";
+import FormInput from './components/FormInput.vue';
+
+export default {
+	components: {
+    TodoInProgress,
+    TodoCompleted,
+    FormInput,
+  },
+}
+</script>
+```
+
+tapi saat ini kita belum membuat component-component tersebut, akan kita bahas pada content selanjutnya.
+
+# Penutup
+agar tidak terlalu panjang dan agar lebih enak untuk dijelaskannya, saya sudahi dulu sampai sini.
+
+next kita akan membuat component FormInput untuk todolist.
+
+Selanjutnya: [Membuat Component Form Input](/tutorial/vuejs-dan-tailwindcss/membuat-component-forminput)
+
+Maaf jika ada kesalahan kata dan penjelasan yang sulit dimengerti.
+
+Jika ada yang ingin ditanyakan, kalian bisa komen saja dibawah.
+
+Terima kasih, semoga tutorial ini bermanfaat :)

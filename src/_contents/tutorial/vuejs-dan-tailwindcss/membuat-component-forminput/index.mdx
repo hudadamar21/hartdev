@@ -1,0 +1,236 @@
+---
+title: "Membuat Component FormInput #4"
+date: 2021-09-24
+description: Disini kita akan membuat component form input todolist yang digunakan untuk membuat todolist baru.
+keyword: [vuejs, tailwindcss, tutorial]
+tags: [vuejs, tailwindcss]
+category: tutorial
+series: Membuat Aplikasi Menggunakan Vuejs dan Tailwindcss
+thumb: ./membuat-component-forminput.png
+contentType: single
+---
+
+Pada content sebelumnya kita telah membuat layout utama yang berisikan beberapa component, salah satunya adalah FormInput.
+
+jadi kali ini kita akan membuat component tersebut.
+
+langsung saja kita buat componentnya.
+
+Pertama kita buat file dengan nama  **`FormInput.vue`** pada folder **components**.
+
+**`src/components/FormInput.vue`**.
+
+<br/>
+
+# Template
+Isi file **`FormInput.vue`** pada template menjadi seperti ini.
+```html:expose=true {19}
+<template>
+  <form 
+    class="form-wrapper"
+    @submit.prevent="onSubmit" 
+  >
+    <div class="flex-grow">
+      <input 
+        type="text" 
+        v-model="inputNewTodo" 
+        :class="[
+          'form-input',
+          inputError ? 'border-red-500/60' : 'focus:border-primary-100/60'
+        ]"
+        placeholder="add new task"
+      />
+      <small class="block text-xs text-gray-400 mt-2">
+        {{ dateNow }}
+      </small>
+    </div>
+    <button 
+      type="submit" 
+      class="form-button"
+    >
+      Save
+    </button>
+  </form>
+</template>
+```
+
+Pada code diatas kita membuat template yang berisi sebuah form yang didalamnya ada input text, text waktu sekarang, dan button save todo.
+
+pada tag `form` kita memberikan atribut `@submit.prevent` dengan value function `onSubmit`.
+
+pada tag `input` kita memberikan atribut `v-model` dengan value variable `inputNewTodo` dan atribut `class` denga value array yang berisi nama class dan sebuah kondisi ketika input error dengan pengkondisan menggunakan variable `inputError`.
+
+`function` dan `variable` di atas akan kita buat pada tag script.
+
+<br/>
+
+# Style
+Isi file **`FormInput.vue`** pada style menjadi seperti ini.
+```html:expose=true
+<style scoped lang="postcss">
+  .form-wrapper {
+    @apply flex items-center justify-between gap-2 bg-white p-4 rounded w-full;
+  }
+  .form-input {
+    @apply block flex-grow w-full text-lg font-medium text-gray-600 border-b-2 border-gray-200 px-2 pb-0.5 focus:outline-none transition duration-200;
+  }
+  .form-button {
+    @apply bg-primary-100 hover:bg-primary-200 shadow text-white rounded px-3 py-1 mr-3 ml-4;
+  }
+</style>
+```
+
+Pada style kita isi sebuah styling untuk class form-wrapper, form-input dan form-button.
+
+<br/>
+
+# Script
+Isi file **`FormInput.vue`** pada script menjadi seperti ini.
+```html:expose=true
+<script>
+import { ref } from "vue";
+
+import formatDate from "../utils/formatDate";
+
+export default {
+  emits: ['savetodo'],
+  setup(props, { emit }){
+
+    const dateNow = ref(formatDate(new Date()))
+
+    const inputNewTodo = ref('')
+
+    const inputError = ref(false)
+
+    const onSubmit = () => {
+      if(inputNewTodo.value) {
+        emit('savetodo', inputNewTodo.value)
+        inputNewTodo.value = ''
+      } else {
+        inputError.value = true
+        setTimeout(() => {
+          inputError.value = false
+        }, 1000);
+      }
+    }
+
+    return {
+      inputNewTodo,
+      inputError,
+      onSubmit,
+      dateNow
+    }
+  }
+}
+</script>
+```
+
+Pada kode diatas kita membuat variable dateNow dengan menggunakan ref yang telah kita import diatas, dateNow ini diisi dengan function `formatDate()` dengan parameter `new Date()`, yang berfungsi untuk mendapatkan date sekarang yang telah di format dengan function `formatDate()`.
+yang telah kita import diatas.
+
+sekarang kita buat function `formatDate` tersebut.
+
+kita buat folder baru dengan nama **utils** di dalam folder **src**.
+
+dan buat file baru dengan nama **`formatDate.js`**
+
+**src/utils/formatDate.js**
+
+kita isi **`formatDate.js`** menjadi seperti ini.
+```js:expose=true
+const formatDate (date){
+  return new Date(date).toLocaleDateString()
+}
+
+export default formatDate
+```
+
+**Variable inputNewTodo**
+```js
+const inputNewTodo = ref('')
+```
+variable ini digunakan pada form input yang dimasukan pada `v-model`.
+
+<div class="h-3"/>
+
+**Variable inputError**
+```js
+const inputError = ref(false)
+```
+variable ini digunakan saat terjadi error pada input, seperti input kosong.
+
+<div class="h-3"/>
+
+**Function onSubmit**
+```js
+const onSubmit = () => {
+  if(inputNewTodo.value) {
+    emit('savetodo', inputNewTodo.value)
+    inputNewTodo.value = ''
+  } else {
+    inputError.value = true
+    setTimeout(() => {
+      inputError.value = false
+    }, 1000);
+  }
+}
+```
+Function `onSubmit` digunakan saat form di submit.
+
+didalamnya adalah sebuah kondisi ketika input ada isinya dan tidak.
+
+jika variable inputNewTodo ada isinya, code selanjutnya akan melakuakan `emit savetodo` dan memparsing value pada `inputNewTodo`.
+
+jika variable inputNewTodo tidak ada isinya, code selanjutnya akan mendapatkan error, dengan mengubah variable `InputError` menjadi `true`, dan selama 1 detik errornya diubah lagi menjadi `false`.
+
+dan terakhir kita tangkap `emit savetodo` pada `App.vue`, dengan menambahkan event savetodo seperti ini.
+
+```html
+- <FormInput />
++ <FormInput @savetodo="saveTodo" />
+```
+
+kita perlu membuat function saveTodo pada tag script
+
+tambahkan code ini didalam setup()
+```js {3}
+const todos = ref([])
+
+const saveTodo = (title) => {
+  const newTodo = {
+    id: uuidv4(),
+    title,
+    date: new Date()
+  }
+  todos.value = [ newTodo, ...todos.value ]
+}
+```
+
+Lihat pada baris ke-3 kita menggunakan `uuidv4()`, kita perlu install dulu menggunakan npm.
+
+ketikan ini pada cmd/gitbash
+
+```bash
+npm install uuid
+```
+
+dan import uuid nya dan juga ref karena kita gunakan pada variable todos
+```js
+import { ref } from "vue";
+import { v4 as uuidv4 } from 'uuid';
+```
+
+<br/>
+
+# Penutup
+jadi itulah component FormInput yang telah kita buat.
+
+next kita akan membuat component TodoInProgress untuk todolist.
+
+Selanjutnya: [Membuat Component TodoInProgress](/tutorial/vuejs-dan-tailwindcss/membuat-component-todoinprogress)
+
+Maaf jika ada kesalahan kata dan penjelasan yang sulit dimengerti.
+
+Jika ada yang ingin ditanyakan, kalian bisa komen saja dibawah.
+
+Terima kasih, semoga tutorial ini bermanfaat :)

@@ -14,6 +14,10 @@ html {
 
 /* Content */
 
+#content {
+  @apply tracking-wide;
+}
+
 #content :is(h1,h2,h3) {
   padding-top: 80px;
   margin-top: -80px;  
@@ -29,13 +33,12 @@ html {
   @apply opacity-60;
 }
 
-
 #content h1 {
   @apply text-2xl mb-3 font-bold;
 }
 
 #content h2 {
-  @apply text-xl mb-3 font-semibold;
+  @apply text-xl mb-3 font-bold;
 }
 
 #content h3 {
@@ -43,9 +46,8 @@ html {
 }
 
 #content p {
-  margin-bottom: 5px;
   letter-spacing: 1px;
-  @apply tracking-wide mb-1.5 font-medium;
+  @apply tracking-wide mb-2.5;
 }
 
 #content a {
@@ -54,6 +56,14 @@ html {
 
 #content blockquote {
   @apply font-semibold border-l-4 border border-gray-600 pb-1 pt-2 px-3 my-3;
+}
+
+#content code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 text-black dark:text-white rounded;
+}
+
+#content pre code {
+  @apply bg-transparent dark:bg-transparent;
 }
 
 #content img {
@@ -78,7 +88,7 @@ html {
 }
 
 #table-of-contents .list-inside {
-	@apply font-medium list-none text-gray-600 before:content-['-'] before:pr-2;
+	@apply font-medium list-none text-gray-600 dark:text-gray-200 before:content-['-'] before:pr-2;
 }
 
 #table-of-contents ul > li {
