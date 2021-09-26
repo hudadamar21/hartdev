@@ -14,8 +14,9 @@ const SinglePostTemplate = ({ data, location, pageContext }) => {
   const { previous, next, post, posts, site } = data
   const {title, description, thumb, series} = post?.frontmatter
   const siteTitle = site?.siteMetadata?.title || `Title` 
-  const metaImage = thumb?.childImageSharp?.gatsbyImageData?.images?.sources[1]?.srcSet
+  const metaImage = thumb?.childImageSharp?.fixed.srcWebp
   
+  console.log('metaImage', metaImage)
   const listOnSeries = posts?.nodes?.filter(item => 
     item.frontmatter?.series === series 
     && item?.frontmatter?.title !== title
@@ -105,6 +106,9 @@ export const pageQuery = graphql`
               placeholder: BLURRED
               formats: [WEBP, AVIF]
             )
+            fixed {
+              srcWebp
+            }
           }
         }
       }

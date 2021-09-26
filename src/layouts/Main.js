@@ -21,6 +21,8 @@ function Layout ({ seo, location, children, mainClass, navbarDark, pageActive })
     }
   `)
 
+  console.log(seo)
+
   const { siteName, description } = data.site.siteMetadata
 
   return <>
