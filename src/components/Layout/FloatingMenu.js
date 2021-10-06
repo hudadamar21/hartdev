@@ -54,10 +54,10 @@ function FloatingMenu({ pageActive }) {
 
   return (
     <>
-      <button name="menu-overlay" ref={menuOverlay} onClick={closeMenu} className="fixed inset-0 bg-black/50 z-40 opacity-0 transition duration-500 hidden">
+      <button name="menu-overlay" ref={menuOverlay} onClick={closeMenu} className="fixed inset-0 bg-black/50 z-40 opacity-0 transition duration-500 hidden" aria-label="menu-overlay">
       </button>
       <div className={menuClasses} style={shadowStyle}>
-        <button name="toggle-menu" onClick={toggleMenu} className="w-full grid justify-center cursor-pointer hover:opacity-80 transition">
+        <button name="toggle-menu" onClick={toggleMenu} className="w-full grid justify-center cursor-pointer hover:opacity-80 transition" aria-label="toggle-menu">
           {
             menu
             ? <div className="bg-gray-400 dark:bg-gray-500 w-10 rounded-full h-1 my-4"></div>
